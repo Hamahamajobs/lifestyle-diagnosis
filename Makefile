@@ -1,8 +1,6 @@
 install:
-	mkdir -p api
 	@make build
 	@make up
-	docker compose exec app composer create-project --prefer-dist "laravel/laravel=8.*" .
 	docker compose exec app composer install
 	docker compose exec app cp .env.example .env
 	docker compose exec app php artisan key:generate
@@ -54,7 +52,9 @@ migrate:
 fresh:
 	docker compose exec app php artisan migrate:fresh --seed
 seed:
-	docker compose exec app php artisan db:seed
+	docker compose exec app php artisan db:seed --class PersonalTypesTableSeeder
+	docker compose exec app php artisan db:seed --class CategoriesTableSeeder
+	docker compose exec app php artisan db:seed --class QuestionsTableSeeder
 dacapo:
 	docker compose exec app php artisan dacapo
 rollback-test:
