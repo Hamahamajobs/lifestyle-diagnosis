@@ -8,6 +8,7 @@
 git clone https://github.com/Hamahamajobs/lifestyle-diagnosis.git
 cd lifestyle-diagnosis
 make install
+make migrate
 make seed
 ```
 
