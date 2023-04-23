@@ -51,6 +51,7 @@ migrate:
 	docker compose exec app php artisan migrate
 fresh:
 	docker compose exec app php artisan migrate:fresh --seed
+	@make seed
 seed:
 	docker compose exec app php artisan db:seed --class PersonalTypesTableSeeder
 	docker compose exec app php artisan db:seed --class CategoriesTableSeeder

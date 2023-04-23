@@ -16,6 +16,7 @@ class CreatePersonalTypesTable extends Migration
         Schema::create('personal_types', function (Blueprint $table) {
             $table->id();
             $table->string('type_name')->comment('13類型の名前');
+            $table->string('type_name_jp')->comment('13類型の名前 日本語');
             $table->double('border_active_practice_attitude', 5, 3)->comment('能動的実践的態度の基点'); // 基準値は5桁で小数点は３桁分含めて計算するとした
             $table->double('border_creative_attitude', 5, 3)->comment('自己の創造・開発の基点');
             $table->double('border_coexistence', 5, 3)->comment('自他共存の基点');

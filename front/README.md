@@ -56,3 +56,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 - [Nuxtで使用できるモジュール](https://nuxt.com/modules)
 - 【ブログ】[Nuxt3入門](https://reffect.co.jp/vue/nuxt3)
 - 【ブログ】[Nuxt3 setup](https://zenn.dev/coedo/articles/86bc31acb4ea47)
+
+# TSメモ
+- [オブジェクトの作り方/宣言](https://zenn.dev/harryduck/articles/98b7bfee95ad7e)
