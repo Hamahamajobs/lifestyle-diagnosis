@@ -69,7 +69,6 @@ let { data:questions, refresh } = await useFetch(
  * @return void
  */
 async function clicksend(): void {
-  console.log(11)
   const postData: {
     answers: Array<any>;
   } = {
