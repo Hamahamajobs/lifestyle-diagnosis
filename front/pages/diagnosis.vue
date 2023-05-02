@@ -53,12 +53,16 @@ const router = useRouter();
 // 選択肢読み込み
 const { choices } = useChoices();
 
+// 環境変数読み込み
+const runtimeConfig = useRuntimeConfig()
+const domain = runtimeConfig.public.domain
+
 const questions = reactive([])
 
 // 設問読み込み
 await useAsyncData('questions', () =>
   $fetch(
-    'http://localhost:80/api/questions'
+    domain + '/api/questions'
   )
 )
   .then(({ data }) => {
@@ -79,7 +83,7 @@ async function clicksend(): void {
     answers: questions
   };
 
-  const { data } = await useFetch("http://localhost:80/api/answer", {
+  const { data } = await useFetch( domain + "/api/answer", {
     method: "POST",
     body: postData
   });

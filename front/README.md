@@ -56,6 +56,7 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 - [公式のコードサンプル](https://ja.vuejs.org/examples/#hello-world)
 - [Nuxtで使用できるモジュール](https://nuxt.com/modules)
 - [Nuxt公式のTSでのVueの書き方](https://ja.vuejs.org/guide/typescript/composition-api.html#typing-component-emits)
+- [nuxt公式 env設定](https://nuxt.com/docs/guide/going-further/runtime-config/#runtime-config)
 - 【ブログ】[Nuxt3入門](https://reffect.co.jp/vue/nuxt3)
 - 【ブログ】[Nuxt3 setup](https://zenn.dev/coedo/articles/86bc31acb4ea47)
 
