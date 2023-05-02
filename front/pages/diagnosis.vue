@@ -10,22 +10,18 @@
           variant="outlined"
           @click="clicksend"
           color="success"
-          >回答へ</v-btn
-        >
+        >回答へ</v-btn>
         <v-btn
           class="text-center ml-3"
           prepend-icon="mdi-google-circles-extended"
           variant="outlined"
           @click="random"
           color="error"
-          >ランダム入力</v-btn
-        >
+        >ランダム入力</v-btn>
       </div>
       <v-card v-for="question in questions" :key="question.id">
         <v-card-item>
-          <v-card-text class="text-center">
-            {{ question.question_contents }}
-          </v-card-text>
+          <v-card-text class="text-center">{{ question.question_contents }}</v-card-text>
           <v-radio-group v-model="question.answer" inline>
             <v-radio
               v-for="choice in choices"
@@ -44,25 +40,33 @@
         variant="outlined"
         @click="clicksend"
         color="success"
-        >回答へ</v-btn
-      >
+      >回答へ</v-btn>
     </div>
   </div>
 </template>
 
 
-<script setup lang="ts">
-
+<script async setup lang="ts">
 // Router
 const router = useRouter();
 
 // 選択肢読み込み
 const { choices } = useChoices();
 
+const questions = reactive([])
+
 // 設問読み込み
-let { data:questions, refresh } = await useFetch(
-  "http://localhost:80/api/questions"
-);
+await useAsyncData('questions', () =>
+  $fetch(
+    'http://localhost:80/api/questions'
+  )
+)
+  .then(({ data }) => {
+    data.value.forEach( question => {
+      questions.push(question)  
+    })
+})
+
 
 /**
  * 回答送信
@@ -72,15 +76,14 @@ async function clicksend(): void {
   const postData: {
     answers: Array<any>;
   } = {
-    answers: questions,
+    answers: questions
   };
 
-  // Nuxt3ではuseFetchでしかPOST通信できなさそう
   const { data } = await useFetch("http://localhost:80/api/answer", {
     method: "POST",
-    body: postData,
+    body: postData
   });
-  
+
   router.push("/result/" + data.value.result);
 }
 /**
@@ -88,8 +91,8 @@ async function clicksend(): void {
  * @return void
  */
 async function random(): void {
-  questions.value.forEach((question) => {
+  questions.forEach(question => {
     question.answer = Math.floor(Math.random() * 5) + 1;
-    });
+  });
 }
 </script>

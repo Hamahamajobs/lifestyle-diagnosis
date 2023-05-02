@@ -21,10 +21,10 @@ function goHome(): void {
       <div>
         <v-btn
           class="text-center"
-          prepend-icon="mdi-arrow-up-bold-box-outline"
+          prepend-icon="mdi-glasses"
           variant="outlined"
           @click="goHome"
-          color="success"
+          color="primary"
         >ホームへ</v-btn>
       </div>
     </div>
