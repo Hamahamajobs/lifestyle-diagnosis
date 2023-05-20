@@ -11,13 +11,18 @@ const { choices } = reactive(useChoices())
 </script>
 
 <template>
-  <div>
-    <div class="">
-      <p class="text-center">
+  <div class="question-container d-flex align-center flex-column ">
+    <div class="d-flex justify-space-around">
+      <p class="question-number">
+        Q{{ question.id }}
+      </p>
+      <p class="question-text">
         {{ question.question_contents }}
       </p>
-      <v-radio-group v-model="question.answer" inline>
-        <template v-for="choice in choices" :key="choice.value">
+    </div>
+    <div class="choices-container d-flex justify-space-around">
+      <template v-for="choice in choices" :key="choice.value" class="">
+        <div class="d-flex flex-column justify-space-between input-container">
           <input
             :id="question.id + '-' + choice.value"
             v-model="question.answer"
@@ -27,8 +32,76 @@ const { choices } = reactive(useChoices())
           <label :for="question.id + '-' + choice.value">
             {{ choice.text }}
           </label>
-        </template>
-      </v-radio-group>
+        </div>
+      </template>
     </div>
   </div>
+  <v-divider :thickness="1" color="black" />
 </template>
+
+<style lang="scss" scoped>
+.question-container{
+  margin: 30px 20px 5px 20px;
+  .question-number{
+    color: #EC8814;
+    font-weight: 700;
+    font-size: 16px;
+    margin-right: 1em; // 1文字分余白
+  }
+  .question-text{
+    color: #333333;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .choices-container {
+    width: 500px;
+    .input-container {
+      font-size: 10px;
+      height: 100px;
+      margin: 10px 20px;
+      label{
+        width:50px;
+        position: relative;
+        padding-top: 60px;
+        text-align:center;
+        white-space: pre-line; // TODO 『全くあてはまらない』の改行の対応
+        &::before{
+          position: absolute;
+          content: '';
+          display: block;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #D9D9D9;
+          border: 1px solid #ddd;
+          left: 0px;
+          top: 0px;
+        }
+        &::after{
+          position: absolute;
+          content: '';
+          display: block;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          left: 10px;
+          top: 10px;
+          transition: .3s;
+        }
+      }
+      input[type=radio]{
+        display:none;
+        // radioをチェックした時のstyle
+        &:checked + label::after {
+          opacity: 0;
+        }
+        &:checked + label::before {
+          opacity: 1;
+          background: #FF9417;
+        }
+      }
+    }
+  }
+}
+</style>

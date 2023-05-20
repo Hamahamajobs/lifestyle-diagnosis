@@ -3,23 +3,28 @@ export const useChoices = () => {
   const choices = [
     {
       value: 5,
-      text: 'いつもあてはまる'
+      text: `いつも
+      あてはまる`
     },
     {
       value: 4,
-      text: 'しばしばあてはまる'
+      text: `しばしば
+      あてはまる`
     },
     {
       value: 3,
-      text: 'ときどきあてはまる'
+      text: `ときどき
+      あてはまる`
     },
     {
       value: 2,
-      text: 'たまにあてはまる'
+      text: `たまに
+      あてはまる`
     },
     {
       value: 1,
-      text: '全く当てはまらない'
+      text: `全く
+      あてはまらない`
     }
   ]
   return {
