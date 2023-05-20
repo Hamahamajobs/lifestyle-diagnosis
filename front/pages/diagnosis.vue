@@ -3,7 +3,7 @@
   <div>
     <v-container fluid class="d-flex align-center flex-column mb-3">
       <h1>トリセツ(Demo)</h1>
-      <div>
+      <div class="mb-10">
         <v-btn
           class="text-center"
           prepend-icon="mdi-arrow-up-bold-box-outline"
@@ -22,6 +22,12 @@
         >
           ランダム入力
         </v-btn>
+      </div>
+      <div class="message-container d-flex flex-column align-center">
+        <p class="message">
+          <span>あ</span>まり考えずに、迷ったら直感で答えましょう！
+        </p>
+        <hr class="message-footer-line">
       </div>
       <div v-for="question in questions" :key="question.id">
         <question
@@ -93,3 +99,21 @@ function random (): void {
   })
 }
 </script>
+<style lang="scss" scoped>
+.message-container {
+  .message {
+    font-weight: 700;
+    font-size: 16px;
+    color: #CCCCCC;
+    span {
+      color: #FF9417;
+    }
+  }
+  .message-footer-line {
+    width:110%;
+    margin-top:5px;
+    border: 1px solid #FF9417;
+  }
+}
+
+</style>

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       domain: 'test' // envにより環境で切り替える
     }
   },
-  css: ['vuetify/lib/styles/main.sass', 'mdi/css/materialdesignicons.min.css', '@mdi/font/css/materialdesignicons.min.css'],
+  css: ['vuetify/lib/styles/main.sass', 'mdi/css/materialdesignicons.min.css', '@mdi/font/css/materialdesignicons.min.css', '@/assets/css/common.css'],
   build: {
     transpile: ['vuetify']
   },

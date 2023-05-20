@@ -29,7 +29,7 @@ function goDiagnosis (): void {
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .lp-container {
   height: 100vh;
 }
