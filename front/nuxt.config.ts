@@ -1,19 +1,19 @@
-const PRODUCTION_BASE_PATH = '/torisetsu/';
+const PRODUCTION_BASE_PATH = '/torisetsu/'
 
 export default defineNuxtConfig({
   vite: {
     define: {
-      'process.env.DEBUG': false,
+      'process.env.DEBUG': false
     }
   },
   runtimeConfig: {
     public: {
-      domain: 'test', // envにより環境で切り替える
-    },
+      domain: 'test' // envにより環境で切り替える
+    }
   },
-  css: ['vuetify/lib/styles/main.sass', 'mdi/css/materialdesignicons.min.css', '@mdi/font/css/materialdesignicons.min.css',],
+  css: ['vuetify/lib/styles/main.sass', 'mdi/css/materialdesignicons.min.css', '@mdi/font/css/materialdesignicons.min.css'],
   build: {
-    transpile: ['vuetify'],
+    transpile: ['vuetify']
   },
   app: {
     head: {
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         href: 'router.base' // サブディレクトリーへのデプロイに伴い必要
       }
     },
-    baseURL:  process.env.NODE_ENV === 'production' ? PRODUCTION_BASE_PATH : '/', // jsを読み込むパスがローカルと本番で異なるため設定
+    baseURL: process.env.NODE_ENV === 'production' ? PRODUCTION_BASE_PATH : '/' // jsを読み込むパスがローカルと本番で異なるため設定
   },
-  ssr: false, // SPA対応
+  ssr: false // SPA対応
 })

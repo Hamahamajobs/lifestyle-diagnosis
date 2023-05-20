@@ -1,12 +1,11 @@
 <script setup lang="ts">
 // Router
-const router = useRouter();
+const router = useRouter()
 
-function goHome(): void {
-  router.push("/");
+function goHome (): void {
+  router.push('/')
 }
 </script>
-
 
 <template>
   <div>
@@ -17,15 +16,17 @@ function goHome(): void {
       <div class="mb-5">
         <p>{{ $route.params.id }}</p>
       </div>
-      <div class="mb-5"></div>
+      <div class="mb-5" />
       <div>
         <v-btn
           class="text-center"
           prepend-icon="mdi-glasses"
           variant="outlined"
-          @click="goHome"
           color="primary"
-        >ホームへ</v-btn>
+          @click="goHome"
+        >
+          ホームへ
+        </v-btn>
       </div>
     </div>
   </div>

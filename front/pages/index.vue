@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // Router
-const router = useRouter();
+const router = useRouter()
 
-function goDiagnosis(): void {
-  router.push("/diagnosis");
+function goDiagnosis (): void {
+  router.push('/diagnosis')
 }
 </script>
 
@@ -19,9 +19,11 @@ function goDiagnosis(): void {
           class="text-center"
           prepend-icon="mdi-arrow-up-bold-box-outline"
           variant="outlined"
-          @click="goDiagnosis"
           color="success"
-        >診断開始</v-btn>
+          @click="goDiagnosis"
+        >
+          診断開始
+        </v-btn>
       </div>
     </div>
   </div>
