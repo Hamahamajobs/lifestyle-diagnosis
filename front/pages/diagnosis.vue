@@ -2,17 +2,7 @@
 <template>
   <div>
     <v-container fluid class="d-flex align-center flex-column mb-3">
-      <h1>トリセツ(Demo)</h1>
       <div class="mb-10">
-        <v-btn
-          class="text-center"
-          prepend-icon="mdi-arrow-up-bold-box-outline"
-          variant="outlined"
-          color="success"
-          @click="clicksend"
-        >
-          回答へ
-        </v-btn>
         <v-btn
           class="text-center ml-3"
           prepend-icon="mdi-google-circles-extended"
@@ -21,6 +11,15 @@
           @click="random"
         >
           ランダム入力
+        </v-btn>
+        <v-btn
+          class="text-center ml-3"
+          prepend-icon="mdi-google-circles-extended"
+          variant="outlined"
+          color="error"
+          @click="hamada"
+        >
+          btn
         </v-btn>
       </div>
       <div class="message-container d-flex flex-column align-center">
@@ -52,6 +51,8 @@
 <script async setup lang="ts">
 // Router
 const router = useRouter()
+
+const { counter, answers, addCounter } = useCounter()
 
 // 環境変数読み込み
 const runtimeConfig = useRuntimeConfig()
@@ -97,6 +98,12 @@ function random (): void {
   questions.forEach((question) => {
     question.answer = Math.floor(Math.random() * 5) + 1
   })
+}
+
+// useState
+function hamada (): void {
+  console.log(counter.value)
+  addCounter(5)
 }
 </script>
 <style lang="scss" scoped>
