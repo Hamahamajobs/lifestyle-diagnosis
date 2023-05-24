@@ -36,7 +36,7 @@ const { choices } = reactive(useChoices())
       </template>
     </div>
   </div>
-  <v-divider :thickness="2" color="black" />
+  <v-divider :thickness="1" color="black" />
 </template>
 
 <style lang="scss" scoped>
