@@ -12,39 +12,85 @@
         >
           ランダム入力
         </v-btn>
-        <v-btn
-          class="text-center ml-3"
-          prepend-icon="mdi-google-circles-extended"
-          variant="outlined"
-          color="error"
-          @click="hamada"
-        >
-          btn
-        </v-btn>
       </div>
-      <div class="message-container d-flex flex-column align-center">
-        <p class="message">
-          <span>あ</span>まり考えずに、迷ったら直感で答えましょう！
-        </p>
-        <hr class="message-footer-line">
-      </div>
-      <div v-for="question in questions" :key="question.id">
+      <!-- 診断step1 設問No1~No8 -->
+      <template v-if="currentStep === 1">
+        <div class="message-container d-flex flex-column align-center">
+          <p class="message">
+            <span>あ</span>まり考えずに、迷ったら直感で答えましょう！
+          </p>
+          <hr class="message-footer-line">
+        </div>
         <question
-          :question="question"
+          v-for="index in 10"
+          :key="index"
+          :question="questions[index-1]"
         />
-      </div>
+        <div class="d-flex justify-center mb-5">
+          <v-btn
+            class="text-center"
+            prepend-icon="mdi-arrow-up-bold-box-outline"
+            variant="outlined"
+            color="success"
+            @click="goNextStep"
+          >
+            次へ
+          </v-btn>
+        </div>
+      </template>
+
+      <!-- 診断step2 設問No9~No20 -->
+      <template v-if="currentStep === 2">
+        <div class="message-container d-flex flex-column align-center">
+          <p class="message">
+            <span>い</span>いペースです！このまま直感的に回答していきましょう。
+          </p>
+          <hr class="message-footer-line">
+        </div>
+        <question
+          v-for="index in 10"
+          :key="index"
+          :question="questions[9+index]"
+        />
+        <div class="d-flex justify-center mb-5">
+          <v-btn
+            class="text-center"
+            prepend-icon="mdi-arrow-up-bold-box-outline"
+            variant="outlined"
+            color="success"
+            @click="goNextStep"
+          >
+            次へ
+          </v-btn>
+        </div>
+      </template>
+
+      <!-- 診断step3 設問No21~No28 -->
+      <template v-if="currentStep === 3">
+        <div class="message-container d-flex flex-column align-center">
+          <p class="message">
+            <span>こ</span>のページが最後です！残り8問で診断結果が出ます。
+          </p>
+          <hr class="message-footer-line">
+        </div>
+        <question
+          v-for="index in 8"
+          :key="index"
+          :question="questions[19+index]"
+        />
+        <div class="d-flex justify-center mb-5">
+          <v-btn
+            class="text-center"
+            prepend-icon="mdi-arrow-up-bold-box-outline"
+            variant="outlined"
+            color="success"
+            @click="clicksend"
+          >
+            診断結果へ
+          </v-btn>
+        </div>
+      </template>
     </v-container>
-    <div class="d-flex justify-center mb-5">
-      <v-btn
-        class="text-center"
-        prepend-icon="mdi-arrow-up-bold-box-outline"
-        variant="outlined"
-        color="success"
-        @click="clicksend"
-      >
-        回答へ
-      </v-btn>
-    </div>
   </div>
 </template>
 
@@ -52,13 +98,13 @@
 // Router
 const router = useRouter()
 
-const { counter, answers, addCounter } = useCounter()
-
-// 環境変数読み込み
+// ドメイン 環境変数読み込み
 const runtimeConfig = useRuntimeConfig()
 const domain = runtimeConfig.public.domain
-
+// 診断設問
 const questions = reactive([])
+// 回答ステップ
+const currentStep:number = ref(1)
 
 // 設問読み込み
 await useAsyncData('questions', () =>
@@ -100,10 +146,16 @@ function random (): void {
   })
 }
 
-// useState
-function hamada (): void {
-  console.log(counter.value)
-  addCounter(5)
+/**
+ * 次の回答ステップに移動する
+ * @return void
+ */
+function goNextStep (): void {
+  // 次のステップを表示させる
+  currentStep.value++
+
+  // TODO 場所は要素指定できるようにする
+  window.scrollTo(0, 100)
 }
 </script>
 <style lang="scss" scoped>
