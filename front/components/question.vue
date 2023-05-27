@@ -68,11 +68,11 @@ const isHideDivider = computed(() => {
       height: 100px;
       margin: 10px 20px;
       label{
-        width:50px;
+        width:70px;
         position: relative;
         padding-top: 60px;
         text-align:center;
-        white-space: pre-line; // TODO 『全くあてはまらない』の改行の対応
+        white-space: pre-line;
         cursor: pointer; // TODO クリックできる範囲を広げたい ぴつこに相談
         &::before{
           position: absolute;
@@ -83,7 +83,7 @@ const isHideDivider = computed(() => {
           border-radius: 50%;
           background: #D9D9D9;
           border: 1px solid #ddd;
-          left: 0px;
+          left: 10px;
           top: 0px;
         }
         &::after{
@@ -94,7 +94,7 @@ const isHideDivider = computed(() => {
           height: 30px;
           border-radius: 50%;
           background: #FFFFFF;
-          left: 10px;
+          left: 20px;
           top: 10px;
           transition: .3s;
         }
@@ -106,6 +106,13 @@ const isHideDivider = computed(() => {
           opacity: 0;
         }
         &:checked + label::before {
+          opacity: 1;
+          background: #FF9417;
+        }
+        &:hover + label::after {
+          opacity: 0;
+        }
+        &:hover + label::before {
           opacity: 1;
           background: #FF9417;
         }
