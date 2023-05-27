@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <v-container fluid class="d-flex align-center flex-column mb-3">
+    <v-container fluid class="d-flex align-center flex-column mb-3 diagnosis-main-container">
       <div class="mb-10">
         <v-btn
           class="text-center ml-3"
@@ -13,7 +13,7 @@
           ランダム入力
         </v-btn>
       </div>
-      <!-- 診断step1 設問No1~No8 -->
+      <!-- 診断step1 設問No1~No10 -->
       <template v-if="currentStep === 1">
         <div class="message-container d-flex flex-column align-center">
           <p class="message">
@@ -27,19 +27,19 @@
           :question="questions[index-1]"
         />
         <div class="d-flex justify-center mb-5">
-          <v-btn
-            class="text-center"
-            prepend-icon="mdi-arrow-up-bold-box-outline"
-            variant="outlined"
-            color="success"
+          <button
+            class="next-button"
+            :class="{'filled-next-button': isCompleted(step1.start, step1.end)}"
+            :disabled="!isCompleted(step1.start, step1.end)"
+            type="button"
             @click="goNextStep"
           >
-            次へ
-          </v-btn>
+            <span>次へ</span>
+          </button>
         </div>
       </template>
 
-      <!-- 診断step2 設問No9~No20 -->
+      <!-- 診断step2 設問No11~No20 -->
       <template v-if="currentStep === 2">
         <div class="message-container d-flex flex-column align-center">
           <p class="message">
@@ -50,18 +50,18 @@
         <question
           v-for="index in 10"
           :key="index"
-          :question="questions[9+index]"
+          :question="questions[step1.end+index]"
         />
         <div class="d-flex justify-center mb-5">
-          <v-btn
-            class="text-center"
-            prepend-icon="mdi-arrow-up-bold-box-outline"
-            variant="outlined"
-            color="success"
+          <button
+            class="next-button"
+            :class="{'filled-next-button': isCompleted(step2.start, step2.end)}"
+            :disabled="!isCompleted(step2.start, step2.end)"
+            type="button"
             @click="goNextStep"
           >
-            次へ
-          </v-btn>
+            <span>次へ</span>
+          </button>
         </div>
       </template>
 
@@ -76,18 +76,18 @@
         <question
           v-for="index in 8"
           :key="index"
-          :question="questions[19+index]"
+          :question="questions[step2.end+index]"
         />
         <div class="d-flex justify-center mb-5">
-          <v-btn
-            class="text-center"
-            prepend-icon="mdi-arrow-up-bold-box-outline"
-            variant="outlined"
-            color="success"
+          <button
+            class="next-button"
+            :class="{'filled-next-button': isCompleted(step3.start, step3.end)}"
+            :disabled="!isCompleted(step3.start, step3.end)"
+            type="button"
             @click="clicksend"
           >
-            診断結果へ
-          </v-btn>
+            <span>診断結果へ</span>
+          </button>
         </div>
       </template>
     </v-container>
@@ -103,7 +103,11 @@ const runtimeConfig = useRuntimeConfig()
 const domain = runtimeConfig.public.domain
 // 診断設問
 const questions = reactive([])
+
 // 回答ステップ
+const { step1, step2, step3 } = reactive(steps())
+
+// 現在のステップ
 const currentStep:number = ref(1)
 
 // 設問読み込み
@@ -116,7 +120,8 @@ await useAsyncData('questions', () =>
     data.value.forEach((question) => {
       questions.push(question)
     })
-  })
+  }
+  )
 
 /**
  * 回答送信
@@ -157,9 +162,67 @@ function goNextStep (): void {
   // TODO 場所は要素指定できるようにする
   window.scrollTo(0, 100)
 }
+/**
+ *  各stepに対して、全て回答があるかを判定
+ *
+ *  @param {number} start - そのstepの開始設問があるインデックス
+ *  @param {number} end - そのstepの最終設問があるインデックス
+ *  @return {boolean}
+ */
+const isCompleted = computed(():boolean => (start:number, end:number):boolean => {
+  return questions.slice(start, end + 1).every(question => question.answer)
+})
 </script>
+
 <style lang="scss" scoped>
-.message-container {
+.diagnosis-main-container {
+  .next-button {
+    margin-top: 40px;
+    display: block;
+    width: 350px;
+    height: 50px;
+    background-color: #D9D9D9;
+    color: #FFFFFF;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    line-height: 26px;
+    font-weight: 700;
+    position: relative;
+    transition: all .2s linear;
+    cursor: not-allowed;
+    &:before{
+      content:"";
+      position: absolute;
+      top:50%;
+      right:20px;
+      width:20px;
+      height:1px;
+      background:#fff;
+      transition: all .2s linear;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 42%;
+      right: 12px;
+      border: 6px solid transparent; // TODO 矢印の形状が倍率によって少しずれてしまう
+      border-top-width: 4px;
+      border-bottom-width: 4px;
+      border-left-color: #fff;
+      transition: all .2s linear;
+    }
+    &.filled-next-button{
+      background-color: #FF9417;
+      cursor: pointer;
+      &:hover{
+      background:#C06800;
+      transition: all .2s linear;
+    }
+    }
+
+  }
+
+  .message-container {
   .message {
     font-weight: 700;
     font-size: 16px;
@@ -173,6 +236,7 @@ function goNextStep (): void {
     margin-top:5px;
     border: 1px solid #FF9417;
   }
+}
 }
 
 </style>

@@ -8,6 +8,14 @@ const question = ref(props.question)
 
 // 選択肢読み込み
 const { choices } = reactive(useChoices())
+
+// 最終設問の下線は非表示
+const isHideDivider = computed(() => {
+  // 10: step1の最終設問, 20: step2の最終設問
+  const hideDividerIds: number[] = [10, 20]
+  return hideDividerIds.includes(question.value.id)
+})
+
 </script>
 
 <template>
@@ -35,8 +43,8 @@ const { choices } = reactive(useChoices())
         </div>
       </template>
     </div>
+    <v-divider v-if="!isHideDivider" :thickness="1" color="black" />
   </div>
-  <v-divider :thickness="1" color="black" />
 </template>
 
 <style lang="scss" scoped>
@@ -65,6 +73,7 @@ const { choices } = reactive(useChoices())
         padding-top: 60px;
         text-align:center;
         white-space: pre-line; // TODO 『全くあてはまらない』の改行の対応
+        cursor: pointer; // TODO クリックできる範囲を広げたい ぴつこに相談
         &::before{
           position: absolute;
           content: '';
@@ -103,5 +112,9 @@ const { choices } = reactive(useChoices())
       }
     }
   }
+  hr {
+    width: 600px;
+    opacity: 0.5 !important; // vuetifyのv-dividerのデフォルト値上書き
+}
 }
 </style>
