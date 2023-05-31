@@ -13,41 +13,48 @@ use Illuminate\Support\Facades\Log;
 class InsertAnswer
 {
   /**
-   * 回答
+   * 回答結果
+   * 
+   * @param array $answers 回答
+   * @return array $result 診断結果 どのタイプか
    */
   public function invoke($answers)
   {
-    $personal_types = PersonalType::all();
-    $compare_score = 100; // 比較基準となるスコア 初期値は外れ値
+    $personalTypes = PersonalType::all();
+    $compareScore = 100; // 比較基準となるスコア 初期値は外れ値
     $result = ""; // ユーザーの診断結果
-    
-    // ユーザーのカテゴリーごとのスコア取得
-    $scores = self::calculateScorePerCategory($answers);
 
-    foreach ($personal_types as $key => $type_obj) {
-      $total_score = 0;
+    // ユーザーのカテゴリーごとの偏差値を取得
+    $deviationScores = self::calculateDeviationScorePerCategory($answers);
 
-      // 各基準との距離の合計値を計算
-      $total_score += abs($type_obj['border_active_practice_attitude'] - $scores['active_practice_attitude']);
-      $total_score += abs($type_obj['border_creative_attitude'] - $scores['creative_attitude']);
-      $total_score += abs($type_obj['border_coexistence'] - $scores['coexistence']);
-      $total_score += abs($type_obj['border_have_no_grudge'] - $scores['have_no_grudge']);
-      $total_score += abs($type_obj['border_respect_for_others'] - $scores['respect_for_others']);
+    foreach ($personalTypes as $key => $type) {
+      $total = 0;
 
-      // その基準(タイプ)との距離が最も短い場合は、それに近しいとする
-      if ($total_score <= $compare_score) {
-        $compare_score = $total_score;
-        $result = $type_obj['type_name'];
+      // 偏差値の差の合計を算出
+      $total += abs($type['border_active_practice_attitude'] - $deviationScores['active_practice_attitude']);
+      $total += abs($type['border_creative_attitude'] - $deviationScores['creative_attitude']);
+      $total += abs($type['border_coexistence'] - $deviationScores['coexistence']);
+      $total += abs($type['border_have_no_grudge'] - $deviationScores['have_no_grudge']);
+      $total += abs($type['border_respect_for_others'] - $deviationScores['respect_for_others']);
+
+      // その基準(タイプ)との距離が最も短い場合は、そのタイプに最も近しいと判定
+      if ($total <= $compareScore) {
+        $compareScore = $total;
+        $result = $type['type_name'];
       }
     }
+    
+    // TODO 回答結果をDB保存
 
     return $result;
   }
-  /**
+  /** 
+   *  そのユーザーのカテゴリーごとの偏差値を計算する
+   * 
    *  @param array $answers 回答
-   *  @return array $scores カテゴリーごとのスコア
+   *  @return array $scores カテゴリーごとの偏差値
    */
-  private function calculateScorePerCategory($answers)
+  private function calculateDeviationScorePerCategory($answers)
   {
     $scores['active_practice_attitude'] = 0;
     $scores['creative_attitude'] = 0;
@@ -55,6 +62,7 @@ class InsertAnswer
     $scores['have_no_grudge'] = 0;
     $scores['respect_for_others'] = 0;
 
+    // スコアとしての合計点を計算
     foreach ($answers as $key => $answer) {
       switch ($answer['category_name']) {
         case 'active_practice_attitude':
@@ -76,6 +84,20 @@ class InsertAnswer
           new BadRequestException('不正なカテゴリー名が指定されています');
       }
     }
-    return $scores;
+
+    // 偏差値を算出して格納 偏差値=（個人の得点ー平均点)/標準偏差×10＋50
+    // TODO 定数で管理する
+    // 能動的実践的態度 平均点26.38 標準偏差5.16
+    $deviationScores['active_practice_attitude'] = ($scores['active_practice_attitude'] - 26.38) / 5.16 * 10 + 50;
+    // 自己の創造・開発 平均点28.55 標準偏差5.29
+    $deviationScores['creative_attitude'] = ($scores['creative_attitude'] - 28.55) / 5.29 * 10 + 50;
+    // 自他共存 平均点22.44 標準偏差3.82
+    $deviationScores['coexistence'] = ($scores['coexistence'] - 22.44) / 3.82 * 10 + 50;
+    // こだわりのなさ・執着心のなさ　 平均点14.47 標準偏差3.8
+    $deviationScores['have_no_grudge'] = ($scores['have_no_grudge'] - 14.47) / 3.8 * 10 + 50;
+    // 他者尊重 平均点15.03 標準偏差2.68
+    $deviationScores['respect_for_others'] = ($scores['respect_for_others'] - 15.03) / 2.68 * 10 + 50;
+    
+    return $deviationScores;
   }
 }

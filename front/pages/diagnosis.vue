@@ -12,6 +12,15 @@
         >
           ランダム入力
         </v-btn>
+        <v-btn
+          class="text-center ml-3"
+          prepend-icon="mdi-account-arrow-left"
+          variant="outlined"
+          color="blue"
+          @click="randomToResult"
+        >
+          ランダム入力して結果へ
+        </v-btn>
       </div>
       <!-- 診断step1 設問No1~No10 -->
       <template v-if="currentStep === 1">
@@ -149,6 +158,15 @@ function random (): void {
   questions.forEach((question) => {
     question.answer = Math.floor(Math.random() * 5) + 1
   })
+}
+
+/**
+ * ランダム入力して回答結果へ
+ * @return void
+ */
+function randomToResult (): void {
+  random()
+  nextTick(() => { clicksend() })
 }
 
 /**
