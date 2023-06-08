@@ -194,6 +194,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
 
 <style lang="scss" scoped>
 .diagnosis-main-container {
+  width:600px;
   .next-button {
     margin-top: 40px;
     display: block;
@@ -241,20 +242,27 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
   }
 
   .message-container {
-  .message {
-    font-weight: 700;
-    font-size: 16px;
-    color: #CCCCCC;
-    span {
-      color: #FF9417;
+    .message {
+      font-weight: 700;
+      font-size: 16px;
+      color: #CCCCCC;
+      span {
+        color: #FF9417;
+      }
+    }
+    .message-footer-line {
+      width:110%;
+      margin-top:5px;
+      border: 1px solid #FF9417;
     }
   }
-  .message-footer-line {
-    width:110%;
-    margin-top:5px;
-    border: 1px solid #FF9417;
+  @media screen and (max-width: 700px) {
+    width:80vw;
+    .next-button {
+    margin-top: 20px;
+    height: 50px;
   }
-}
+  }
 }
 
 </style>

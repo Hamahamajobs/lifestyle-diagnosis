@@ -122,6 +122,46 @@ const isHideDivider = computed(() => {
   hr {
     width: 600px;
     opacity: 0.5 !important; // vuetifyのv-dividerのデフォルト値上書き
+  }
+}
+@media screen and (max-width: 700px) {
+.question-container{
+  margin: 30px 20px 5px 20px;
+  // background:red;
+  .question-number{
+    color: #EC8814;
+    font-weight: 700;
+    font-size: 16px;
+    margin-right: 1em; // 1文字分余白
+  }
+  .question-text{
+    font-size: 16px;
+  }
+  .choices-container {
+    width: 80vw;
+    .input-container {
+      font-size: 10px;
+      height: 100px;
+      margin: 10px 13px;
+      label{
+        width:45px;
+        &::before{
+          width: 50px;
+          height: 50px;
+          left: 0px;
+        }
+        &::after{
+          width: 30px;
+          height: 30px;
+          left: 10px;
+          top: 10px;
+        }
+      }
+    }
+  }
+  hr {
+    width: 80%;
+  }
 }
 }
 </style>
