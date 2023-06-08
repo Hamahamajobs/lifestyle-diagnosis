@@ -28,7 +28,7 @@ const isHideDivider = computed(() => {
         {{ question.question_contents }}
       </p>
     </div>
-    <div class="choices-container d-flex justify-space-around">
+    <div class="choices-container d-flex justify-space-around mb-5">
       <template v-for="choice in choices" :key="choice.value" class="">
         <div class="d-flex flex-column justify-space-between input-container">
           <input
