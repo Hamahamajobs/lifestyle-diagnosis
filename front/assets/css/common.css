@@ -2,6 +2,12 @@ body {
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic"!important;
 }
 
+.font-La-Belle-Aurore {
+  font-family: 'La Belle Aurore', cursive !important;
+}
+.font-Shippori-Mincho-B1 {
+  font-family: 'Shippori Mincho B1', serif !important;
+}
 
   .altruist {
     background: linear-gradient(#CD6B6B, #F8F4E6);
