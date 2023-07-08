@@ -3,42 +3,45 @@ body {
 }
 
 
-.altruist {
-  background: linear-gradient(#CD6B6B, #F8F4E6);
-}
-.hedonistic {
-  background: linear-gradient(#F8F4E6, #CD8E6B);
-}
-.love {
-  background: linear-gradient(#F8BBD0, #F8F4E6);
-}
-.moderation {
-  background: linear-gradient(#BA68C8, #F8F4E6);
-}
-.accepting {
-  background: linear-gradient(#CD6B6B, #F8F4E6);
-}
-.variety {
-  background: linear-gradient(#CD6B6B, #F8F4E6);
-}
-.hedonism {
-  background: linear-gradient(#303F9F, #F8F4E6);
-}
-.cooperation {
-  background: linear-gradient(#7C4DFF, #F8F4E6);
-}
-.acceptance-of-life {
-  background: linear-gradient(#00695C, #F8F4E6);
-}
-.self-disciplined {
-  background: linear-gradient(#01579B, #F8F4E6);
-}
-.activist {
-  background: linear-gradient(#1B5E20, #F8F4E6);
-}
-.meditative {
-  background: linear-gradient(#00C853, #F8F4E6);
-}
-.achievement {
-  background: linear-gradient(#AEEA00, #F8F4E6);
-}
+  .altruist {
+    background: linear-gradient(#CD6B6B, #F8F4E6);
+  }
+  
+  .hedonistic {
+    background: linear-gradient(#CD6B6B, #F8F4E6);
+  }
+  
+  .love {
+    background: linear-gradient(#F8BBD0, #F8F4E6);
+  }
+  
+  .moderation {
+    background: linear-gradient(#BA68C8, #F8F4E6);
+  }
+  .accepting {
+    background: linear-gradient(#CD6B6B, #F8F4E6);
+  }
+  .variety {
+    background: linear-gradient(#CD6B6B, #F8F4E6);
+  }
+  .hedonism {
+    background: linear-gradient(#303F9F, #F8F4E6);
+  }
+  .cooperation {
+    background: linear-gradient(#7C4DFF, #F8F4E6);
+  }
+  .acceptance-of-life {
+    background: linear-gradient(#00695C, #F8F4E6);
+  }
+  .self-disciplined {
+    background: linear-gradient(#01579B, #F8F4E6);
+  }
+  .activist {
+    background: linear-gradient(#1B5E20, #F8F4E6);
+  }
+  .meditative {
+    background: linear-gradient(#00C853, #F8F4E6);
+  }
+  .achievement {
+    background: linear-gradient(#AEEA00, #F8F4E6);
+  }
