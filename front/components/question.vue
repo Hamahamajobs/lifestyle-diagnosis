@@ -16,12 +16,21 @@ const isHideDivider = computed(() => {
   return hideDividerIds.includes(question.value.id)
 })
 
+// クリックされた設問に移動
+function moveSelectQuestion(id):void {
+  const element = document.getElementById('question-id-'+id);
+  const rect = element.getBoundingClientRect();
+  const elementTop = rect.top + window.pageYOffset;
+  // document.documentElement.scrollTop = elementTop;
+  scrollTo(0, elementTop);
+}
+
 </script>
 
 <template>
   <div class="question-container d-flex align-center flex-column ">
     <div class="d-flex justify-space-around">
-      <p class="question-number">
+      <p :id="'question-id-'+question.id" class="question-number">
         Q{{ question.id }}
       </p>
       <p class="question-text">
@@ -36,6 +45,7 @@ const isHideDivider = computed(() => {
             v-model="question.answer"
             type="radio"
             :value="choice.value"
+            @click="moveSelectQuestion(question.id)"
           >
           <label :for="question.id + '-' + choice.value">
             {{ choice.text }}
