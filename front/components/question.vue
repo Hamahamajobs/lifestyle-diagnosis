@@ -18,6 +18,8 @@ function moveSelectQuestion(id):void {
   scrollTo(0, elementTop);
 }
 
+console.log('hogehoge')
+
 </script>
 
 <template>
