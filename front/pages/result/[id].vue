@@ -10,7 +10,7 @@ const { morisTypes } = reactive(getMorisTypes())
 
 const resultType = computed(() => {
   // パスパラメーター取得
-  const resultTypeId = router.currentRoute._value.params.id // TODO これであってんの?
+  const resultTypeId = router.currentRoute._value.params.id
   return morisTypes.find(type => type.en === resultTypeId)
 })
 
@@ -18,27 +18,42 @@ const resultType = computed(() => {
 
 <template>
   <div>
-    <div class="lp-container d-flex justify-center align-center flex-column">
+    <div class="lp-container d-flex flex-column">
       <!-- 一番上のサマリー的なところ -->
-      <div class="top-container mb-5">
-        <div class="">
-          診断結果
+      <div class="top-container mb-5" :class="resultType.en">
+        <div
+          class="result-text d-flex justify-center"
+        >
+          <p>診断結果</p>
         </div>
-        <div class="top-main d-flex">
+        <div class="top-main d-flex justify-center">
           <div class="left d-flex flex-column">
-            <p>達観型</p>
-            <p>精神的に安定しており、頼られることが好き</p>
-            <p>精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。</p>
+            <p class="top-type">
+              達観型
+            </p>
+            <p class="top-title">
+              精神的に安定しており、頼られることが好き
+            </p>
+            <p class="top-detail">
+              精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。
+            </p>
           </div>
           <div class="right">
-            画像
+            <!-- TODO: svgで動的に切り替える -->
+            <img class="type-image" src="@/assets/image/imagse01.png">
+            <div class="white-block" />
+            <div class="under-white-block" />
           </div>
         </div>
       </div>
       <!-- シェアブロック -->
-      <div class="share-container mb-5">
-        <p>#share your life</p>
-        <p>“あなたの生き方”を伝える</p>
+      <div class="share-container mb-5 d-flex flex-column align-center">
+        <p class="font-La-Belle-Aurore">
+          #share your life
+        </p>
+        <p class="font-Shippori-Mincho-B1">
+          “あなたの生き方”を伝える
+        </p>
         <p>■ ■ ■</p>
       </div>
 
@@ -94,7 +109,101 @@ const resultType = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+
 .lp-container {
   height: 100vh;
+  min-width: 1280px;
+  .top-container{
+    width: 100%;
+    height:861px;
+    padding-bottom:300px;
+    .top-main{
+      margin-top:143px;
+      .left{
+        margin-right: 100px;
+      }
+       .top-type{
+        width: 212px;
+        height: 93px;
+        top: 352px;
+        left: 173px;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 93px;
+        letter-spacing: 0.1em;
+        text-align: center;
+        color:#FFFFFF;
+        background-color:#383C3C;
+      }
+      .top-title{
+        margin-top: 43px;
+        font-family: Shippori Mincho B1;
+        width: 385px;
+        height: 100px;
+        top: 488px;
+        left: 175px;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 50px;
+        letter-spacing: 0.03em;
+        text-align: left;
+      }
+      .top-detail{
+        margin-top: 40px;
+        width: 368px;
+        height: 105px;
+        top: 628px;
+        left: 175px;
+        font-family: Yu Gothic;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 35px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #333333;
+      }
+      .right {
+        .type-image {
+          position: relative;
+          margin-left:50px;
+          z-index:10;
+        }
+        .white-block {
+          position: relative;
+          width: 465px;
+          height: 375px;
+          margin-top:-400px;
+          border: 1px solid #383C3C;
+          background:white;
+          z-index:5;
+        }
+        .under-white-block {
+          position: relative;
+          width: 465px;
+          height: 375px;
+          margin-top: -365px;
+          margin-left: 10px;
+          background: #E4D9C4;
+          z-index:1;
+        }
+      }
+    }
+    .result-text {
+      margin-top:166px;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 43px;
+      p {
+        display:inline-block;
+        text-align:center;
+        width: 230px;
+        top: 169px;
+        left: 526px;
+        color: #FFFFFF;
+        border-top: 1.5px solid #FFFFFF;
+        border-bottom: 1.5px solid #FFFFFF;
+      }
+    }
+  }
 }
 </style>
