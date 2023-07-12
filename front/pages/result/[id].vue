@@ -72,6 +72,7 @@ const resultType = computed(() => {
         <p>
           13のタイプ一覧を見るのブロック/p>
         </p>
+        <typeList></typeList>
       </div>
 
       <div class="mb-5">
