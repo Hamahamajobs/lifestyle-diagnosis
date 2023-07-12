@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import Test1 from '~/assets/svg/test.svg?component'
+import Test2 from '~/assets/svg/test2.svg?component'
+import Test3 from '~/assets/svg/test3.svg?component'
+import WaterDropBig from '~/assets/svg//waterdrops/big.svg?component'
+import WaterDropSmallLeft from '~/assets/svg//waterdrops/small1.svg?component'
+import WaterDropSmallRight from '~/assets/svg//waterdrops/small2.svg?component'
+
 // Router
 const router = useRouter()
 
@@ -14,6 +21,26 @@ const resultType = computed(() => {
   return morisTypes.find(type => type.en === resultTypeId)
 })
 
+// 結果別のSVGを設定
+const currentSvg = computed(() => (id) => {
+  switch (id) {
+    case 'altruist': return Test1
+    case 'hedonistic': return Test1
+    case 'love': return Test1
+    case 'moderation': return Test1
+    case 'accepting': return Test1
+    case 'variety': return Test2
+    case 'hedonism': return Test2
+    case 'cooperation': return Test2
+    case 'acceptance-of-life': return Test2
+    case 'self-disciplined': return Test3
+    case 'activist': return Test3
+    case 'meditative': return Test3
+    case 'achievement': return Test3
+    default: return ''
+  }
+})
+
 </script>
 
 <template>
@@ -24,12 +51,25 @@ const resultType = computed(() => {
         <div
           class="result-text d-flex justify-center"
         >
-          <p>診断結果</p>
+          <div
+            class="d-flex flex-column"
+          >
+            <div class="water-drops-contaner d-flex justify-center align-end">
+              <WaterDropSmallLeft class="water-drops-small" />
+              <WaterDropBig class="water-drops-big" />
+              <WaterDropSmallRight class="water-drops-small" />
+            </div>
+
+            <p>診断結果</p>
+          </div>
         </div>
         <div class="top-main d-flex justify-center">
           <div class="left d-flex flex-column">
+            <p class="font-La-Belle-Aurore top-your-type-is">
+              your type is...
+            </p>
             <p class="top-type">
-              達観型
+              {{ resultType.jp }}
             </p>
             <p class="top-title">
               精神的に安定しており、頼られることが好き
@@ -39,27 +79,18 @@ const resultType = computed(() => {
             </p>
           </div>
           <div class="right">
-            <!-- TODO: svgで動的に切り替える -->
-            <img class="type-image" src="@/assets/image/imagse01.png">
-            <div class="white-block" />
             <div class="under-white-block" />
+            <div class="white-block" />
+            <component :is="currentSvg(resultType.en)" class="type-image" />
           </div>
         </div>
       </div>
       <!-- シェアブロック -->
-      <div class="share-container mb-5 d-flex flex-column align-center">
-        <p class="font-La-Belle-Aurore">
-          #share your life
-        </p>
-        <p class="font-Shippori-Mincho-B1">
-          “あなたの生き方”を伝える
-        </p>
-        <p>■ ■ ■</p>
-      </div>
+      <Share />
 
       <!-- トリセツ情報 ブロック -->
       <!-- TODO: コンポーネント化 -->
-      <div class="share-container mb-5">
+      <div class="mb-5">
         <p>あなたの、特徴は？</p>
         <p>物怖じせず、どっしり構える</p>
         <p>物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える</p>
@@ -72,6 +103,9 @@ const resultType = computed(() => {
           サマリーのブロック/p>
         </p>
       </div>
+
+      <!-- シェアブロック -->
+      <Share />
 
       <!-- サービス説明 ブロック -->
       <!-- TODO: コンポーネント化 -->
@@ -111,17 +145,52 @@ const resultType = computed(() => {
 <style lang="scss" scoped>
 
 .lp-container {
-  height: 100vh;
   min-width: 1280px;
   .top-container{
     width: 100%;
-    height:861px;
-    padding-bottom:300px;
+    min-height:861px;
+    min-height:90%;
+    .water-drops-contaner{
+      .water-drops-small{
+        margin-top: 40px;
+        margin:0px;
+      }
+      .water-drops-big{
+        margin:0px;
+      }
+    }
+    .result-text {
+      margin-top:137px;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 43px;
+      p {
+        display:inline-block;
+        text-align:center;
+        width: 230px;
+        top: 169px;
+        left: 526px;
+        color: #FFFFFF;
+        border-top: 1.5px solid #FFFFFF;
+        border-bottom: 1.5px solid #FFFFFF;
+        margin-top:8px;
+      }
+    }
     .top-main{
       margin-top:143px;
+      padding-bottom: 230px;
       .left{
         margin-right: 100px;
-      }
+        .top-your-type-is{
+          font-size: 48px;
+          font-weight: 400;
+          line-height: 89px;
+          letter-spacing: 0em;
+          color:#FFFFFF;
+          margin-bottom:-20px;
+          margin-left:-40px;
+          z-index:20;
+        }
        .top-type{
         width: 212px;
         height: 93px;
@@ -136,10 +205,9 @@ const resultType = computed(() => {
         background-color:#383C3C;
       }
       .top-title{
-        margin-top: 43px;
+        margin-top: 40px;
         font-family: Shippori Mincho B1;
-        width: 385px;
-        height: 100px;
+        width: 395px; // NOTE: figmaは385pxだけど改行されてしまうので5px伸ばした
         top: 488px;
         left: 175px;
         font-size: 34px;
@@ -147,8 +215,10 @@ const resultType = computed(() => {
         line-height: 50px;
         letter-spacing: 0.03em;
         text-align: left;
+        background:#FFFFFF;
+        padding:5px 3px;
       }
-      .top-detail{
+      .top-detail {
         margin-top: 40px;
         width: 368px;
         height: 105px;
@@ -161,49 +231,36 @@ const resultType = computed(() => {
         letter-spacing: 0em;
         text-align: left;
         color: #333333;
+        }
       }
       .right {
-        .type-image {
+          margin-left:3%;
+        .under-white-block {
           position: relative;
-          margin-left:50px;
-          z-index:10;
+          width: 465px;
+          height: 375px;
+          margin-left: 10px;
+          background: #E4D9C4;
+          z-index:1;
         }
         .white-block {
           position: relative;
           width: 465px;
           height: 375px;
-          margin-top:-400px;
+          margin-top:-385px;
           border: 1px solid #383C3C;
           background:white;
           z-index:5;
         }
-        .under-white-block {
+        .type-image {
           position: relative;
-          width: 465px;
-          height: 375px;
-          margin-top: -365px;
-          margin-left: 10px;
-          background: #E4D9C4;
-          z-index:1;
+          margin-left:-50px;
+          margin-top:-500px;
+          z-index:10;
         }
       }
     }
-    .result-text {
-      margin-top:166px;
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 43px;
-      p {
-        display:inline-block;
-        text-align:center;
-        width: 230px;
-        top: 169px;
-        left: 526px;
-        color: #FFFFFF;
-        border-top: 1.5px solid #FFFFFF;
-        border-bottom: 1.5px solid #FFFFFF;
-      }
-    }
+
   }
 }
 </style>

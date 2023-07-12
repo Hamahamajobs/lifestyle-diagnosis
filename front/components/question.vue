@@ -17,16 +17,13 @@ const isHideDivider = computed(() => {
 })
 
 // クリックされた設問に移動
-function moveSelectQuestion(id):void {
-  const element = document.getElementById('question-id-'+id);
-  const rect = element.getBoundingClientRect();
-  const elementTop = rect.top + window.pageYOffset;
+function moveSelectQuestion (id):void {
+  const element = document.getElementById('question-id-' + id)
+  const rect = element.getBoundingClientRect()
+  const elementTop = rect.top + window.pageYOffset
   // document.documentElement.scrollTop = elementTop;
-  scrollTo(0, elementTop);
+  scrollTo(0, elementTop)
 }
-
-console.log('hogehoge')
-
 </script>
 
 <template>
@@ -40,7 +37,7 @@ console.log('hogehoge')
       </p>
     </div>
     <div class="choices-container d-flex justify-space-around mb-5">
-      <template v-for="choice in choices" :key="choice.value" class="">
+      <div v-for="choice in choices" :key="choice.value" class="">
         <div class="d-flex flex-column justify-space-between input-container">
           <input
             :id="question.id + '-' + choice.value"
@@ -53,7 +50,7 @@ console.log('hogehoge')
             {{ choice.text }}
           </label>
         </div>
-      </template>
+      </div>
     </div>
     <v-divider v-if="!isHideDivider" :thickness="1" color="black" />
   </div>
