@@ -8,12 +8,14 @@
   <!-- <v-btn fix top right><nuxt-link to="/">Home</nuxt-link></v-btn> -->
   <header>
     <div class="header-contents">
-      <div class="logotype">LOGO<span class="red"></span></div>
+      <div class="logotype">
+        LOGO<span class="red" />
+      </div>
       <!--The hamburger appears, when the screen resolution becomes 760px-->
       <nav>
-        <input id="menu__toggle" type="checkbox" />
+        <input id="menu__toggle" type="checkbox">
         <label class="menu__btn" for="menu__toggle">
-          <span></span>
+          <span />
         </label>
         <ul class="menu__box">
           <li><a class="menu__item" href="#"><span class="red">Home</span></a></li>
