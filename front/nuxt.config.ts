@@ -1,10 +1,12 @@
+import svgLoader from 'vite-svg-loader'
 const PRODUCTION_BASE_PATH = '/torisetsu/'
 
 export default defineNuxtConfig({
   vite: {
     define: {
       'process.env.DEBUG': false
-    }
+    },
+    plugins: [svgLoader()]
   },
   runtimeConfig: {
     public: {
