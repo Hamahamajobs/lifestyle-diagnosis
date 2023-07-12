@@ -86,19 +86,11 @@ const currentSvg = computed(() => (id) => {
         </div>
       </div>
       <!-- シェアブロック -->
-      <div class="share-container mb-5 d-flex flex-column align-center">
-        <p class="font-La-Belle-Aurore">
-          #share your life
-        </p>
-        <p class="font-Shippori-Mincho-B1">
-          “あなたの生き方”を伝える
-        </p>
-        <p>■ ■ ■</p>
-      </div>
+      <Share />
 
       <!-- トリセツ情報 ブロック -->
       <!-- TODO: コンポーネント化 -->
-      <div class="share-container mb-5">
+      <div class="mb-5">
         <p>あなたの、特徴は？</p>
         <p>物怖じせず、どっしり構える</p>
         <p>物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える</p>
@@ -111,6 +103,9 @@ const currentSvg = computed(() => (id) => {
           サマリーのブロック/p>
         </p>
       </div>
+
+      <!-- シェアブロック -->
+      <Share />
 
       <!-- サービス説明 ブロック -->
       <!-- TODO: コンポーネント化 -->
@@ -150,7 +145,6 @@ const currentSvg = computed(() => (id) => {
 <style lang="scss" scoped>
 
 .lp-container {
-  height: 100vh;
   min-width: 1280px;
   .top-container{
     width: 100%;
