@@ -1,5 +1,5 @@
 body {
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic"!important;
+  font-family: "Yu Gothic", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic"!important;
 }
 
 .font-La-Belle-Aurore {
@@ -7,6 +7,9 @@ body {
 }
 .font-Shippori-Mincho-B1 {
   font-family: 'Shippori Mincho B1', serif !important;
+}
+.font-Lora {
+  font-family: 'Lora', serif !important;
 }
 
   .altruist {

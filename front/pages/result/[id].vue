@@ -137,12 +137,7 @@ const currentSvg = computed(() => (id) => {
       <Share />
 
       <!-- サービス説明 ブロック -->
-      <!-- TODO: コンポーネント化 -->
-      <div class="mb-5">
-        <p>
-          サービス説明のブロック/p>
-        </p>
-      </div>
+      <Introduce />
 
       <!-- 13のタイプ一覧を見る ブロック -->
       <!-- TODO: コンポーネント化 -->
@@ -236,7 +231,6 @@ const currentSvg = computed(() => (id) => {
       }
       .top-title{
         margin-top: 40px;
-        font-family: Shippori Mincho B1;
         width: 395px; // NOTE: figmaは385pxだけど改行されてしまうので5px伸ばした
         top: 488px;
         left: 175px;
