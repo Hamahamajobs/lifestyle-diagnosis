@@ -36,7 +36,7 @@ export default defineNuxtConfig({
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Shippori+Mincho+B1:wght@500&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lora&family=Shippori+Mincho+B1:wght@500&display=swap',
           crossorigin: ''
         }
       ]

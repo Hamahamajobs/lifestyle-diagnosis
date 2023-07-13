@@ -1,34 +1,39 @@
 
 <template>
   <div>
-    <v-container fluid class="d-flex align-center flex-column mb-3 diagnosis-main-container">
-      <div class="mb-10">
-        <v-btn
-          class="text-center ml-3"
-          prepend-icon="mdi-google-circles-extended"
-          variant="outlined"
-          color="error"
-          @click="random"
-        >
-          ランダム入力
+    <v-container fluid class="diagnosis-main-container d-flex align-center flex-column mb-3">
+      <div class="mb-3">
+        <v-btn style="position: fixed; top: 100px; right: 400px;" color="blue" @click="randomToResult">
+          【開発用】ランダム&結果へ
         </v-btn>
-        <v-btn
-          class="text-center ml-3"
-          prepend-icon="mdi-account-arrow-left"
-          variant="outlined"
-          color="blue"
-          @click="randomToResult"
+      </div>
+      <div
+        class="result-text d-flex justify-center"
+      >
+        <div
+          class="d-flex flex-column"
         >
-          ランダム入力して結果へ
-        </v-btn>
+          <div class="water-drops-contaner d-flex justify-center align-end">
+            <WaterDropBlackSmallLeft class="water-drops-small" />
+            <WaterDropBlackBig class="water-drops-big" />
+            <WaterDropBlackSmallRight class="water-drops-small" />
+          </div>
+
+          <p class="font-Shippori-Mincho-B1">
+            診断中
+          </p>
+        </div>
+      </div>
+      <!-- 進捗状況 -->
+      <div class="progress">
+        <Progress :step="currentStep" />
       </div>
       <!-- 診断step1 設問No1~No10 -->
       <template v-if="currentStep === 1">
         <div class="message-container d-flex flex-column align-center">
           <p class="message">
-            <span>あ</span>まり考えずに、迷ったら直感で答えましょう！
+            あまり考えずに、迷ったら直感で答えましょう！
           </p>
-          <hr class="message-footer-line">
         </div>
         <question
           v-for="index in 10"
@@ -52,7 +57,7 @@
       <template v-if="currentStep === 2">
         <div class="message-container d-flex flex-column align-center">
           <p class="message">
-            <span>い</span>いペースです！このまま直感的に回答していきましょう。
+            いいペースです！このまま直感的に回答していきましょう。
           </p>
           <hr class="message-footer-line">
         </div>
@@ -78,7 +83,7 @@
       <template v-if="currentStep === 3">
         <div class="message-container d-flex flex-column align-center">
           <p class="message">
-            <span>こ</span>のページが最後です！残り8問で診断結果が出ます。
+            このページが最後です！残り8問で診断結果が出ます。
           </p>
           <hr class="message-footer-line">
         </div>
@@ -104,6 +109,11 @@
 </template>
 
 <script async setup lang="ts">
+
+import WaterDropBlackBig from '~/assets/svg//waterdrops/bigblack.svg?component'
+import WaterDropBlackSmallLeft from '~/assets/svg//waterdrops/small1black.svg?component'
+import WaterDropBlackSmallRight from '~/assets/svg//waterdrops/small2black.svg?component'
+
 // Router
 const router = useRouter()
 
@@ -178,7 +188,10 @@ function goNextStep (): void {
   currentStep.value++
 
   // TODO 場所は要素指定できるようにする
-  window.scrollTo(0, 100)
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
 /**
  *  各stepに対して、全て回答があるかを判定
@@ -195,6 +208,31 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
 <style lang="scss" scoped>
 .diagnosis-main-container {
   width:600px;
+  .water-drops-contaner{
+      .water-drops-small{
+        margin-top: 40px;
+        margin:0px;
+      }
+      .water-drops-big{
+        margin:0px;
+      }
+    }
+    .result-text {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 43px;
+      p {
+        display:inline-block;
+        text-align:center;
+        width: 230px;
+        top: 169px;
+        left: 526px;
+        color: #333333;
+        border-top: 1.5px solid #333333;
+        border-bottom: 1.5px solid #333333;
+        margin-top:8px;
+      }
+    }
   .next-button {
     margin-top: 40px;
     display: block;
@@ -231,10 +269,10 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
       transition: all .2s linear;
     }
     &.filled-next-button{
-      background-color: #FF9417;
+      background:#383C3C;
       cursor: pointer;
       &:hover{
-      background:#C06800;
+      opacity: 0.7;
       transition: all .2s linear;
     }
     }
@@ -242,18 +280,16 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
   }
 
   .message-container {
+    margin-top: 20px;
     .message {
       font-weight: 700;
       font-size: 16px;
-      color: #CCCCCC;
-      span {
-        color: #FF9417;
-      }
-    }
-    .message-footer-line {
-      width:110%;
-      margin-top:5px;
-      border: 1px solid #FF9417;
+      color: #393D3D;
+      font-family: Shippori Mincho B1;
+      line-height: 23px;
+      letter-spacing: 0.05em;
+      background:#F1F1F1;
+      margin-bottom: 83px;
     }
   }
   @media screen and (max-width: 700px) {
