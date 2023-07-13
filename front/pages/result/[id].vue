@@ -89,12 +89,41 @@ const currentSvg = computed(() => (id) => {
       <Share />
 
       <!-- トリセツ情報 ブロック -->
-      <!-- TODO: コンポーネント化 -->
-      <div class="mb-5">
-        <p>あなたの、特徴は？</p>
-        <p>物怖じせず、どっしり構える</p>
-        <p>物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える物怖じせずどっしり構える</p>
-      </div>
+      <!-- NOTE: indexの順番でメッセージを指定 -->
+      <Message
+        :type="resultType.en"
+        label="feature"
+        ask="あなたの、特徴は？"
+        :messages="resultType.messageList[0].messageContent"
+      />
+
+      <Message
+        :type="resultType.en"
+        label="love"
+        ask="あなたの、恋愛観は？"
+        :messages="resultType.messageList[1].messageContent"
+      />
+
+      <Message
+        :type="resultType.en"
+        label="two-faced"
+        ask="あなたの、裏の顔は？"
+        :messages="resultType.messageList[2].messageContent"
+      />
+
+      <Message
+        :type="resultType.en"
+        label="regret"
+        ask="人生最後に後悔すること"
+        :messages="resultType.messageList[3].messageContent"
+      />
+
+      <Message
+        :type="resultType.en"
+        label="value"
+        ask="あなたに大切にしてほしい価値観"
+        :messages="resultType.messageList[4].messageContent"
+      />
 
       <!-- サマリーブロック -->
       <!-- TODO: コンポーネント化 -->
@@ -125,6 +154,7 @@ const currentSvg = computed(() => (id) => {
 
       <div class="mb-5">
         <p>{{ resultType.jp }}</p>
+        <p>{{ resultType.en }}</p>
       </div>
       <div class="mb-5" />
       <div>

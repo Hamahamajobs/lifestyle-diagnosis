@@ -14,7 +14,7 @@ body {
   }
   
   .hedonistic {
-    background: linear-gradient(#CD6B6B, #F8F4E6);
+    background: linear-gradient(#00695C, #F8F4E6);
   }
   
   .love {
@@ -50,4 +50,48 @@ body {
   }
   .achievement {
     background: linear-gradient(#AEEA00, #F8F4E6);
+  }
+  
+  
+  /*  横向きのグラデーション
+   * 
+   */
+  .altruist-row {
+    background: linear-gradient(to left,#CD6B6B, #F8F4E6);
+  }
+   .hedonistic-row {
+    background: linear-gradient(to left, #00695C, #F8F4E6) !important;
+  }
+  .love-row {
+    background: linear-gradient(to left, #F8BBD0, #F8F4E6);
+  }
+  .moderation-row {
+    background: linear-gradient(to left, #BA68C8, #F8F4E6);
+  }
+  .accepting-row {
+    background: linear-gradient(to left, #CD6B6B, #F8F4E6);
+  }
+  .variety-row {
+    background: linear-gradient(to left, #CD6B6B, #F8F4E6);
+  }
+  .hedonism-row {
+    background: linear-gradient(to left, #303F9F, #F8F4E6);
+  }
+  .cooperation-row {
+    background: linear-gradient(to left, #7C4DFF, #F8F4E6);
+  }
+  .acceptance-of-life-row {
+    background: linear-gradient(to left, #00695C, #F8F4E6);
+  }
+  .self-disciplined-row {
+    background: linear-gradient(to left, #01579B, #F8F4E6);
+  }
+  .activist-row {
+    background: linear-gradient(to left, #1B5E20, #F8F4E6);
+  }
+  .meditative-row {
+    background: linear-gradient(to left, #00C853, #F8F4E6);
+  }
+  .achievement-row {
+    background: linear-gradient(to left, #AEEA00, #F8F4E6);
   }
