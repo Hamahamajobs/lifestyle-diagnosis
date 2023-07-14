@@ -15,11 +15,12 @@ function goHome (): void {
 
 const { morisTypes } = reactive(getMorisTypes())
 
-const resultType = computed(() => {
-  // パスパラメーター取得
-  const resultTypeId = router.currentRoute._value.params.id
-  return morisTypes.find(type => type.en === resultTypeId)
-})
+// 診断結果のタイプを取得
+const resultTypeId = router.currentRoute._value.params.id
+const resultType = morisTypes.find(type => type.en === resultTypeId)
+
+// svgファイルごとに適切なWidthを設定
+const setSvgWidthPx = resultType.svgWidthPx
 
 // 結果別のSVGを設定
 const currentSvg = computed(() => (id) => {
@@ -247,6 +248,7 @@ const currentSvg = computed(() => (id) => {
       }
       .right {
           margin-left:3%;
+          width: v-bind(setSvgWidthPx);
         .white-block {
           position: relative;
           width: 465px;

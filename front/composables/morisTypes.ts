@@ -13,6 +13,7 @@ export const getMorisTypes = () => {
     jp: string,
     title: string,
     titleDetail: string,
+    svgWidthPx: string,
     messageList: Message[]
   }
 
@@ -23,6 +24,7 @@ export const getMorisTypes = () => {
       jp: '奉仕型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '520px',
       messageList: [
         {
           category: 'feature',
@@ -81,6 +83,7 @@ export const getMorisTypes = () => {
       jp: '安楽型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '520px',
       messageList: [
         {
           category: 'feature',
@@ -139,6 +142,7 @@ export const getMorisTypes = () => {
       jp: '慈愛型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '520px',
       messageList: [
         {
           category: 'feature',
@@ -197,6 +201,7 @@ export const getMorisTypes = () => {
       jp: '中庸型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '520px',
       messageList: [
         {
           category: 'feature',
@@ -255,6 +260,7 @@ export const getMorisTypes = () => {
       jp: '受容型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '520px',
       messageList: [
         {
           category: 'feature',
@@ -313,6 +319,7 @@ export const getMorisTypes = () => {
       jp: '多彩型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '560px',
       messageList: [
         {
           category: 'feature',
@@ -371,6 +378,7 @@ export const getMorisTypes = () => {
       jp: '享楽型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '560px',
       messageList: [
         {
           category: 'feature',
@@ -429,6 +437,7 @@ export const getMorisTypes = () => {
       jp: '協同型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '560px',
       messageList: [
         {
           category: 'feature',
@@ -487,6 +496,7 @@ export const getMorisTypes = () => {
       jp: '達観型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '530px',
       messageList: [
         {
           category: 'feature',
@@ -545,6 +555,7 @@ export const getMorisTypes = () => {
       jp: '克己型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '400px',
       messageList: [
         {
           category: 'feature',
@@ -603,6 +614,7 @@ export const getMorisTypes = () => {
       jp: '活動型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '400px',
       messageList: [
         {
           category: 'feature',
@@ -658,9 +670,10 @@ export const getMorisTypes = () => {
     {
       id: 12,
       en: 'meditative',
-      jp: '瞑想・内面型',
+      jp: '内面型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '400px',
       messageList: [
         {
           category: 'feature',
@@ -716,9 +729,10 @@ export const getMorisTypes = () => {
     {
       id: 13,
       en: 'achievement',
-      jp: '行動・努力型',
+      jp: '努力型',
       title: '精神的に安定しており、頼られることが好き',
       titleDetail: '精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。',
+      svgWidthPx: '400px',
       messageList: [
         {
           category: 'feature',
