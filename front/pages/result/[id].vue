@@ -79,7 +79,6 @@ const currentSvg = computed(() => (id) => {
             </p>
           </div>
           <div class="right">
-            <div class="under-white-block" />
             <div class="white-block" />
             <component :is="currentSvg(resultType.en)" class="type-image" />
           </div>
@@ -126,12 +125,7 @@ const currentSvg = computed(() => (id) => {
       />
 
       <!-- サマリーブロック -->
-      <!-- TODO: コンポーネント化 -->
-      <div class="mb-5">
-        <p>
-          サマリーのブロック/p>
-        </p>
-      </div>
+      <ResultSummary :type="resultType" />
 
       <!-- シェアブロック -->
       <Share />
@@ -147,10 +141,6 @@ const currentSvg = computed(() => (id) => {
         </p>
       </div>
 
-      <div class="mb-5">
-        <p>{{ resultType.jp }}</p>
-        <p>{{ resultType.en }}</p>
-      </div>
       <div class="mb-5" />
       <div>
         <v-btn
@@ -259,22 +249,15 @@ const currentSvg = computed(() => (id) => {
       }
       .right {
           margin-left:3%;
-        .under-white-block {
-          position: relative;
-          width: 465px;
-          height: 375px;
-          margin-left: 10px;
-          background: #E4D9C4;
-          z-index:1;
-        }
         .white-block {
           position: relative;
           width: 465px;
           height: 375px;
-          margin-top:-385px;
+          margin-top:50px;
           border: 1px solid #383C3C;
           background:white;
           z-index:5;
+          box-shadow: 10px 10px #E4D9C4;
         }
         .type-image {
           position: relative;

@@ -1,14 +1,30 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// const domain = runtimeConfig.public.domain
+
+// const top
+// router.push('/result/' + data.value.result)
+
+</script>
 
 <template>
   <header>
     <div class="header-contents">
       <div class="pc-menu-container d-flex justify-space-around align-center font-Shippori-Mincho-B1">
-        <a href="https://www.google.com/">トップページ</a>
-        <a href="https://www.google.com/">生き方を診断する</a>
-        <a href="https://www.google.com/" class="logo">ロゴ作成中</a>
-        <a href="https://www.google.com/">13タイプ一覧</a>
-        <a href="https://www.google.com/">お問い合わせ</a>
+        <NuxtLink to="/">
+          トップページ
+        </NuxtLink>
+        <NuxtLink to="/diagnosis">
+          生き方を診断する
+        </NuxtLink>
+        <NuxtLink to="/" class="logo">
+          ロゴ作成中
+        </NuxtLink>
+        <NuxtLink to="/">
+          13タイプ一覧
+        </NuxtLink>
+        <NuxtLink to="/">
+          お問い合わせ
+        </NuxtLink>
       </div>
 
       <!-- ハンバーガメニュー スマホのみで表示 -->
@@ -44,9 +60,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 81px; // ヘッダーの高さ固定
+  height: 70px; // ヘッダーの高さ固定
   width:100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid #2d303a;
   position:fixed;
   top:0;
   left:0;
