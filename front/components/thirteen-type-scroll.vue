@@ -57,7 +57,6 @@ let returnArray = computed(
     </ul>
     <ul class="scroll-list">
         <li v-for="(n, index) in returnArray" :key="index">
-          {{ n.component }}
           <component :is="n.component" :id="index" />
         </li>
     </ul>
