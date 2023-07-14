@@ -1,110 +1,75 @@
 <script setup lang="ts">
 import {ref, computed, onMounted} from 'vue';
 
-
-const model = ref(0);
-const model1 = ref(1);
-const colors = ref(['primary', 'secondary', 'yellow darken-2', 'red', 'orange']);
-
 //　無理やり作るならこれ
-// let currentArray = ref([1,2,3,4]);
+let currentArray = ref([
+  {id: 1, content: 'content1'},
+  {id: 2, content: 'content2'},
+  {id: 3, content: 'content3'},
+  {id: 4, content: 'content4'},
+  {id: 5, content: 'content5'},
+  {id: 6, content: 'content6'},
+  {id: 7, content: 'content7'},
+  {id: 8, content: 'content8'},
+  {id: 9, content: 'content9'},
+  {id: 10, content: 'content10'},
+  {id: 11, content: 'content11'},
+  {id: 12, content: 'content12'},
+  {id: 13, content: 'content13'},
+]);
 
-// let returnArray = computed(
-//   (): number[] => {
-//     return currentArray.value;
-//   }
-// )
-
-
-onMounted(
-  () => {
-    setInterval(() => {
-      // let currentArrayLast: number = currentArray.value[3];
-      // let nextArrayLast: number = currentArrayLast + 1;
-      // if (nextArrayLast > 13) {
-      //   nextArrayLast = 1;
-      // }
-      // currentArray.value.shift();
-      // currentArray.value.push(nextArrayLast);
-      // console.log('currentArray', currentArray.value)
-      // model.value++;
-      // model1.value++;
-    }, 3000)
+let returnArray = computed(
+  (): {id: number; content: string;}[] => {
+    return currentArray.value;
   }
 )
 </script>
 
 <template>
-  <div>
-    <div class="d-flex">
-      <div style="width: 500px;">
-        <v-carousel v-model="model">
-          <v-carousel-item
-            v-for="(color, i) in colors"
-            :key="color"
-          >
-            <v-sheet
-              :color="color"
-              height="100%"
-              title
-            >
-              <v-row
-                class="fill-height"
-                align="center"
-                justify="center"
-              >
-                <div class="text-h2">
-                  Slide {{ i + 1 }}
-                </div>
-              </v-row>
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel>
-      </div>
-      <div style="width: 500px;">
-        <v-carousel v-model="model1">
-          <v-carousel-item
-            v-for="(color, i) in colors"
-            :key="color"
-          >
-            <v-sheet
-              :color="color"
-              height="100%"
-              title
-            >
-              <v-row
-                class="fill-height"
-                align="center"
-                justify="center"
-              >
-                <div class="text-h2">
-                  Slide {{ i + 1 }}
-                </div>
-              </v-row>
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel>
-      </div>
-    </div>
-    <div>
-    </div>
-    <!-- 無理やり作るなら、下記をdivタグ13個用意してv-ifで消えるようにしてそれにtransitionをつける。 -->
-    <!-- <div class="d-flex type-list">
-      <div v-for="(item, index) in currentArray" :key="index" class="type-list-item">
-        {{ item }}
-      </div>
-    </div> -->
+  <div class="scroll">
+    <ul class="scroll-list">
+        <li v-for="(n, index) in returnArray" :key="index">
+          {{ n.content }}
+        </li>
+    </ul>
+    <ul class="scroll-list">
+        <li v-for="(n, index) in returnArray" :key="index">
+          {{ n.content }}
+        </li>
+    </ul>
   </div>
 </template>
 
 <style lang="scss">
-  .type {
+  .scroll {
+    margin: 20px;
+    display: flex;
+    // -webkit-box-align: center;
+    // -ms-flex-align: center;
+    // align-items: center;
+    // height: 180px;
+    overflow-y: hidden;
+    // border: 2px solid;
+    padding: 30px;
+    max-width: 1500px;
     &-list {
-      width: 80vw;
-      overflow-x: hidden;
-      &-item {
-        width: 400px;
-      }
+      display: flex;
+      align-items: center;
+      animation: loop-slide 60s infinite linear 1s both;
     }
+    li {
+      min-width: 350px
+    }
+  }
+  @keyframes loop-slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  .slice-paused:hover {
+    animation-play-state: paused;
   }
 </style>
