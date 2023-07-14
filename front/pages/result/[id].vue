@@ -139,7 +139,7 @@ const currentSvg = computed(() => (id) => {
         <p>
           13のタイプ一覧を見るのブロック/p>
         </p>
-        <typeList></typeList>
+        <typeList />
       </div>
 
       <div class="mb-5" />
