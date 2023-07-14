@@ -18,9 +18,9 @@
 
 <style lang="scss" scoped>
 .footer {
-  background-color:#383C3C;
   width: 100%;
   height: 400px;
+  background-color:#383C3C;
   color:#FFFFFF;
   .left-item{
     margin-left:230px;
