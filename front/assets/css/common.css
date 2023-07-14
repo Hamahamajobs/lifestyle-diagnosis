@@ -1,47 +1,178 @@
 body {
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic"!important;
+  font-family: "Yu Gothic", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic"!important;
+}
+
+.font-La-Belle-Aurore {
+  font-family: 'La Belle Aurore', cursive !important;
+}
+.font-Shippori-Mincho-B1 {
+  font-family: 'Shippori Mincho B1', serif !important;
+}
+.font-Lora {
+  font-family: 'Lora', serif !important;
+}
+
+/* 奉仕型 */
+.altruist {
+  background: linear-gradient(#6BCDAA, #F8F4E6);
+}
+/* 安楽型 */
+.hedonistic {
+  background: linear-gradient(#CD6BC3, #F8F4E6);
+}
+/* 慈愛型 */
+.love {
+  background: linear-gradient(#CD6B6B, #F8F4E6);
+}
+/* 中庸型 */
+.moderation {
+  background: linear-gradient(#6BCD75, #F8F4E6);
+}
+/* 受容型 */
+.accepting {
+  background: linear-gradient(#6BC7CD, #F8F4E6);
+}
+/* 多彩型 */
+.variety {
+  background: linear-gradient(#CDC36B, #F8F4E6);
+}
+/* 享楽型 */
+.hedonism {
+  background: linear-gradient(#B46BCD, #F8F4E6);
+}
+/* 協同型 */
+.cooperation {
+  background: linear-gradient(#B4CD6B, #F8F4E6);
+}
+/* 達観型 */
+.acceptance-of-life {
+  background: linear-gradient(#31365E, #F8F4E6);
+}
+/* 克己型 */
+.self-disciplined {
+  background: linear-gradient(#6B75CD, #F8F4E6);
+}
+/* 活動型 */
+.activist {
+  background: linear-gradient(#CD886B, #F8F4E6);
+}
+/* 瞑想・内面型 */
+.meditative {
+  background: linear-gradient(#6BCDAA, #F8F4E6);
+}
+/* 行動・努力型 */
+.achievement {
+  background: linear-gradient(#DB4A4A, #F8F4E6);
 }
 
 
-  .altruist {
-    background: linear-gradient(#CD6B6B, #F8F4E6);
-  }
-  
-  .hedonistic {
-    background: linear-gradient(#CD6B6B, #F8F4E6);
-  }
-  
-  .love {
-    background: linear-gradient(#F8BBD0, #F8F4E6);
-  }
-  
-  .moderation {
-    background: linear-gradient(#BA68C8, #F8F4E6);
-  }
-  .accepting {
-    background: linear-gradient(#CD6B6B, #F8F4E6);
-  }
-  .variety {
-    background: linear-gradient(#CD6B6B, #F8F4E6);
-  }
-  .hedonism {
-    background: linear-gradient(#303F9F, #F8F4E6);
-  }
-  .cooperation {
-    background: linear-gradient(#7C4DFF, #F8F4E6);
-  }
-  .acceptance-of-life {
-    background: linear-gradient(#00695C, #F8F4E6);
-  }
-  .self-disciplined {
-    background: linear-gradient(#01579B, #F8F4E6);
-  }
-  .activist {
-    background: linear-gradient(#1B5E20, #F8F4E6);
-  }
-  .meditative {
-    background: linear-gradient(#00C853, #F8F4E6);
-  }
-  .achievement {
-    background: linear-gradient(#AEEA00, #F8F4E6);
-  }
+
+/* 横向きのグラデーション
+ * 
+ */
+/* 奉仕型 */
+.altruist-row {
+  background: linear-gradient(to left,#6BCDAA, #F8F4E6);
+}
+/* 安楽型 */
+.hedonistic-row {
+  background: linear-gradient(to left,#CD6BC3, #F8F4E6);
+}
+/* 慈愛型 */
+.love-row {
+  background: linear-gradient(to left,#CD6B6B, #F8F4E6);
+}
+/* 中庸型 */
+.moderation-row {
+  background: linear-gradient(to left,#6BCD75, #F8F4E6);
+}
+/* 受容型 */
+.accepting-row {
+  background: linear-gradient(to left,#6BC7CD, #F8F4E6);
+}
+/* 多彩型 */
+.variety-row {
+  background: linear-gradient(to left,#CDC36B, #F8F4E6);
+}
+/* 享楽型 */
+.hedonism-row {
+  background: linear-gradient(to left,#B46BCD, #F8F4E6);
+}
+/* 協同型 */
+.cooperation-row {
+  background: linear-gradient(to left,#B4CD6B, #F8F4E6);
+}
+/* 達観型 */
+.acceptance-of-life-row {
+  background: linear-gradient(to left,#31365E, #F8F4E6);
+}
+/* 克己型 */
+.self-disciplined-row {
+  background: linear-gradient(to left,#6B75CD, #F8F4E6);
+}
+/* 活動型 */
+.activist-row {
+  background: linear-gradient(to left,#CD886B, #F8F4E6);
+}
+/* 瞑想・内面型 */
+.meditative-row {
+  background: linear-gradient(to left,#6BCDAA, #F8F4E6);
+}
+/* 行動・努力型 */
+.achievement-row {
+  background: linear-gradient(to left,#DB4A4A, #F8F4E6);
+}
+
+/* 各タイプのテキストカラー */
+/* 奉仕型 */
+.altruist-text-color {
+  color: #6BCDAA;
+}
+/* 安楽型 */
+.hedonistic-text-color {
+  color: #CD6BC3;
+}
+/* 慈愛型 */
+.love-text-color {
+  color: #CD6B6B;
+}
+/* 中庸型 */
+.moderation-text-color {
+  color: #6BCD75;
+}
+/* 受容型 */
+.accepting-text-color {
+  color: #6BC7CD;
+}
+/* 多彩型 */
+.variety-text-color {
+  color: #CDC36B;
+}
+/* 享楽型 */
+.hedonism-text-color {
+  color: #B46BCD;
+}
+/* 協同型 */
+.cooperation-text-color {
+  color: #B4CD6B;
+}
+/* 達観型 */
+.acceptance-of-life-text-color {
+  color: #31365E;
+}
+/* 克己型 */
+.self-disciplined-text-color {
+  color: #6B75CD;
+}
+/* 活動型 */
+.activist-text-color {
+  color: #CD886B;
+}
+/* 瞑想・内面型 */
+.meditative-text-color {
+  color: #6BCDAA;
+}
+/* 行動・努力型 */
+.achievement-text-color {
+  color: #DB4A4A;
+}

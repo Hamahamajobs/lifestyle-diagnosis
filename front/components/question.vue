@@ -17,16 +17,17 @@ const isHideDivider = computed(() => {
 })
 
 // クリックされた設問に移動
-function moveSelectQuestion(id):void {
-  const element = document.getElementById('question-id-'+id);
-  const rect = element.getBoundingClientRect();
-  const elementTop = rect.top + window.pageYOffset;
-  // document.documentElement.scrollTop = elementTop;
-  scrollTo(0, elementTop);
+function moveSelectQuestion (id):void {
+  const element = document.getElementById('question-id-' + id)
+  const rect = element.getBoundingClientRect()
+  // TODO: もっとも上の要素をクリックしたときにずれる可能性がある
+  const elementTop = rect.top + window.pageYOffset
+  // TODO: 画面上部や画面下部だとスクロール先がずれるので修正する
+  window.scrollTo({
+    top: elementTop,
+    behavior: 'smooth'
+  })
 }
-
-console.log('hogehoge')
-
 </script>
 
 <template>
@@ -40,7 +41,7 @@ console.log('hogehoge')
       </p>
     </div>
     <div class="choices-container d-flex justify-space-around mb-5">
-      <template v-for="choice in choices" :key="choice.value" class="">
+      <div v-for="choice in choices" :key="choice.value" class="">
         <div class="d-flex flex-column justify-space-between input-container">
           <input
             :id="question.id + '-' + choice.value"
@@ -49,11 +50,14 @@ console.log('hogehoge')
             :value="choice.value"
             @click="moveSelectQuestion(question.id)"
           >
+          <div class="chack-mark">
+            <span />
+          </div>
           <label :for="question.id + '-' + choice.value">
             {{ choice.text }}
           </label>
         </div>
-      </template>
+      </div>
     </div>
     <v-divider v-if="!isHideDivider" :thickness="1" color="black" />
   </div>
@@ -61,12 +65,14 @@ console.log('hogehoge')
 
 <style lang="scss" scoped>
 .question-container{
-  margin: 30px 20px 5px 20px;
+  margin: 15px 20px 5px 20px;
+  // background:red;
   .question-number{
-    color: #EC8814;
+    color: #B0A997;
     font-weight: 700;
     font-size: 16px;
     margin-right: 1em; // 1文字分余白
+
   }
   .question-text{
     color: #333333;
@@ -75,10 +81,12 @@ console.log('hogehoge')
   }
   .choices-container {
     width: 500px;
+    // background:blue;
     .input-container {
       font-size: 10px;
       height: 100px;
-      margin: 10px 20px;
+      margin: 20px 20px 0px 20px;
+      // background:red;
       label{
         width:70px;
         position: relative;
@@ -114,19 +122,19 @@ console.log('hogehoge')
       input[type=radio]{
         display:none;
         // radioをチェックした時のstyle
-        &:checked + label::after {
+        &:checked ~ label::after {
           opacity: 0;
         }
-        &:checked + label::before {
+        &:checked ~ label::before {
           opacity: 1;
-          background: #FF9417;
+          background: #B0A997;
         }
-        &:hover + label::after {
+        &:hover ~ label::after {
           opacity: 0;
         }
-        &:hover + label::before {
+        &:hover ~ label::before {
           opacity: 1;
-          background: #FF9417;
+          background: #B0A997;
         }
       }
     }
@@ -141,7 +149,7 @@ console.log('hogehoge')
   margin: 30px 20px 5px 20px;
   // background:red;
   .question-number{
-    color: #EC8814;
+    color: #B0A997;
     font-weight: 700;
     font-size: 16px;
     margin-right: 1em; // 1文字分余白
@@ -175,5 +183,65 @@ console.log('hogehoge')
     width: 80%;
   }
 }
+}
+</style>
+
+<style lang="scss" scoped>
+/*
+ * 回答のチェックマーク用CSS
+ */
+.chack-mark {
+    position: relative; // チェックマークの基準になる
+    span {
+    &:before {
+      content: "";
+      width: 0px;
+      height: 2px;
+      position: absolute;
+      transform: rotate(40deg);
+      top: 33px; // 場所移動
+      left: 24px; // 場所移動
+      transition: width 50ms ease 50ms;
+      transform-origin: 0% 0%;
+      z-index:10;
+    }
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: #fff;
+      position: absolute;
+      transform: rotate(310deg);
+      top: 43px; // 場所移動
+      left: 33px; // 場所移動
+      transition: width 50ms ease;
+      transform-origin: 0% 0%;
+      z-index:10;
+    }
+  }
+}
+
+input[type="radio"] {
+  &:checked {
+    + .chack-mark{
+      span {
+        background-color: #fff;
+
+        &:after {
+          width: 20px; // チェックマークの長さ 右
+          background: #FFFFFF;
+          transition: width 200ms ease 100ms;
+        }
+
+        &:before {
+          width: 15px; // チェックマークの長さ 左
+          background: #FFFFFF;
+          transition: width 50ms ease 100ms;
+        }
+    }
+    }
+  }
 }
 </style>

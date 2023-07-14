@@ -1,10 +1,12 @@
+import svgLoader from 'vite-svg-loader'
 const PRODUCTION_BASE_PATH = '/torisetsu/'
 
 export default defineNuxtConfig({
   vite: {
     define: {
       'process.env.DEBUG': false
-    }
+    },
+    plugins: [svgLoader()]
   },
   runtimeConfig: {
     public: {
@@ -21,7 +23,23 @@ export default defineNuxtConfig({
       meta: [{ name: 'description', content: 'test' }],
       base: {
         href: 'router.base' // サブディレクトリーへのデプロイに伴い必要
-      }
+      },
+      link: [
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com'
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: ''
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lora&family=Shippori+Mincho+B1:wght@500&display=swap',
+          crossorigin: ''
+        }
+      ]
     },
     baseURL: process.env.NODE_ENV === 'production' ? PRODUCTION_BASE_PATH : '/' // jsを読み込むパスがローカルと本番で異なるため設定
   },
