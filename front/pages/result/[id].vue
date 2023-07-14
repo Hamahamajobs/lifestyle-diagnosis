@@ -135,11 +135,8 @@ const currentSvg = computed(() => (id) => {
 
       <!-- 13のタイプ一覧を見る ブロック -->
       <!-- TODO: コンポーネント化 -->
-      <div class="mb-5">
-        <p>
-          13のタイプ一覧を見るのブロック/p>
-        </p>
-        <typeList />
+      <div class="mb-5 margin-auto">
+        <thirteenTypeScroll />
       </div>
 
       <div class="mb-5" />
@@ -270,5 +267,8 @@ const currentSvg = computed(() => (id) => {
     }
 
   }
+}
+.margin-auto {
+  margin: 0 auto;
 }
 </style>
