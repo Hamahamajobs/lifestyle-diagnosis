@@ -3,7 +3,7 @@
   <div>
     <v-container fluid class="diagnosis-main-container d-flex align-center flex-column mb-3">
       <div class="mb-3">
-        <v-btn style="position: fixed; top: 100px; right: 400px;" color="blue" @click="randomToResult">
+        <v-btn style="position: fixed; top: 100px; right: 300px;" color="blue" @click="randomToResult">
           【開発用】ランダム&結果へ
         </v-btn>
       </div>
@@ -221,6 +221,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
       font-size: 30px;
       font-weight: 700;
       line-height: 43px;
+      margin-top:70px;
       p {
         display:inline-block;
         text-align:center;
