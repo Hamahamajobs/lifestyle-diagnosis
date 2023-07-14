@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Test1 from '~/assets/svg/test.svg?component'
-import Test2 from '~/assets/svg/test2.svg?component'
-import Test3 from '~/assets/svg/test3.svg?component'
-import WaterDropBig from '~/assets/svg//waterdrops/big.svg?component'
-import WaterDropSmallLeft from '~/assets/svg//waterdrops/small1.svg?component'
-import WaterDropSmallRight from '~/assets/svg//waterdrops/small2.svg?component'
+import Test1 from '~/assets/svg/test.vue'
+import Test2 from '~/assets/svg/test2.vue'
+import Test3 from '~/assets/svg/test3.vue'
+import WaterDropBig from '~/assets/svg//waterdrops/big.vue'
+import WaterDropSmallLeft from '~/assets/svg//waterdrops/small1.vue'
+import WaterDropSmallRight from '~/assets/svg//waterdrops/small2.vue'
 
 // Router
 const router = useRouter()
@@ -15,32 +15,46 @@ function goHome (): void {
 
 const { morisTypes } = reactive(getMorisTypes())
 
-const resultType = computed(() => {
-  // パスパラメーター取得
-  const resultTypeId = router.currentRoute._value.params.id
-  return morisTypes.find(type => type.en === resultTypeId)
-})
+// 診断結果のタイプを取得
+const resultTypeId = router.currentRoute._value.params.id
+const resultType = morisTypes.find(type => type.en === resultTypeId)
+
+// svgファイルごとに適切なWidthを設定
+const setSvgWidthPx = resultType.svgWidthPx
 
 // 結果別のSVGを設定
 const currentSvg = computed(() => (id) => {
   switch (id) {
-    case 'altruist': return Test1
-    case 'hedonistic': return Test1
-    case 'love': return Test1
-    case 'moderation': return Test1
-    case 'accepting': return Test1
-    case 'variety': return Test2
-    case 'hedonism': return Test2
-    case 'cooperation': return Test2
-    case 'acceptance-of-life': return Test2
-    case 'self-disciplined': return Test3
-    case 'activist': return Test3
-    case 'meditative': return Test3
-    case 'achievement': return Test3
-    default: return ''
+    case 'altruist':
+      return Test1
+    case 'hedonistic':
+      return Test1
+    case 'love':
+      return Test1
+    case 'moderation':
+      return Test1
+    case 'accepting':
+      return Test1
+    case 'variety':
+      return Test2
+    case 'hedonism':
+      return Test2
+    case 'cooperation':
+      return Test2
+    case 'acceptance-of-life':
+      return Test2
+    case 'self-disciplined':
+      return Test3
+    case 'activist':
+      return Test3
+    case 'meditative':
+      return Test3
+    case 'achievement':
+      return Test3
+    default:
+      return ''
   }
 })
-
 </script>
 
 <template>
@@ -48,12 +62,8 @@ const currentSvg = computed(() => (id) => {
     <div class="lp-container d-flex flex-column">
       <!-- 一番上のサマリー的なところ -->
       <div class="top-container mb-5" :class="resultType.en">
-        <div
-          class="result-text d-flex justify-center"
-        >
-          <div
-            class="d-flex flex-column"
-          >
+        <div class="result-text d-flex justify-center">
+          <div class="d-flex flex-column">
             <div class="water-drops-contaner d-flex justify-center align-end">
               <WaterDropSmallLeft class="water-drops-small" />
               <WaterDropBig class="water-drops-big" />
@@ -79,8 +89,11 @@ const currentSvg = computed(() => (id) => {
             </p>
           </div>
           <div class="right">
-            <div class="white-block" />
-            <component :is="currentSvg(resultType.en)" class="type-image" />
+            <div class="white-block">
+              <div class="svg-container">
+                <component :is="currentSvg(resultType.en)" class="type-image" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -156,116 +169,116 @@ const currentSvg = computed(() => (id) => {
 </template>
 
 <style lang="scss" scoped>
-
 .lp-container {
   min-width: 1280px;
-  .top-container{
+  .top-container {
     width: 100%;
-    min-height:861px;
-    min-height:90%;
-    .water-drops-contaner{
-      .water-drops-small{
+    min-height: 861px;
+    min-height: 90%;
+    .water-drops-contaner {
+      .water-drops-small {
         margin-top: 40px;
-        margin:0px;
+        margin: 0px;
       }
-      .water-drops-big{
-        margin:0px;
+      .water-drops-big {
+        margin: 0px;
       }
     }
     .result-text {
-      margin-top:137px;
+      margin-top: 137px;
       font-size: 30px;
       font-weight: 700;
       line-height: 43px;
       p {
-        display:inline-block;
-        text-align:center;
+        display: inline-block;
+        text-align: center;
         width: 230px;
         top: 169px;
         left: 526px;
-        color: #FFFFFF;
-        border-top: 1.5px solid #FFFFFF;
-        border-bottom: 1.5px solid #FFFFFF;
-        margin-top:8px;
+        color: #ffffff;
+        border-top: 1.5px solid #ffffff;
+        border-bottom: 1.5px solid #ffffff;
+        margin-top: 8px;
       }
     }
-    .top-main{
-      margin-top:143px;
+    .top-main {
+      margin-top: 143px;
       padding-bottom: 230px;
-      .left{
+      .left {
         margin-right: 100px;
-        .top-your-type-is{
+        .top-your-type-is {
           font-size: 48px;
           font-weight: 400;
           line-height: 89px;
           letter-spacing: 0em;
-          color:#FFFFFF;
-          margin-bottom:-20px;
-          margin-left:-40px;
-          z-index:20;
+          color: #ffffff;
+          margin-bottom: -20px;
+          margin-left: -40px;
+          z-index: 20;
         }
-       .top-type{
-        width: 212px;
-        height: 93px;
-        top: 352px;
-        left: 173px;
-        font-size: 64px;
-        font-weight: 700;
-        line-height: 93px;
-        letter-spacing: 0.1em;
-        text-align: center;
-        color:#FFFFFF;
-        background-color:#383C3C;
-      }
-      .top-title{
-        margin-top: 40px;
-        width: 395px; // NOTE: figmaは385pxだけど改行されてしまうので5px伸ばした
-        top: 488px;
-        left: 175px;
-        font-size: 34px;
-        font-weight: 700;
-        line-height: 50px;
-        letter-spacing: 0.03em;
-        text-align: left;
-        background:#FFFFFF;
-        padding:5px 3px;
-      }
-      .top-detail {
-        margin-top: 40px;
-        width: 368px;
-        height: 105px;
-        top: 628px;
-        left: 175px;
-        font-family: Yu Gothic;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 35px;
-        letter-spacing: 0em;
-        text-align: left;
-        color: #333333;
+        .top-type {
+          width: 212px;
+          height: 93px;
+          top: 352px;
+          left: 173px;
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 93px;
+          letter-spacing: 0.1em;
+          text-align: center;
+          color: #ffffff;
+          background-color: #383c3c;
+        }
+        .top-title {
+          margin-top: 40px;
+          width: 395px; // NOTE: figmaは385pxだけど改行されてしまうので5px伸ばした
+          top: 488px;
+          left: 175px;
+          font-size: 34px;
+          font-weight: 700;
+          line-height: 50px;
+          letter-spacing: 0.03em;
+          text-align: left;
+          background: #ffffff;
+          padding: 5px 3px;
+        }
+        .top-detail {
+          margin-top: 40px;
+          width: 368px;
+          height: 105px;
+          top: 628px;
+          left: 175px;
+          font-family: Yu Gothic;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 35px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: #333333;
         }
       }
       .right {
-          margin-left:3%;
+        margin-left: 3%;
         .white-block {
           position: relative;
           width: 465px;
           height: 375px;
-          margin-top:50px;
-          border: 1px solid #383C3C;
-          background:white;
-          z-index:5;
-          box-shadow: 10px 10px #E4D9C4;
-        }
-        .type-image {
-          position: relative;
-          margin-left:-50px;
-          margin-top:-500px;
-          z-index:10;
+          margin-top: 50px;
+          border: 1px solid #383c3c;
+          background: white;
+          z-index: 5;
+          box-shadow: 10px 10px #e4d9c4;
+          .svg-container {
+            position: absolute;
+            top:-35px;
+            left:-45px;
+            width: v-bind(setSvgWidthPx); // TODO: SVGごとに大きさが変わってしまうのでロジック修正
+            .type-image {
+            }
+          }
         }
       }
     }
-
   }
 }
 .margin-auto {

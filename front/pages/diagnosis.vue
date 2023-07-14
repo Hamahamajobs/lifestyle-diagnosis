@@ -110,9 +110,9 @@
 
 <script async setup lang="ts">
 
-import WaterDropBlackBig from '~/assets/svg//waterdrops/bigblack.svg?component'
-import WaterDropBlackSmallLeft from '~/assets/svg//waterdrops/small1black.svg?component'
-import WaterDropBlackSmallRight from '~/assets/svg//waterdrops/small2black.svg?component'
+import WaterDropBlackBig from '~/assets/svg//waterdrops/bigblack.vue'
+import WaterDropBlackSmallLeft from '~/assets/svg//waterdrops/small1black.vue'
+import WaterDropBlackSmallRight from '~/assets/svg//waterdrops/small2black.vue'
 
 // Router
 const router = useRouter()

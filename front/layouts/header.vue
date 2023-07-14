@@ -1,15 +1,9 @@
-<script setup lang="ts">
-// const domain = runtimeConfig.public.domain
-
-// const top
-// router.push('/result/' + data.value.result)
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <header>
     <div class="header-contents">
-      <div class="pc-menu-container d-flex justify-space-around align-center font-Shippori-Mincho-B1">
+      <div class="pc-menu-container d-flex align-center justify-center font-Shippori-Mincho-B1">
         <NuxtLink to="/">
           トップページ
         </NuxtLink>
@@ -19,7 +13,7 @@
         <NuxtLink to="/" class="logo">
           ロゴ作成中
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink to="/list">
           13タイプ一覧
         </NuxtLink>
         <NuxtLink to="/">
@@ -77,6 +71,7 @@ header {
     a {
       margin: 0px 35px;
       text-decoration: none;
+      width:150px;
       color: #383c3c;
       font-size: 16px;
       font-weight: 700;
