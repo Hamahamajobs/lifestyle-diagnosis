@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import Slash from '~/assets/svg/atom/slash.svg?component'
-import Kindle from '~/assets/svg/kindle/index.svg?component'
+import Slash from '~/assets/svg/atom/slash.vue'
+import Kindle from '~/assets/svg/kindle/index.svg?component' // NOTE: SVGが上書きされてしまうのでこの書き方でimportする
 
 function goKindle (): void {
   const url = 'https://www.amazon.co.jp/%E7%94%9F%E3%81%8D%E6%96%B9%E3%81%AB%E3%81%93%E3%81%A0%E3%82%8F%E3%81%A3%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%82%E3%81%AA%E3%81%9F%E3%81%B8-%E4%BA%BA%E7%94%9F%E3%81%AE%E7%B5%82%E3%81%88%E6%96%B9%E3%81%AB%E3%82%82%E3%81%93%E3%81%A0%E3%82%8F%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%9B%E3%82%93%E3%81%8B%EF%BC%9F-%E3%82%A8%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%8E%E3%83%BC%E3%83%88-%E4%BA%BA%E7%94%9F%E3%81%AE%E7%B5%82%E3%81%88%E6%96%B9-%E7%94%9F%E3%81%8D%E6%96%B9-ebook/dp/B0B36VC2ZX/ref=sr_1_10?keywords=%E4%BA%BA%E7%94%9F%E3%81%AE%E7%B5%82%E3%82%8F%E3%82%8A%E6%96%B9&qid=1689237743&sprefix=%E4%BA%BA%E7%94%9F%E3%81%AE%E7%B5%82%E3%82%8F%E3%82%8A%2Caps%2C182&sr=8-10'
