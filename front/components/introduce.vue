@@ -63,24 +63,29 @@ function goKindle (): void {
   background: linear-gradient(#F8F4E6, #DED2BA);
   height:1300px;
   margin-top:200px;
+
   .introduce-top{
     width:50%;
     margin: auto;
     margin-top: 120px;
+
     .introduce-about{
       font-size: 20px;
       font-weight: 400;
       line-height: 37px;
       letter-spacing: 0.03em;
       text-align: left;
+
       p{
         margin-bottom:13px;
+
         span{
           padding-top:12px;
         }
       }
 
     }
+
     .introduce-title{
       // background:blue;
       .left-item{
@@ -90,29 +95,35 @@ function goKindle (): void {
         letter-spacing: 0.03em;
         text-align: left;
       }
+
       .right-item{
         width:50%;
-        font-family: Yu Gothic;
+        font-family: "Yu Gothic";
         font-size: 16px;
         font-weight: 500;
         line-height: 35px;
         letter-spacing: 0.03em;
         text-align: left;
+
         .short-message{
           margin-bottom:18px;
         }
       }
     }
   }
+
   .column-container{
     margin-top: 108px;
+
     .column{
       height:112px;
-      border-left:1px solid #000000; /*線の設定*/
+      border-left:1px solid #000; /* 線の設定 */
     }
   }
+
   .pre-message-container{
     margin-top:40px;
+
     .pre-message{
       width:520px;
       font-size: 20px;
@@ -126,18 +137,19 @@ function goKindle (): void {
       }
     }
   }
+
   .kindle-container{
     margin-top:-30px;
+
     .try {
       font-size: 20px;
       font-weight: 700;
       line-height: 32px;
       letter-spacing: 0.03em;
-      text-align: left;
       background:#383C3C;
       width: 206px;
       height: 62px;
-      color:#FFFFFF;
+      color:#FFF;
       text-align:center;
       margin-top:-62px;
       margin-right:-600px;

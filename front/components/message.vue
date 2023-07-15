@@ -42,6 +42,7 @@ const props = defineProps < {
   margin-left:20%;
   margin-top:50px;
   color:#383C3C;
+
   .label{
       color:#B0A997;
       font-size: 60px;
@@ -51,6 +52,7 @@ const props = defineProps < {
       margin-left: -70px;
       margin-bottom: -55px;
     }
+
   .ask-container{
     .ask{
       width:100%;
@@ -60,9 +62,11 @@ const props = defineProps < {
       z-index:-1;
     }
   }
+
   .contents-container {
     margin-bottom:120px;
     width:70%;
+
     .title{
       margin-top:41px;
       font-size: 32px;
@@ -70,6 +74,7 @@ const props = defineProps < {
       line-height: 46px;
       letter-spacing: 0.03em;
     }
+
     .contents{
       margin-top:36px;
       font-size: 16px;

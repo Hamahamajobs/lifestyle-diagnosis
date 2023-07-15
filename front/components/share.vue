@@ -55,6 +55,7 @@ function share (): void {
 <style lang="scss" scoped>
 .share-container {
   margin-top:88px;
+
   .hash-tag{
     font-size: 32px;
     font-weight: 400;
@@ -62,25 +63,30 @@ function share (): void {
     letter-spacing: 0.03em;
     margin-bottom:12px;
   }
+
   .message {
     font-size: 20px;
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0.03em;
-    color: #000000;
+    color: #000;
   }
+
   .icon-container{
     margin-top:26px;
+
     div{
       width:66px;
       height:66px;
       border-radius: 50%;
       z-index:1;
+
       &:hover{
         cursor: pointer;
         background-color:#FDFBF4;
       }
     }
+
     .icon {
       z-index:2;
     }

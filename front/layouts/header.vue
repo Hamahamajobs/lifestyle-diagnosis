@@ -47,7 +47,7 @@
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 header {
@@ -56,7 +56,7 @@ header {
   align-items: center;
   height: 70px; // ヘッダーの高さ固定
   width:100%;
-  background: rgba(255, 255, 255, 1);
+  background: rgb(255 255 255 / 100%);
   border-bottom: 1px solid #2d303a;
   position:fixed;
   top:0;
@@ -67,9 +67,10 @@ header {
 .header-contents {
   margin: 0 auto;
   display: flex;
+
   .pc-menu-container {
     a {
-      margin: 0px 35px;
+      margin: 0 35px;
       text-decoration: none;
       width:150px;
       color: #383c3c;
@@ -78,17 +79,18 @@ header {
       line-height: 23px;
       letter-spacing: 0.05em;
       z-index: 999;
+
       &.logo {
         width: 140px;
         height:39px;
-        background: #333333;
+        background: #333;
         text-align: center;
-        font-family: Yu Gothic;
+        font-family: "Yu Gothic";
         font-size: 16px;
         font-weight: 700;
         line-height: 26px;
         letter-spacing: 0.05em;
-        color: #ffffff;
+        color: #fff;
         padding-top:5px;
       }
     }
@@ -99,9 +101,9 @@ nav {
   display: none; // PC画面でハンバーガーメニューは非表示
   align-items: center;
 }
+
 .menu__box {
   display: flex;
-  flex-direction: row;
   list-style-type: none;
   flex-direction: column;
   position: fixed;
@@ -110,21 +112,18 @@ nav {
   left: 0;
   width: 100%;
   height: 15em;
-  margin: -600px 0 0 0;
+  margin: -600px 0 0;
   padding: 0.6em 0;
   text-align: center;
   background-color: #2d303a;
-  box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 6px rgb(0 0 0 / 20%);
   z-index: 1;
   transition-duration: 0.5s;
 }
+
 .menu__item {
-  display: flex;
   flex-direction: column;
-  padding: 0 1em 0 1.9em;
-  color: red;
   font-family: sans-serif;
-  font-size: 14px;
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
@@ -133,6 +132,7 @@ nav {
   color: red;
   font-size: 18px;
   transition-duration: 0.5s;
+
   &:hover {
     background-color: #4f5464;
   }
@@ -141,6 +141,7 @@ nav {
 #menu__toggle {
   opacity: 0;
   display: none;
+
   &:checked ~ .menu__btn > span {
     transform: rotate(45deg);
   }
@@ -175,10 +176,13 @@ nav {
   height: 26px;
   cursor: pointer;
   z-index: 2;
+
   span {
     @include burgerSpan;
+
     &::before {
       @include burgerSpan;
+
       content: "";
       top: -8px;
       transition-duration: 0.25s;
@@ -186,6 +190,7 @@ nav {
 
     &::after {
       @include burgerSpan;
+
       content: "";
       top: 8px;
       transition-duration: 0.25s;
@@ -193,7 +198,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
   nav {
     display: flex; // スマホ画面でハンバーガーメニューを表示
   }
