@@ -65,7 +65,7 @@ function moveSelectQuestion (id):void {
 
 <style lang="scss" scoped>
 .question-container{
-  margin: 15px 20px 5px;
+  margin: 15px 20px 5px 20px;
   // background:red;
   .question-number{
     color: #B0A997;
@@ -74,20 +74,18 @@ function moveSelectQuestion (id):void {
     margin-right: 1em; // 1文字分余白
 
   }
-
   .question-text{
-    color: #333;
+    color: #333333;
     font-weight: 700;
     font-size: 16px;
   }
-
   .choices-container {
     width: 500px;
     // background:blue;
     .input-container {
       font-size: 10px;
       height: 100px;
-      margin: 20px 20px 0;
+      margin: 20px 20px 0px 20px;
       // background:red;
       label{
         width:70px;
@@ -106,9 +104,8 @@ function moveSelectQuestion (id):void {
           background: #D9D9D9;
           border: 1px solid #ddd;
           left: 10px;
-          top: 0;
+          top: 0px;
         }
-
         &::after{
           position: absolute;
           content: '';
@@ -116,29 +113,25 @@ function moveSelectQuestion (id):void {
           width: 30px;
           height: 30px;
           border-radius: 50%;
-          background: #FFF;
+          background: #FFFFFF;
           left: 20px;
           top: 10px;
           transition: .3s;
         }
       }
-
-      input[type="radio"]{
+      input[type=radio]{
         display:none;
         // radioをチェックした時のstyle
         &:checked ~ label::after {
           opacity: 0;
         }
-
         &:checked ~ label::before {
           opacity: 1;
           background: #B0A997;
         }
-
         &:hover ~ label::after {
           opacity: 0;
         }
-
         &:hover ~ label::before {
           opacity: 1;
           background: #B0A997;
@@ -146,16 +139,14 @@ function moveSelectQuestion (id):void {
       }
     }
   }
-
   hr {
     width: 600px;
     opacity: 0.5 !important; // vuetifyのv-dividerのデフォルト値上書き
   }
 }
-
-@media screen and (width <= 700px) {
+@media screen and (max-width: 700px) {
 .question-container{
-  margin: 30px 20px 5px;
+  margin: 30px 20px 5px 20px;
   // background:red;
   .question-number{
     color: #B0A997;
@@ -163,28 +154,22 @@ function moveSelectQuestion (id):void {
     font-size: 16px;
     margin-right: 1em; // 1文字分余白
   }
-
   .question-text{
     font-size: 16px;
   }
-
   .choices-container {
     width: 80vw;
-
     .input-container {
       font-size: 10px;
       height: 100px;
       margin: 10px 13px;
-
       label{
         width:45px;
-
         &::before{
           width: 50px;
           height: 50px;
-          left: 0;
+          left: 0px;
         }
-
         &::after{
           width: 30px;
           height: 30px;
@@ -194,7 +179,6 @@ function moveSelectQuestion (id):void {
       }
     }
   }
-
   hr {
     width: 80%;
   }
@@ -209,9 +193,9 @@ function moveSelectQuestion (id):void {
 .chack-mark {
     position: relative; // チェックマークの基準になる
     span {
-    &::before {
+    &:before {
       content: "";
-      width: 0;
+      width: 0px;
       height: 2px;
       position: absolute;
       transform: rotate(40deg);
@@ -222,7 +206,7 @@ function moveSelectQuestion (id):void {
       z-index:10;
     }
 
-    &::after {
+    &:after {
       content: "";
       width: 0;
       height: 2px;
@@ -245,15 +229,15 @@ input[type="radio"] {
       span {
         background-color: #fff;
 
-        &::after {
+        &:after {
           width: 20px; // チェックマークの長さ 右
-          background: #FFF;
+          background: #FFFFFF;
           transition: width 200ms ease 100ms;
         }
 
-        &::before {
+        &:before {
           width: 15px; // チェックマークの長さ 左
-          background: #FFF;
+          background: #FFFFFF;
           transition: width 50ms ease 100ms;
         }
     }

@@ -49,29 +49,24 @@ const returnArray = computed(
     overflow-y: hidden;
     padding: 30px;
     max-width: 1500px;
-
     &-list {
       display: flex;
       align-items: center;
       animation: loop-slide 60s infinite linear 1s both;
     }
-
     li {
       min-width: 350px;
       list-style: none;
     }
   }
-
   @keyframes loop-slide {
     from {
       transform: translateX(0);
     }
-
     to {
       transform: translateX(-100%);
     }
   }
-
   .slice-paused:hover {
     animation-play-state: paused;
   }

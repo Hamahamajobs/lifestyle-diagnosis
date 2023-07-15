@@ -79,14 +79,12 @@ const props = defineProps < {
     text-align: left;
     margin-bottom:-30px;
   }
-
   .summary-card{
     width: 710px;
     height: 1029px;
     color:#383C3C;
     border: 1px solid #383C3C;
     box-shadow: 15px 15px #B0A997;
-
     .svg-container{
       text-align:center;
       width: 450px;
@@ -95,21 +93,19 @@ const props = defineProps < {
       background-color:gray;
       margin-top:30px;
     }
-
     .introduction{
       margin-top:15px;
       width: 279px;
-      padding: 2px;
+      padding: 2px 2px;
       background: #393D3D;
-      font-family: "Shippori Mincho B1";
+      font-family: Shippori Mincho B1;
       font-size: 20px;
       font-weight: 700;
       letter-spacing: 0.03em;
-      color: #FFF;
+      color: #FFFFFF;
     }
-
     .type{
-      font-family: "Shippori Mincho B1";
+      font-family: Shippori Mincho B1;
       font-size: 40px;
       font-weight: 700;
       line-height: 58px;
@@ -117,9 +113,8 @@ const props = defineProps < {
       text-align: center;
       margin-top:10px;
     }
-
     .summary-title{
-      font-family: "Shippori Mincho B1";
+      font-family: Shippori Mincho B1;
       font-size: 20px;
       font-weight: 700;
       line-height: 30px;
@@ -129,15 +124,13 @@ const props = defineProps < {
       margin-top:10px;
       color:#383C3C;
     }
-
     .summary-contents{
       margin-top:45px;
 
       .summary-block{
         width:412px;
-
         .question{
-          font-family: "Shippori Mincho B1";
+          font-family: Shippori Mincho B1;
           font-size: 16px;
           font-weight: 700;
           line-height: 25px;
@@ -145,9 +138,8 @@ const props = defineProps < {
           text-align: left;
           color: #B0A997;
         }
-
         .summary-text{
-          font-family: "Shippori Mincho B1";
+          font-family: Shippori Mincho B1;
           font-size: 16px;
           font-weight: 500;
           line-height: 25px;

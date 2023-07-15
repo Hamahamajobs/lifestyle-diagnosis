@@ -208,44 +208,39 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
 <style lang="scss" scoped>
 .diagnosis-main-container {
   width:600px;
-
   .water-drops-contaner{
       .water-drops-small{
         margin-top: 40px;
-        margin:0;
+        margin:0px;
       }
-
       .water-drops-big{
-        margin:0;
+        margin:0px;
       }
     }
-
     .result-text {
       font-size: 30px;
       font-weight: 700;
       line-height: 43px;
       margin-top:70px;
-
       p {
         display:inline-block;
         text-align:center;
         width: 230px;
         top: 169px;
         left: 526px;
-        color: #333;
-        border-top: 1.5px solid #333;
-        border-bottom: 1.5px solid #333;
+        color: #333333;
+        border-top: 1.5px solid #333333;
+        border-bottom: 1.5px solid #333333;
         margin-top:8px;
       }
     }
-
   .next-button {
     margin-top: 40px;
     display: block;
     width: 350px;
     height: 50px;
     background-color: #D9D9D9;
-    color: #FFF;
+    color: #FFFFFF;
     font-size: 16px;
     letter-spacing: 0.05em;
     line-height: 26px;
@@ -253,8 +248,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
     position: relative;
     transition: all .2s linear;
     cursor: not-allowed;
-
-    &::before{
+    &:before{
       content:"";
       position: absolute;
       top:50%;
@@ -264,8 +258,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
       background:#fff;
       transition: all .2s linear;
     }
-
-    &::after {
+    &:after {
       content: '';
       position: absolute;
       top: 42%;
@@ -276,11 +269,9 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
       border-left-color: #fff;
       transition: all .2s linear;
     }
-
     &.filled-next-button{
       background:#383C3C;
       cursor: pointer;
-
       &:hover{
       opacity: 0.7;
       transition: all .2s linear;
@@ -291,22 +282,19 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
 
   .message-container {
     margin-top: 20px;
-
     .message {
       font-weight: 700;
       font-size: 16px;
       color: #393D3D;
-      font-family: "Shippori Mincho B1";
+      font-family: Shippori Mincho B1;
       line-height: 23px;
       letter-spacing: 0.05em;
       background:#F1F1F1;
       margin-bottom: 83px;
     }
   }
-
-  @media screen and (width <= 700px) {
+  @media screen and (max-width: 700px) {
     width:80vw;
-
     .next-button {
     margin-top: 20px;
     height: 50px;

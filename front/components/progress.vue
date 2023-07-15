@@ -57,21 +57,18 @@ const props = defineProps < {
 <style lang="scss" scoped>
 .progress-container{
   margin-top:30px;
-
   .step{
     div{
       width: 59px;
       height: 59px;
       background-color:#F1F1F1;
       border-radius:50%;
-      color:#FFF;
+      color:#FFFFFF;
       margin-right: 20px;
     }
-
     .other{
       text-align: center;
       background: #F1F1F1;
-
       span {
         display:inline-block;
         font-size: 36px;
@@ -81,7 +78,6 @@ const props = defineProps < {
         margin-top:5px;
       }
     }
-
     .current{
       width: 93px;
       height: 93px;
@@ -91,7 +87,6 @@ const props = defineProps < {
       font-weight: 700;
       line-height: 61px;
       letter-spacing: 0.05em;
-
       .page{
         font-size: 16px;
         font-weight: 700;
@@ -99,7 +94,6 @@ const props = defineProps < {
         letter-spacing: 0.05em;
         margin-top: 15px;
       }
-
       .current-num{
         margin-top:-6px;
       }

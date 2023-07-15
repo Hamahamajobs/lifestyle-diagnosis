@@ -171,60 +171,51 @@ const currentSvg = computed(() => (id) => {
 <style lang="scss" scoped>
 .lp-container {
   min-width: 1280px;
-
   .top-container {
     width: 100%;
     min-height: 861px;
     min-height: 90%;
-
     .water-drops-contaner {
       .water-drops-small {
         margin-top: 40px;
-        margin: 0;
+        margin: 0px;
       }
-
       .water-drops-big {
-        margin: 0;
+        margin: 0px;
       }
     }
-
     .result-text {
       margin-top: 137px;
       font-size: 30px;
       font-weight: 700;
       line-height: 43px;
-
       p {
         display: inline-block;
         text-align: center;
         width: 230px;
         top: 169px;
         left: 526px;
-        color: #fff;
-        border-top: 1.5px solid #fff;
-        border-bottom: 1.5px solid #fff;
+        color: #ffffff;
+        border-top: 1.5px solid #ffffff;
+        border-bottom: 1.5px solid #ffffff;
         margin-top: 8px;
       }
     }
-
     .top-main {
       margin-top: 143px;
       padding-bottom: 230px;
-
       .left {
         margin-right: 100px;
-
         .top-your-type-is {
           font-size: 48px;
           font-weight: 400;
           line-height: 89px;
-          letter-spacing: 0;
-          color: #fff;
+          letter-spacing: 0em;
+          color: #ffffff;
           margin-bottom: -20px;
           margin-left: -40px;
           z-index: 20;
         }
-
         .top-type {
           width: 212px;
           height: 93px;
@@ -235,10 +226,9 @@ const currentSvg = computed(() => (id) => {
           line-height: 93px;
           letter-spacing: 0.1em;
           text-align: center;
-          color: #fff;
+          color: #ffffff;
           background-color: #383c3c;
         }
-
         .top-title {
           margin-top: 40px;
           width: 395px; // NOTE: figmaは385pxだけど改行されてしまうので5px伸ばした
@@ -248,29 +238,26 @@ const currentSvg = computed(() => (id) => {
           font-weight: 700;
           line-height: 50px;
           letter-spacing: 0.03em;
-          background: #fff;
+          background: #ffffff;
           padding: 5px 3px;
         }
-
         .top-detail {
           margin-top: 40px;
           width: 368px;
           height: 105px;
           top: 628px;
           left: 175px;
-          font-family: "Yu Gothic";
+          font-family: Yu Gothic;
           font-size: 16px;
           font-weight: 500;
           line-height: 35px;
-          letter-spacing: 0;
+          letter-spacing: 0em;
           text-align: left;
-          color: #333;
+          color: #333333;
         }
       }
-
       .right {
         margin-left: 3%;
-
         .white-block {
           position: relative;
           width: 465px;
@@ -280,12 +267,11 @@ const currentSvg = computed(() => (id) => {
           background: white;
           z-index: 5;
           box-shadow: 10px 10px #e4d9c4;
-
           .svg-container {
             position: absolute;
             top:-35px;
             left:-45px;
-            width: v-bind(setsvgwidthpx); // TODO: SVGごとに大きさが変わってしまうのでロジック修正
+            width: v-bind(setSvgWidthPx); // TODO: SVGごとに大きさが変わってしまうのでロジック修正
             .type-image {
             }
           }
@@ -294,7 +280,6 @@ const currentSvg = computed(() => (id) => {
     }
   }
 }
-
 .margin-auto {
   margin: 0 auto;
 }
