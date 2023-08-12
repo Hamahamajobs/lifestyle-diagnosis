@@ -3,7 +3,7 @@
 <template>
   <header>
     <div class="header-contents">
-      <div class="pc-menu-container d-flex align-center justify-center font-Shippori-Mincho-B1">
+      <div class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New">
         <NuxtLink to="/">
           トップページ
         </NuxtLink>
@@ -56,7 +56,7 @@ header {
   align-items: center;
   height: 70px; // ヘッダーの高さ固定
   width:100%;
-  background: rgba(255, 255, 255, 1);
+  background-color: #EAD3F0;
   border-bottom: 1px solid #2d303a;
   position:fixed;
   top:0;

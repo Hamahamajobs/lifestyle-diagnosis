@@ -78,10 +78,10 @@ const currentSvg = computed(() => (id) => {
             <p class="font-La-Belle-Aurore top-your-type-is">
               your type is...
             </p>
-            <p class="top-type font-Shippori-Mincho-B1">
+            <p class="top-type font-Zen-Kaku-Gothic-New">
               {{ resultType.jp }}
             </p>
-            <p class="top-title font-Shippori-Mincho-B1">
+            <p class="top-title font-Zen-Kaku-Gothic-New">
               精神的に安定しており、頼られることが好き
             </p>
             <p class="top-detail">

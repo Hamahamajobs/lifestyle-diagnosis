@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="footer d-flex align-center font-Shippori-Mincho-B1">
+  <div class="footer d-flex align-center font-Zen-Kaku-Gothic-New">
     <div class="left-item">
       <p>トップページ</p>
       <p>生き方を診断する</p>
