@@ -84,7 +84,24 @@ function goTypesList (): void {
         </div>
       </div>
     </div>
-    <div class="last-contents" />
+    <div class="last-contents d-flex justify-center">
+      <div class="left-item d-flex justify-center align-center">
+        <p>
+          何かイラスト等の
+          イメージ
+        </p>
+      </div>
+      <div class="right-item">
+        <p class="message font-Zen-Kaku-Gothic-New">
+          みらみら診断で、<br>あなたの生き方を知る
+        </p>
+        <button class="start-diagnosis-btn" type="button" @click="goDiagnosis">
+          <span>診断スタート！</span>
+        </button>
+      </div>
+    </div>
+    <!-- 診断誘導のフッター -->
+    <FooterToDiagnosis />
   </div>
 </template>
 
@@ -129,7 +146,7 @@ function goTypesList (): void {
         height: 70px;
         padding: 0 30px;
         background: linear-gradient(270deg, #fffecf 0%, #f19a75 100%);
-        box-shadow: 2px 4px 4px #00000040, -2px 4px 4px #00000040;
+        box-shadow: 2px 4px 4px #41365A40, -2px 4px 4px #41365A40;
         color: #333;
         font-size: 16px;
         font-weight: bold;
@@ -169,7 +186,7 @@ function goTypesList (): void {
     display: inline-block;
     width: 100%;
     background: linear-gradient(180deg, #f9e5da 0%, #e8bcf3 100%);
-    padding-bottom:150px;
+    padding-bottom: 150px;
     .introduce-top {
       width: 70%;
       max-width: 1000px;
@@ -252,7 +269,7 @@ function goTypesList (): void {
               width: 226px;
               height: 50px;
               background: #ffffff;
-              box-shadow: 2px 4px 4px #00000040, -2px 4px 4px #00000040;
+              box-shadow: 2px 4px 4px #41365A40, -2px 4px 4px #41365A40;
               color: #606363;
               font-size: 16px;
               font-weight: bold;
@@ -291,9 +308,74 @@ function goTypesList (): void {
       }
     }
   }
-  .last-contents{
-    height:500px;
-    background: rgba(66,37,100, 0.7);
+  .last-contents {
+    height: 500px;
+    background: rgba(66, 37, 100, 0.7);
+    padding-top:76px;
+    height: 355px;
+    .left-item {
+      width: 451px;
+      height: 203px;
+      background: #d9d9d9;
+      margin-right: 80px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 38px;
+      letter-spacing: 0.05em;
+    }
+    .right-item {
+      width: 250px;
+      height: 500px;
+      .message {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 45px;
+        letter-spacing: 0.03em;
+        color: #ffffff;
+        margin-top: 10px;
+        margin-bottom: 28px;
+      }
+      .start-diagnosis-btn {
+        position: relative;
+        width: 226px;
+        height: 50px;
+        padding: 0 30px;
+        background: linear-gradient(270deg, #fffecf 0%, #f19a75 100%);
+        box-shadow: 2px 4px 4px #41365A40, -2px 4px 4px #41365A40;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        z-index: 1;
+        transition: 0.5s;
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          background: #41365a;
+          transform-origin: 100% 50%;
+          transform: scaleX(0);
+          transition: transform ease 0.5s;
+        }
+        &:hover {
+          color: #fff;
+        }
+        &:hover::before {
+          transform-origin: 0% 50%;
+          transform: scaleX(1);
+        }
+        span {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 26px;
+          letter-spacing: 0.05em;
+          text-align: left;
+        }
+      }
+    }
   }
 }
 </style>
