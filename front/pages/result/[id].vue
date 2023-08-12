@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import Test1 from '~/assets/svg/test.vue'
-import Test2 from '~/assets/svg/test2.vue'
-import Test3 from '~/assets/svg/test3.vue'
-import WaterDropBig from '~/assets/svg//waterdrops/big.vue'
-import WaterDropSmallLeft from '~/assets/svg//waterdrops/small1.vue'
-import WaterDropSmallRight from '~/assets/svg//waterdrops/small2.vue'
+import AcceptanceOfLife from '~/assets/svg/types/AcceptanceOfLife.svg'
+import Accepting from '~/assets/svg/types/Accepting.svg'
+import Achievement from '~/assets/svg/types/Achievement.svg'
+import Activist from '~/assets/svg/types/Activist.svg'
+import Altruist from '~/assets/svg/types/Altruist.svg'
+import Cooperation from '~/assets/svg/types/Cooperation.svg'
+import Hedonism from '~/assets/svg/types/Hedonism.svg'
+import Hedonistic from '~/assets/svg/types/Hedonistic.svg'
+import Love from '~/assets/svg/types/Love.svg'
+import Meditative from '~/assets/svg/types/Meditative.svg'
+import Moderation from '~/assets/svg/types/Moderation.svg'
+import SelfDisciplined from '~/assets/svg/types/SelfDisciplined.svg'
+import Variety from '~/assets/svg/types/Variety.svg'
 
 // Router
 const router = useRouter()
@@ -26,31 +33,31 @@ const setSvgWidthPx = resultType.svgWidthPx
 const currentSvg = computed(() => (id) => {
   switch (id) {
     case 'altruist':
-      return Test1
+      return Altruist
     case 'hedonistic':
-      return Test1
+      return Hedonistic
     case 'love':
-      return Test1
+      return Love
     case 'moderation':
-      return Test1
+      return Moderation
     case 'accepting':
-      return Test1
+      return Accepting
     case 'variety':
-      return Test2
+      return Variety
     case 'hedonism':
-      return Test2
+      return Hedonism
     case 'cooperation':
-      return Test2
+      return Cooperation
     case 'acceptance-of-life':
-      return Test2
+      return AcceptanceOfLife
     case 'self-disciplined':
-      return Test3
+      return SelfDisciplined
     case 'activist':
-      return Test3
+      return Activist
     case 'meditative':
-      return Test3
+      return Meditative
     case 'achievement':
-      return Test3
+      return Achievement
     default:
       return ''
   }
