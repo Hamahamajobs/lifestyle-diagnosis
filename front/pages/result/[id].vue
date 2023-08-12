@@ -277,7 +277,7 @@ const currentSvg = computed(() => (id) => {
           .svg-container {
             position: absolute;
             top:-35px;
-            left:-45px;
+            left:-10px;
             width: v-bind(setSvgWidthPx); // TODO: SVGごとに大きさが変わってしまうのでロジック修正
             .type-image {
             }
