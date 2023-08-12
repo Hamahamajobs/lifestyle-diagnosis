@@ -20,14 +20,14 @@ const props = defineProps < {
     <p class="font-La-Belle-Aurore label">
       {{ props.label }}
     </p>
-    <div class="ask-container mb-5 d-flex justify-end align-center font-Shippori-Mincho-B1">
+    <div class="ask-container mb-5 d-flex justify-end align-center font-Zen-Kaku-Gothic-New">
       <p class="ask" :class="`${props.type}-row`">
         {{ props.ask }}
       </p>
     </div>
 
     <div v-for="(message, index) in props.messages" :key="index" class="contents-container">
-      <p class="title font-Shippori-Mincho-B1">
+      <p class="title font-Zen-Kaku-Gothic-New">
         {{ message.title }}
       </p>
       <p class="contents">

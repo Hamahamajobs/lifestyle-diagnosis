@@ -19,7 +19,7 @@
             <WaterDropBlackSmallRight class="water-drops-small" />
           </div>
 
-          <p class="font-Shippori-Mincho-B1">
+          <p class="font-Zen-Kaku-Gothic-New">
             診断中
           </p>
         </div>

@@ -14,6 +14,15 @@ body {
 .font-Lora {
   font-family: 'Lora', serif !important;
 }
+.font-Tsukimi-Rounded {
+  font-family: 'Tsukimi Rounded', serif !important;
+}
+.font-Zen-Kaku-Gothic-New{
+  font-family: 'Zen Kaku Gothic New', serif !important;
+}
+.font-Kumbh-Sans {
+  font-family: 'Kumbh Sans', serif !important;
+}
 
 /* 奉仕型 */
 .altruist {

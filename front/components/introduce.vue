@@ -19,7 +19,7 @@ function goKindle (): void {
         </p>
       </div>
       <div class="introduce-title d-flex justify-space-between">
-        <p class="left-item font-Shippori-Mincho-B1">
+        <p class="left-item font-Zen-Kaku-Gothic-New">
           生き方診断”トリセツ”とは？
         </p>
         <div class="right-item">
@@ -41,7 +41,7 @@ function goKindle (): void {
       <div class="column" />
     </div>
     <div class="pre-message-container d-flex justify-center">
-      <p class="pre-message font-Shippori-Mincho-B1">
+      <p class="pre-message font-Zen-Kaku-Gothic-New">
         <span>あなたにも、家族や親しい人にも来るその時のために、</span>
         <br>
         <span>”生き方”を大切な人とシェアしませんか？</span>

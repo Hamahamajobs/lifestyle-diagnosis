@@ -31,7 +31,7 @@ function share (): void {
     <p class="font-La-Belle-Aurore hash-tag">
       #share your life
     </p>
-    <p class="font-Shippori-Mincho-B1 message">
+    <p class="font-Zen-Kaku-Gothic-New message">
       “あなたの生き方”を伝える
     </p>
     <div class="icon-container d-flex justify-center">
