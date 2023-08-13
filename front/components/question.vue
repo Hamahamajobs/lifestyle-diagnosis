@@ -68,7 +68,7 @@ function moveSelectQuestion (id):void {
   margin: 15px 20px 5px 20px;
   // background:red;
   .question-number{
-    color: #B0A997;
+    color: #EAD3F0;
     font-weight: 700;
     font-size: 16px;
     margin-right: 1em; // 1文字分余白
@@ -127,14 +127,14 @@ function moveSelectQuestion (id):void {
         }
         &:checked ~ label::before {
           opacity: 1;
-          background: #B0A997;
+          background: #7E5DA4;
         }
         &:hover ~ label::after {
           opacity: 0;
         }
         &:hover ~ label::before {
           opacity: 1;
-          background: #B0A997;
+          background: #7E5DA4;
         }
       }
     }

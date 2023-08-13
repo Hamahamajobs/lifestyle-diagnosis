@@ -81,7 +81,7 @@ const props = defineProps < {
     .current{
       width: 93px;
       height: 93px;
-      background-color: #B0A997;
+      background-color: #EAD3F0;
       border-radius:50%;
       font-size: 48px;
       font-weight: 700;

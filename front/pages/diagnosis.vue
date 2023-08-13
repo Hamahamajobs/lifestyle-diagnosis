@@ -31,7 +31,7 @@
       <!-- 診断step1 設問No1~No10 -->
       <template v-if="currentStep === 1">
         <div class="message-container d-flex flex-column align-center">
-          <p class="message">
+          <p class="message font-Zen-Kaku-Gothic-New">
             あまり考えずに、迷ったら直感で答えましょう！
           </p>
         </div>
@@ -219,7 +219,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
     }
     .result-text {
       font-size: 30px;
-      font-weight: 700;
+      font-weight: 500;
       line-height: 43px;
       margin-top:70px;
       p {
@@ -270,10 +270,11 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
       transition: all .2s linear;
     }
     &.filled-next-button{
-      background:#383C3C;
+      background:#F19A75;
       cursor: pointer;
       &:hover{
-      opacity: 0.7;
+      // opacity: 0.7;
+      background:#CB6E46;
       transition: all .2s linear;
     }
     }
@@ -285,8 +286,8 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
     .message {
       font-weight: 700;
       font-size: 16px;
-      color: #393D3D;
-      font-family: Shippori Mincho B1;
+      color: #41365A;
+      font-family: 'Kumbh Sans';
       line-height: 23px;
       letter-spacing: 0.05em;
       background:#F1F1F1;
