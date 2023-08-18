@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// タイプ
 import AcceptanceOfLife from '~/assets/svg/types/AcceptanceOfLife.vue'
 import Accepting from '~/assets/svg/types/Accepting.vue'
 import Achievement from '~/assets/svg/types/Achievement.vue'
@@ -12,6 +13,11 @@ import Meditative from '~/assets/svg/types/Meditative.vue'
 import Moderation from '~/assets/svg/types/Moderation.vue'
 import SelfDisciplined from '~/assets/svg/types/SelfDisciplined.vue'
 import Variety from '~/assets/svg/types/Variety.vue'
+
+// 水滴
+import WaterDropBig from '~/assets/svg//waterdrops/big.vue'
+import WaterDropSmallLeft from '~/assets/svg//waterdrops/small1.vue'
+import WaterDropSmallRight from '~/assets/svg//waterdrops/small2.vue'
 
 // Router
 const router = useRouter()
@@ -27,7 +33,7 @@ const resultTypeId = router.currentRoute._value.params.id
 const resultType = morisTypes.find(type => type.en === resultTypeId)
 
 // svgファイルごとに適切なWidthを設定
-const setSvgWidthPx = resultType.svgWidthPx
+// const setSvgWidthPx = resultType.svgWidthPx
 
 // 結果別のSVGを設定
 const currentSvg = computed(() => (id) => {
@@ -145,7 +151,7 @@ const currentSvg = computed(() => (id) => {
       />
 
       <!-- サマリーブロック -->
-      <ResultSummary :type="resultType" />
+      <ResultSummary :type="resultType" :svg="currentSvg(resultType.en)" />
 
       <!-- シェアブロック -->
       <Share />
@@ -154,23 +160,7 @@ const currentSvg = computed(() => (id) => {
       <Introduce />
 
       <!-- 13のタイプ一覧を見る ブロック -->
-      <!-- TODO: コンポーネント化 -->
-      <div class="mb-5 margin-auto">
-        <thirteenTypeScroll />
-      </div>
-
-      <div class="mb-5" />
-      <div>
-        <v-btn
-          class="text-center"
-          prepend-icon="mdi-glasses"
-          variant="outlined"
-          color="primary"
-          @click="goHome"
-        >
-          ホームへ
-        </v-btn>
-      </div>
+      <ThirteenTypeScroll />
     </div>
   </div>
 </template>
@@ -276,11 +266,9 @@ const currentSvg = computed(() => (id) => {
           box-shadow: 10px 10px #e4d9c4;
           .svg-container {
             position: absolute;
-            top:-35px;
-            left:-10px;
-            width: v-bind(setSvgWidthPx); // TODO: SVGごとに大きさが変わってしまうのでロジック修正
-            .type-image {
-            }
+            top: -5px;
+            width: 465px;
+            height: 385px;
           }
         }
       }

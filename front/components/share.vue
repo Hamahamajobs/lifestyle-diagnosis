@@ -28,7 +28,7 @@ function share (): void {
 
 <template>
   <div class="share-container mb-5 d-flex flex-column align-center">
-    <p class="font-La-Belle-Aurore hash-tag">
+    <p class="font-Kumbh-Sans hash-tag">
       #share your life
     </p>
     <p class="font-Zen-Kaku-Gothic-New message">

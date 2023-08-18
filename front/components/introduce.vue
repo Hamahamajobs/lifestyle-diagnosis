@@ -13,7 +13,7 @@ function goKindle (): void {
   <div class="introduce-container">
     <div class="introduce-top">
       <div class="introduce-about">
-        <p class="font-La-Belle-Aurore d-flex">
+        <p class="font-Kumbh-Sans d-flex">
           <Slash />
           <span>about</span>
         </p>
@@ -41,7 +41,7 @@ function goKindle (): void {
       <div class="column" />
     </div>
     <div class="pre-message-container d-flex justify-center">
-      <p class="pre-message font-Zen-Kaku-Gothic-New">
+      <p class="pre-message font-Kumbh-Sans">
         <span>あなたにも、家族や親しい人にも来るその時のために、</span>
         <br>
         <span>”生き方”を大切な人とシェアしませんか？</span>
@@ -69,10 +69,11 @@ function goKindle (): void {
     margin-top: 120px;
     .introduce-about{
       font-size: 20px;
-      font-weight: 400;
-      line-height: 37px;
+      font-weight: 800;
+      line-height: 25px;
       letter-spacing: 0.03em;
       text-align: left;
+      font-family: Kumbh Sans;
       p{
         margin-bottom:13px;
         span{
@@ -120,9 +121,10 @@ function goKindle (): void {
       line-height: 45px;
       letter-spacing: 0.03em;
       text-align: left;
+      font-family: Shippori Mincho B1;
       // background:red;
       span{
-        border-bottom: 1px solid #383C3C;
+        // border-bottom: 1px solid #383C3C;
       }
     }
   }
