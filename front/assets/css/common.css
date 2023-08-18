@@ -26,55 +26,55 @@ body {
 
 /* 奉仕型 */
 .altruist {
-  background: linear-gradient(#6BCDAA, #F8F4E6);
+  background: linear-gradient(#6BCDAA, #DEBAEA);
 }
 /* 安楽型 */
 .hedonistic {
-  background: linear-gradient(#CD6BC3, #F8F4E6);
+  background: linear-gradient(#CD6BC3, #DEBAEA);
 }
 /* 慈愛型 */
 .love {
-  background: linear-gradient(#CD6B6B, #F8F4E6);
+  background: linear-gradient(#CD6B6B, #DEBAEA);
 }
 /* 中庸型 */
 .moderation {
-  background: linear-gradient(#6BCD75, #F8F4E6);
+  background: linear-gradient(#6BCD75, #DEBAEA);
 }
 /* 受容型 */
 .accepting {
-  background: linear-gradient(#6BC7CD, #F8F4E6);
+  background: linear-gradient(#6BC7CD, #DEBAEA);
 }
 /* 多彩型 */
 .variety {
-  background: linear-gradient(#CDC36B, #F8F4E6);
+  background: linear-gradient(#CDC36B, #DEBAEA);
 }
 /* 享楽型 */
 .hedonism {
-  background: linear-gradient(#B46BCD, #F8F4E6);
+  background: linear-gradient(#B46BCD, #DEBAEA);
 }
 /* 協同型 */
 .cooperation {
-  background: linear-gradient(#B4CD6B, #F8F4E6);
+  background: linear-gradient(#B4CD6B, #DEBAEA);
 }
 /* 達観型 */
 .acceptance-of-life {
-  background: linear-gradient(#31365E, #F8F4E6);
+  background: linear-gradient(#31365E, #DEBAEA);
 }
 /* 克己型 */
 .self-disciplined {
-  background: linear-gradient(#6B75CD, #F8F4E6);
+  background: linear-gradient(#6B75CD, #DEBAEA);
 }
 /* 活動型 */
 .activist {
-  background: linear-gradient(#CD886B, #F8F4E6);
+  background: linear-gradient(#CD886B, #DEBAEA);
 }
 /* 瞑想・内面型 */
 .meditative {
-  background: linear-gradient(#6BCDAA, #F8F4E6);
+  background: linear-gradient(#6BCDAA, #DEBAEA);
 }
 /* 行動・努力型 */
 .achievement {
-  background: linear-gradient(#DB4A4A, #F8F4E6);
+  background: linear-gradient(#DB4A4A, #DEBAEA);
 }
 
 
@@ -82,57 +82,58 @@ body {
 /* 横向きのグラデーション
  * 
  */
+/* NOTE: また色味が変わるかもしれないので一旦全てのタイプに同じ色を記載する */
 /* 奉仕型 */
 .altruist-row {
-  background: linear-gradient(to left,#6BCDAA, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 安楽型 */
 .hedonistic-row {
-  background: linear-gradient(to left,#CD6BC3, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 慈愛型 */
 .love-row {
-  background: linear-gradient(to left,#CD6B6B, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 中庸型 */
 .moderation-row {
-  background: linear-gradient(to left,#6BCD75, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 受容型 */
 .accepting-row {
-  background: linear-gradient(to left,#6BC7CD, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 多彩型 */
 .variety-row {
-  background: linear-gradient(to left,#CDC36B, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 享楽型 */
 .hedonism-row {
-  background: linear-gradient(to left,#B46BCD, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 協同型 */
 .cooperation-row {
-  background: linear-gradient(to left,#B4CD6B, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 達観型 */
 .acceptance-of-life-row {
-  background: linear-gradient(to left,#31365E, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 克己型 */
 .self-disciplined-row {
-  background: linear-gradient(to left,#6B75CD, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 活動型 */
 .activist-row {
-  background: linear-gradient(to left,#CD886B, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 瞑想・内面型 */
 .meditative-row {
-  background: linear-gradient(to left,#6BCDAA, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 /* 行動・努力型 */
 .achievement-row {
-  background: linear-gradient(to left,#DB4A4A, #F8F4E6);
+  background: linear-gradient(to left,#DEBAEA, #FFFAE8);
 }
 
 /* 各タイプのテキストカラー */

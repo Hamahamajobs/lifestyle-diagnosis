@@ -69,6 +69,7 @@ header {
   display: flex;
   .pc-menu-container {
     a {
+      padding:25px 0px;
       margin: 0px 35px;
       text-decoration: none;
       width:150px;
