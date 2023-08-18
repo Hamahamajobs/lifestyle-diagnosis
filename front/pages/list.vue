@@ -67,11 +67,11 @@ const currentSvg = computed(() => (id) => {
         </thead> -->
         <tbody>
           <tr
-            v-for="item in morisTypes"
+            v-for="(item, index) in morisTypes"
             :key="item.en"
           >
             <td>{{ item.en }}</td>
-            <td><component :is="currentSvg(item.en)" class="type-image" /></td>
+            <td><component :is="currentSvg(item.en)" :class="`type-image-${item.en}`" /></td>
             <!-- <td>
               <NuxtLink :to="'/result/' + item.en">
                 {{ item.jp }}の診断結果へ
