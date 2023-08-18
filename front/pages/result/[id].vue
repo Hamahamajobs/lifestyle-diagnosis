@@ -267,11 +267,8 @@ const currentSvg = computed(() => (id) => {
           .svg-container {
             position: absolute;
             top: -5px;
-            // left:-10px;
-            // width: v-bind(setSvgWidthPx); // TODO: SVGごとに大きさが変わってしまうのでロジック修正
             width: 465px;
             height: 385px;
-            // background:red;
           }
         }
       }
