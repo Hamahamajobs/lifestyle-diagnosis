@@ -160,23 +160,7 @@ const currentSvg = computed(() => (id) => {
       <Introduce />
 
       <!-- 13のタイプ一覧を見る ブロック -->
-      <!-- TODO: コンポーネント化 -->
-      <div class="mb-5 margin-auto">
-        <thirteenTypeScroll />
-      </div>
-
-      <div class="mb-5" />
-      <div>
-        <v-btn
-          class="text-center"
-          prepend-icon="mdi-glasses"
-          variant="outlined"
-          color="primary"
-          @click="goHome"
-        >
-          ホームへ
-        </v-btn>
-      </div>
+      <ThirteenTypeScroll />
     </div>
   </div>
 </template>
