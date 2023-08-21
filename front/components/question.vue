@@ -17,17 +17,14 @@ const isHideDivider = computed(() => {
 })
 
 // クリックされた設問に移動
-function moveSelectQuestion (id):void {
-  const element = document.getElementById('question-id-' + id)
-  const rect = element.getBoundingClientRect()
-  // TODO: もっとも上の要素をクリックしたときにずれる可能性がある
-  const elementTop = rect.top + window.pageYOffset
-  // TODO: 画面上部や画面下部だとスクロール先がずれるので修正する
-  window.scrollTo({
-    top: elementTop,
-    behavior: 'smooth'
-  })
+function moveSelectQuestion (event, id, value):void {
+  const nextQuestionChoice = document.getElementById('scroll-' + (id + 1) + '-' + value)
+  const pointerY = window.scrollY + event.clientY // viewport外を含めて最上部から現在のポインターの距離
+  const nextQuestionY = nextQuestionChoice.getBoundingClientRect().top + window.scrollY + 20 // 20pxは調整値
+  const offset = nextQuestionY - pointerY // 次設問との距離
+  window.scrollBy({ top: offset, behavior: 'smooth' })
 }
+
 </script>
 
 <template>
@@ -48,12 +45,12 @@ function moveSelectQuestion (id):void {
             v-model="question.answer"
             type="radio"
             :value="choice.value"
-            @click="moveSelectQuestion(question.id)"
+            @click="moveSelectQuestion($event, question.id, choice.value)"
           >
           <div class="chack-mark">
             <span />
           </div>
-          <label :for="question.id + '-' + choice.value">
+          <label :id="'scroll-' + question.id + '-' + choice.value" :for="question.id + '-' + choice.value">
             {{ choice.text }}
           </label>
         </div>
@@ -66,7 +63,6 @@ function moveSelectQuestion (id):void {
 <style lang="scss" scoped>
 .question-container{
   margin: 15px 20px 5px 20px;
-  // background:red;
   .question-number{
     color: #EAD3F0;
     font-weight: 700;
@@ -81,12 +77,10 @@ function moveSelectQuestion (id):void {
   }
   .choices-container {
     width: 500px;
-    // background:blue;
     .input-container {
       font-size: 10px;
       height: 100px;
       margin: 20px 20px 0px 20px;
-      // background:red;
       label{
         width:70px;
         position: relative;
