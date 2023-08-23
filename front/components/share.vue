@@ -67,7 +67,7 @@ function share (): void {
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0.03em;
-    color: #000000;
+    color: #000;
   }
   .icon-container{
     margin-top:26px;

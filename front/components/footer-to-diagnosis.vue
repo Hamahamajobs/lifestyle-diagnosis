@@ -42,12 +42,10 @@ onUnmounted(() => {
 .v-leave-active {
   transition: opacity 0.5s ease;
 }
-
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
 }
-
 .footer-to-diagnosis {
   width:100%;
   height: 100px;

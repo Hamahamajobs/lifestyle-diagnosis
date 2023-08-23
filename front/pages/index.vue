@@ -240,7 +240,7 @@ function goTypesList (): void {
                 font-size: 70px;
                 font-weight: 400;
                 letter-spacing: 0.03em;
-                color: rgba(252, 247, 237, 0.7);
+                color: rgb(252 247 237 / 0.7);
                 white-space: nowrap;
                 &.about {
                   margin-left: -2rem;
@@ -268,7 +268,7 @@ function goTypesList (): void {
               position: relative;
               width: 226px;
               height: 50px;
-              background: #ffffff;
+              background: #fff;
               box-shadow: 2px 4px 4px #41365A40, -2px 4px 4px #41365A40;
               color: #606363;
               font-size: 16px;
@@ -309,8 +309,7 @@ function goTypesList (): void {
     }
   }
   .last-contents {
-    height: 500px;
-    background: rgba(66, 37, 100, 0.7);
+    background: rgb(66 37 100 / 0.7);
     padding-top:76px;
     height: 355px;
     .left-item {
@@ -331,7 +330,7 @@ function goTypesList (): void {
         font-weight: 700;
         line-height: 45px;
         letter-spacing: 0.03em;
-        color: #ffffff;
+        color: #fff;
         margin-top: 10px;
         margin-bottom: 28px;
       }

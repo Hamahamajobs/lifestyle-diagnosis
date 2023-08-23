@@ -8,7 +8,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint './*/*.{ts,vue}'",
-    "lint:fix": "eslint --fix './*/*.{ts,vue}'"
+    "lint:fix": "eslint --fix './*/*.{ts,vue}'",
+    "lint-style": "stylelint './*/*.{vue,css,scss}'",
+    "lint-style:fix": "stylelint './*/*.{vue,css,scss}' --fix"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",

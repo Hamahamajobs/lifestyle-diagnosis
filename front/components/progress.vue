@@ -63,7 +63,7 @@ const props = defineProps < {
       height: 59px;
       background-color:#F1F1F1;
       border-radius:50%;
-      color:#FFFFFF;
+      color:#FFF;
       margin-right: 20px;
     }
     .other{
