@@ -64,34 +64,43 @@ header {
   z-index:999;
 }
 
-.header-contents {
-  margin: 0 auto;
-  display: flex;
-  .pc-menu-container {
-    a {
-      padding:25px 0px;
-      margin: 0px 35px;
-      text-decoration: none;
-      width:150px;
-      color: #383c3c;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 23px;
-      letter-spacing: 0.05em;
-      z-index: 999;
-      &.logo {
-        width: 140px;
-        height:39px;
-        background: #333333;
-        text-align: center;
-        font-family: Yu Gothic;
+  .header-contents {
+    margin: 0 auto;
+    display: flex;
+        .pc-menu-container {
+      @include pc {
+        background-color: red;
+      }
+      @include tab {
+        background-color: blue;
+      }
+      @include sp {
+        background-color: yellow;
+      }
+      a {
+        padding: 25px 0px;
+        margin: 0px 35px;
+        text-decoration: none;
+        width: 150px;
+        color: #383c3c;
         font-size: 16px;
         font-weight: 700;
-        line-height: 26px;
+        line-height: 23px;
         letter-spacing: 0.05em;
-        color: #ffffff;
-        padding-top:5px;
-      }
+        z-index: 999;
+        &.logo {
+          width: 140px;
+          height:39px;
+          background: #333333;
+          text-align: center;
+          font-family: Yu Gothic;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 26px;
+          letter-spacing: 0.05em;
+          color: #ffffff;
+          padding-top:5px;
+              }
     }
   }
 }
@@ -195,7 +204,7 @@ nav {
 }
 
 @media screen and (max-width: 700px) {
-  nav {
+    nav {
     display: flex; // スマホ画面でハンバーガーメニューを表示
   }
 }
