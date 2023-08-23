@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/scss/_mixin.scss";'
+        }
+      }
+    },
     plugins: [svgLoader()]
   },
   runtimeConfig: {
