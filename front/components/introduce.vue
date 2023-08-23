@@ -73,7 +73,6 @@ function goKindle (): void {
       line-height: 25px;
       letter-spacing: 0.03em;
       text-align: left;
-      font-family: Kumbh Sans;
       p{
         margin-bottom:13px;
         span{
@@ -93,7 +92,6 @@ function goKindle (): void {
       }
       .right-item{
         width:50%;
-        font-family: Yu Gothic;
         font-size: 16px;
         font-weight: 500;
         line-height: 35px;
@@ -109,7 +107,7 @@ function goKindle (): void {
     margin-top: 108px;
     .column{
       height:112px;
-      border-left:1px solid #000000; /*線の設定*/
+      border-left:1px solid #000; /* 線の設定 */
     }
   }
   .pre-message-container{
@@ -121,7 +119,6 @@ function goKindle (): void {
       line-height: 45px;
       letter-spacing: 0.03em;
       text-align: left;
-      font-family: Shippori Mincho B1;
       // background:red;
       span{
         // border-bottom: 1px solid #383C3C;
@@ -135,11 +132,10 @@ function goKindle (): void {
       font-weight: 700;
       line-height: 32px;
       letter-spacing: 0.03em;
-      text-align: left;
       background:#383C3C;
       width: 206px;
       height: 62px;
-      color:#FFFFFF;
+      color:#FFF;
       text-align:center;
       margin-top:-62px;
       margin-right:-600px;

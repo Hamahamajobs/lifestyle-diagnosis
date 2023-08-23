@@ -3,7 +3,9 @@
 <template>
   <header>
     <div class="header-contents">
-      <div class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New">
+      <div
+        class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New"
+      >
         <NuxtLink to="/">
           トップページ
         </NuxtLink>
@@ -23,8 +25,8 @@
 
       <!-- ハンバーガメニュー スマホのみで表示 -->
       <nav>
-        <input id="menu__toggle" type="checkbox">
-        <label class="menu__btn" for="menu__toggle">
+        <input id="menu-toggle" type="checkbox">
+        <label class="menu__btn" for="menu-toggle">
           <span />
         </label>
         <ul class="menu__box">
@@ -47,71 +49,66 @@
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #fff;
 }
-
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px; // ヘッダーの高さ固定
-  width:100%;
-  background-color: #EAD3F0;
+  width: 100%;
+  background-color: #ead3f0;
   border-bottom: 1px solid #2d303a;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:999;
-}
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
   .header-contents {
     margin: 0 auto;
     display: flex;
-        .pc-menu-container {
-      @include pc {
-        background-color: red;
-      }
+    .pc-menu-container {
       @include tab {
-        background-color: blue;
+        // background-color: blue;
       }
       @include sp {
-        background-color: yellow;
+        display: none !important;
       }
       a {
-        padding: 25px 0px;
-        margin: 0px 35px;
+        padding: 25px 0;
+        margin: 0 35px;
         text-decoration: none;
-        width: 150px;
+        max-width: 150px;
         color: #383c3c;
         font-size: 16px;
         font-weight: 700;
         line-height: 23px;
         letter-spacing: 0.05em;
         z-index: 999;
+        @include tab {
+          font-size: 10px;
+        }
         &.logo {
           width: 140px;
-          height:39px;
-          background: #333333;
+          height: 39px;
+          background: #333;
           text-align: center;
-          font-family: Yu Gothic;
           font-size: 16px;
           font-weight: 700;
           line-height: 26px;
           letter-spacing: 0.05em;
-          color: #ffffff;
-          padding-top:5px;
-              }
+          color: #fff;
+          padding-top: 5px;
+        }
+      }
     }
   }
 }
-
 nav {
   display: none; // PC画面でハンバーガーメニューは非表示
   align-items: center;
 }
 .menu__box {
   display: flex;
-  flex-direction: row;
   list-style-type: none;
   flex-direction: column;
   position: fixed;
@@ -120,21 +117,17 @@ nav {
   left: 0;
   width: 100%;
   height: 15em;
-  margin: -600px 0 0 0;
+  margin: -600px 0 0;
   padding: 0.6em 0;
   text-align: center;
   background-color: #2d303a;
-  box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 6px rgb(0 0 0 / 0.2);
   z-index: 1;
   transition-duration: 0.5s;
 }
 .menu__item {
-  display: flex;
   flex-direction: column;
-  padding: 0 1em 0 1.9em;
-  color: red;
   font-family: sans-serif;
-  font-size: 14px;
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
@@ -147,33 +140,28 @@ nav {
     background-color: #4f5464;
   }
 }
-
-#menu__toggle {
+#menu-toggle {
   opacity: 0;
   display: none;
   &:checked ~ .menu__btn > span {
     transform: rotate(45deg);
   }
-
   &:checked ~ .menu__btn > span::before {
     top: 0;
     transform: rotate(0);
     background: #f06c64;
   }
-
   &:checked ~ .menu__btn > span::after {
     top: 0;
     transform: rotate(90deg);
     background: #f06c64;
   }
-
   &:checked ~ .menu__box {
     visibility: visible;
     left: 0;
     margin: 0;
   }
 }
-
 .menu__btn {
   transition-duration: 0.25s;
   box-sizing: border-box;
@@ -189,22 +177,22 @@ nav {
     @include burgerSpan;
     &::before {
       @include burgerSpan;
+
       content: "";
       top: -8px;
       transition-duration: 0.25s;
     }
-
     &::after {
       @include burgerSpan;
+
       content: "";
       top: 8px;
       transition-duration: 0.25s;
     }
   }
 }
-
-@media screen and (max-width: 700px) {
-    nav {
+@media screen and (width <= 700px) {
+  nav {
     display: flex; // スマホ画面でハンバーガーメニューを表示
   }
 }

@@ -21,11 +21,11 @@
   width: 100%;
   height: 400px;
   background-color:#383C3C;
-  color:#FFFFFF;
+  color:#FFF;
   .left-item{
     margin-left:230px;
     p{
-      margin: 17px 0px;
+      margin: 17px 0;
       &:hover{
         cursor: pointer;
       }
@@ -34,7 +34,7 @@
   .rigth-item{
     margin-left:100px;
     p{
-      margin: 17px 0px;
+      margin: 17px 0;
       &:hover{
         cursor: pointer;
       }

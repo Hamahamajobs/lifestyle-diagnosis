@@ -3,8 +3,9 @@
   <div>
     <v-container fluid class="diagnosis-main-container d-flex align-center flex-column mb-3">
       <div class="mb-3">
-        <v-btn style="position: fixed; top: 100px; right: 300px;" color="blue" @click="randomToResult">
-          【開発用】ランダム&結果へ
+        <!-- TODO: 後で消す -->
+        <v-btn style="position: fixed; top: 10%; right: 10%; z-index:9999;" color="blue" @click="randomToResult">
+          【開発用】ランダム入力
         </v-btn>
       </div>
       <div
@@ -19,7 +20,7 @@
             <WaterDropBlackSmallRight class="water-drops-small" />
           </div>
 
-          <p class="font-Zen-Kaku-Gothic-New">
+          <p class="font-Zen-Kaku-Gothic-New" @click="randomToResult">
             診断中
           </p>
         </div>
@@ -210,11 +211,10 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
   width:600px;
   .water-drops-contaner{
       .water-drops-small{
-        margin-top: 40px;
-        margin:0px;
+        margin:40px 0 0;
       }
       .water-drops-big{
-        margin:0px;
+        margin:0;
       }
     }
     .result-text {
@@ -228,9 +228,9 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
         width: 230px;
         top: 169px;
         left: 526px;
-        color: #333333;
-        border-top: 1.5px solid #333333;
-        border-bottom: 1.5px solid #333333;
+        color: #333;
+        border-top: 1.5px solid #333;
+        border-bottom: 1.5px solid #333;
         margin-top:8px;
       }
     }
@@ -240,7 +240,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
     width: 350px;
     height: 50px;
     background-color: #D9D9D9;
-    color: #FFFFFF;
+    color: #FFF;
     font-size: 16px;
     letter-spacing: 0.05em;
     line-height: 26px;
@@ -248,7 +248,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
     position: relative;
     transition: all .2s linear;
     cursor: not-allowed;
-    &:before{
+    &::before{
       content:"";
       position: absolute;
       top:50%;
@@ -258,7 +258,7 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
       background:#fff;
       transition: all .2s linear;
     }
-    &:after {
+    &::after {
       content: '';
       position: absolute;
       top: 42%;
@@ -280,21 +280,19 @@ const isCompleted = computed(():boolean => (start:number, end:number):boolean =>
     }
 
   }
-
   .message-container {
     margin-top: 20px;
     .message {
       font-weight: 700;
       font-size: 16px;
       color: #41365A;
-      font-family: 'Kumbh Sans';
       line-height: 23px;
       letter-spacing: 0.05em;
       background:#F1F1F1;
       margin-bottom: 83px;
     }
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (width <= 700px) {
     width:80vw;
     .next-button {
     margin-top: 20px;

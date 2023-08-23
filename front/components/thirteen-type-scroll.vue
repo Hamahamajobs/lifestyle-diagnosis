@@ -74,7 +74,7 @@ const currentArray = ref([
     font-size: 20px;
     font-weight: 500;
     line-height: 29px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-decoration: none;
     color: #383c3c;
     &:hover{

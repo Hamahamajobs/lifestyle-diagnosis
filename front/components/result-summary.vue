@@ -89,7 +89,7 @@ const props = defineProps < {
     border: 1px solid #383C3C;
     box-shadow: 15px 15px #9775BF;
     .summary-card-content{
-      background:#FFFFFF;
+      background:#FFF;
       width: 650px;
       height: 565px;
     }
@@ -107,7 +107,7 @@ const props = defineProps < {
       width: 279px;
       text-align:center;
       background: #393D3D;
-      color: #FFFFFF;
+      color: #FFF;
     }
     .type{
       font-size: 40px;
