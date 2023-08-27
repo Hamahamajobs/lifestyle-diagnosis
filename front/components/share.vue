@@ -61,6 +61,11 @@ function share (): void {
     line-height: 59px;
     letter-spacing: 0.03em;
     margin-bottom:12px;
+        @include sp {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 30px;
+          }
   }
   .message {
     font-size: 20px;
@@ -68,6 +73,11 @@ function share (): void {
     line-height: 29px;
     letter-spacing: 0.03em;
     color: #000;
+    @include sp {
+      margin-top:21px;
+      font-size: 20px;
+      font-weight: 500;
+      }
   }
   .icon-container{
     margin-top:26px;

@@ -72,7 +72,7 @@ const currentSvg = computed(() => (id) => {
 
 <template>
   <div>
-    <div class="lp-container d-flex flex-column">
+    <div class="result-container">
       <!-- 一番上のサマリー的なところ -->
       <div class="top-container mb-5" :class="resultType.en">
         <div class="result-text d-flex justify-center">
@@ -86,8 +86,8 @@ const currentSvg = computed(() => (id) => {
             <p>診断結果</p>
           </div>
         </div>
-        <div class="top-main d-flex justify-center">
-          <div class="left d-flex flex-column">
+        <div class="top-main">
+          <div class="left">
             <p class="font-La-Belle-Aurore top-your-type-is">
               your type is...
             </p>
@@ -97,7 +97,7 @@ const currentSvg = computed(() => (id) => {
             <p class="top-title font-Zen-Kaku-Gothic-New">
               精神的に安定しており、頼られることが好き
             </p>
-            <p class="top-detail">
+            <p class="pc-top-detail">
               精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。
             </p>
           </div>
@@ -107,6 +107,10 @@ const currentSvg = computed(() => (id) => {
                 <component :is="currentSvg(resultType.en)" class="type-image" />
               </div>
             </div>
+            <!-- 重複してしまうがSPデザインのためにここに追加 描画時に重複はないようCSSで制御 -->
+            <p class="sp-top-detail">
+              精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。
+            </p>
           </div>
         </div>
       </div>
@@ -166,8 +170,15 @@ const currentSvg = computed(() => (id) => {
 </template>
 
 <style lang="scss" scoped>
-.lp-container {
+.result-container {
   min-width: 1280px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @include sp {
+    min-width: 380px;
+  }
   .top-container {
     width: 100%;
     min-height: 861px;
@@ -186,6 +197,9 @@ const currentSvg = computed(() => (id) => {
       font-size: 30px;
       font-weight: 700;
       line-height: 43px;
+      @include sp {
+        margin-top: 80px;
+      }
       p {
         display: inline-block;
         text-align: center;
@@ -199,10 +213,24 @@ const currentSvg = computed(() => (id) => {
       }
     }
     .top-main {
+      display: flex;
+      justify-content: center;
       margin-top: 143px;
       padding-bottom: 230px;
+      @include sp {
+        flex-direction: column;
+        align-items: center;
+        margin: 40px 5% 0px 5%;
+        padding-bottom: 50px;
+      }
       .left {
+        display: flex;
+        flex-direction: column;
         margin-right: 100px;
+        @include sp {
+          margin-right: 0;
+          align-items: center;
+        }
         .top-your-type-is {
           font-size: 48px;
           font-weight: 400;
@@ -212,12 +240,15 @@ const currentSvg = computed(() => (id) => {
           margin-bottom: -20px;
           margin-left: -40px;
           z-index: 20;
+          @include sp {
+            font-size: 32px;
+            line-height: 59px;
+            margin-left: -8rem; // 8文字分ずらす
+          }
         }
         .top-type {
           width: 212px;
           height: 93px;
-          top: 352px;
-          left: 173px;
           font-size: 64px;
           font-weight: 700;
           line-height: 93px;
@@ -225,20 +256,33 @@ const currentSvg = computed(() => (id) => {
           text-align: center;
           color: #ffffff;
           background-color: #383c3c;
+          @include sp {
+            width: auto;
+            height: 48px;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 48px; // figmaだと約58pxであるがfigma上での親ブロックを超える大きさなのでこっちで調整
+            letter-spacing: 0.15em;
+          }
         }
         .top-title {
           margin-top: 40px;
           width: 395px; // NOTE: figmaは385pxだけど改行されてしまうので5px伸ばした
-          top: 488px;
-          left: 175px;
           font-size: 34px;
           font-weight: 700;
           line-height: 50px;
           letter-spacing: 0.03em;
           background: #ffffff;
           padding: 5px 3px;
+          @include sp {
+            margin-top: 25px;
+            width: 240px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+          }
         }
-        .top-detail {
+        .pc-top-detail {
           margin-top: 40px;
           width: 368px;
           height: 105px;
@@ -251,10 +295,19 @@ const currentSvg = computed(() => (id) => {
           letter-spacing: 0em;
           text-align: left;
           color: #333333;
+          @include sp {
+            display: none;
+          }
         }
       }
       .right {
         margin-left: 3%;
+        @include sp {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 0;
+        }
         .white-block {
           position: relative;
           width: 465px;
@@ -263,19 +316,36 @@ const currentSvg = computed(() => (id) => {
           border: 1px solid #383c3c;
           background: white;
           z-index: 5;
-          box-shadow: 10px 10px #e4d9c4;
+          box-shadow: 10px 10px #9775BF;
+          @include sp {
+            width: 310px;
+            height: 230px;
+            margin-top: 25px;
+          }
           .svg-container {
             position: absolute;
             top: -5px;
             width: 465px;
             height: 385px;
+            @include sp {
+              width: 280px;
+              height: 250px;
+            }
+          }
+        }
+        .sp-top-detail {
+          display: none;
+          @include sp {
+            padding: 0 5%; // figmaに明記がなかったので目算
+            display: inline-block;
+            margin-top:40px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 35px;
           }
         }
       }
     }
   }
-}
-.margin-auto {
-  margin: 0 auto;
 }
 </style>

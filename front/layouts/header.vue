@@ -31,8 +31,8 @@ function closeMenu (): void {
     <!-- ハンバーガメニュー スマホのみで表示 -->
     <div class="sp-header-container d-flex align-center justify-end">
       <nav>
-        <input id="menu-toggle" v-model="isChecked" type="checkbox">
-        <label id="menu-label" class="menu__btn" for="menu-toggle" @click="openMenu()">
+        <input id="menu-toggle" type="checkbox">
+        <label id="menu-label" class="menu__btn" for="menu-toggle">
           <span /></label>
         <ul class="menu__box">
           <li>
@@ -226,7 +226,7 @@ header {
           width: 25px;
           height: 1px;
           background-color: #333333;
-          top: -8px;
+          top: -9px;
           transition-duration: 0.25s;
         }
         &::after {
@@ -236,7 +236,7 @@ header {
           height: 1px;
           background-color: #333333;
           content: "";
-          top: 8px;
+          top: 9px;
           transition-duration: 0.25s;
         }
       }
