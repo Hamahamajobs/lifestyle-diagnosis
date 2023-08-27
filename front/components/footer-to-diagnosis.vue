@@ -5,7 +5,7 @@ function goDiagnosis (): void {
 }
 
 //  ブロックの表示切り替え
-const visible:boolean = ref(false)
+const visible: boolean = ref(false)
 function handleScroll (): void {
   // TODO: スクロール範囲はとりあえず200
   if (!visible.value) {
@@ -24,7 +24,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
 </script>
 
 <template>
@@ -47,12 +46,15 @@ onUnmounted(() => {
   opacity: 0;
 }
 .footer-to-diagnosis {
-  width:100%;
+  width: 100%;
   height: 100px;
   background: #ead3f0;
-  position:fixed;
-  bottom:0;
-  z-index:999;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  @include sp {
+    height: 90px;
+  }
   .start-diagnosis-btn {
     position: relative;
     width: 427px;
@@ -64,6 +66,10 @@ onUnmounted(() => {
     font-weight: bold;
     z-index: 1;
     transition: 0.5s;
+    @include sp {
+      width: 300px;
+      height: 65px;
+    }
     &::before {
       content: "";
       width: 100%;
