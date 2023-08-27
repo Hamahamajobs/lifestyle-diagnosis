@@ -47,7 +47,7 @@
             type="button"
             @click="goNextStep"
           >
-            <span>次へ</span>
+            <span id="first-delimiter">次へ</span>
           </button>
         </div>
       </template>
@@ -73,7 +73,7 @@
             type="button"
             @click="goNextStep"
           >
-            <span>次へ</span>
+            <span id="second-delimiter">次へ</span>
           </button>
         </div>
       </template>
@@ -99,7 +99,7 @@
             type="button"
             @click="clicksend"
           >
-            <span>診断結果へ</span>
+            <span id="final-delimiter">診断結果へ</span>
           </button>
         </div>
       </template>
