@@ -86,10 +86,7 @@ const currentArray = ref([
     display: flex;
     overflow-x: hidden;
     padding: 30px;
-    max-width: 1500px; // TODO: もし横幅全てでsvg表示するとなった場合ループの繋ぎが崩れてしまうので修正
-    @include sp {
-        width: 100%;
-      }
+    width: 100%;
     height: 330px;
     &-list {
       display: flex;
