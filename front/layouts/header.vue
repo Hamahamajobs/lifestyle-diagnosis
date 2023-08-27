@@ -1,42 +1,74 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+// SP画面でハンバーガーメニューをクリックしてメニューを閉じる
+function closeMenu (): void {
+  const menuToggle = document.getElementById('menu-label')
+  menuToggle.click()
+}
+
+</script>
 
 <template>
-  <header>
-    <div class="header-contents">
-      <div
-        class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New"
-      >
-        <NuxtLink to="/">
-          トップページ
-        </NuxtLink>
-        <NuxtLink to="/diagnosis">
-          生き方を診断する
-        </NuxtLink>
-        <NuxtLink to="/" class="logo">
-          ロゴ作成中
-        </NuxtLink>
-        <NuxtLink to="/list">
-          13タイプ一覧
-        </NuxtLink>
-        <NuxtLink to="/">
-          お問い合わせ
-        </NuxtLink>
-      </div>
+  <header class="d-flex align-center justify-center">
+    <div
+      class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New"
+    >
+      <NuxtLink to="/">
+        トップページ
+      </NuxtLink>
+      <NuxtLink to="/diagnosis">
+        生き方を診断する
+      </NuxtLink>
+      <NuxtLink to="/" class="logo">
+        ロゴ作成中
+      </NuxtLink>
+      <NuxtLink to="/list">
+        13タイプ一覧
+      </NuxtLink>
+      <NuxtLink to="/">
+        お問い合わせ
+      </NuxtLink>
+    </div>
 
-      <!-- ハンバーガメニュー スマホのみで表示 -->
+    <!-- ハンバーガメニュー スマホのみで表示 -->
+    <div class="sp-header-container d-flex align-center justify-space-between">
+      <div class="sp-logo">
+        ロゴ作成中
+      </div>
       <nav>
-        <input id="menu-toggle" type="checkbox">
-        <label class="menu__btn" for="menu-toggle">
-          <span />
-        </label>
+        <input id="menu-toggle" v-model="isChecked" type="checkbox">
+        <label id="menu-label" class="menu__btn" for="menu-toggle" @click="openMenu()"> <span /></label>
         <ul class="menu__box">
           <li>
-            <a class="menu__item" href="#"><span class="red">Home</span></a>
+            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+              トップページ
+            </NuxtLink>
           </li>
-          <li><a class="menu__item" href="#">Services</a></li>
-          <li><a class="menu__item" href="#">Portfolio</a></li>
-          <li><a class="menu__item" href="#">About</a></li>
-          <li><a class="menu__item" href="#">Contact</a></li>
+          <li>
+            <NuxtLink class="menu__item" to="/diagnosis" @click="closeMenu()">
+              生き方を診断する
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="menu__item" to="/list" @click="closeMenu()">
+              13タイプ一覧
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+              お問い合わせ
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+              運営会社
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+              プライバシーポリシー
+            </NuxtLink>
+          </li>
         </ul>
       </nav>
     </div>
@@ -44,156 +76,172 @@
 </template>
 
 <style lang="scss" scoped>
+// ハンバーガーメニュー用
 @mixin burgerSpan {
   display: inline-block;
   position: absolute;
   width: 100%;
-  height: 3px;
-  background-color: #fff;
+  height: 1px;
+  background-color: #333333;
 }
+
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 70px; // ヘッダーの高さ固定
   width: 100%;
-  background-color: #ead3f0;
+  background-color: #ead3f0; // TODO: 透明にする
   border-bottom: 1px solid #2d303a;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
-  .header-contents {
-    margin: 0 auto;
-    display: flex;
-    .pc-menu-container {
+  @include sp {
+      background-color: transparent;
+      border-bottom: none;
+    }
+  .pc-menu-container {
+    @include sp {
+      display: none !important;
+    }
+    a {
+      padding: 25px 0;
+      margin: 0 35px;
+      text-decoration: none;
+      max-width: 150px;
+      color: #383c3c;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 23px;
+      letter-spacing: 0.05em;
+      z-index: 999;
       @include tab {
-        // background-color: blue;
+        font-size: 10px;
       }
-      @include sp {
-        display: none !important;
-      }
-      a {
-        padding: 25px 0;
-        margin: 0 35px;
-        text-decoration: none;
-        max-width: 150px;
-        color: #383c3c;
+      &.logo {
+        width: 140px;
+        height: 39px;
+        background: #333;
+        text-align: center;
         font-size: 16px;
         font-weight: 700;
-        line-height: 23px;
+        line-height: 26px;
         letter-spacing: 0.05em;
-        z-index: 999;
-        @include tab {
-          font-size: 10px;
-        }
-        &.logo {
-          width: 140px;
-          height: 39px;
-          background: #333;
-          text-align: center;
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 26px;
-          letter-spacing: 0.05em;
-          color: #fff;
-          padding-top: 5px;
-        }
+        color: #fff;
+        padding-top: 5px;
       }
     }
   }
-}
-nav {
-  display: none; // PC画面でハンバーガーメニューは非表示
-  align-items: center;
-}
-.menu__box {
-  display: flex;
-  list-style-type: none;
-  flex-direction: column;
-  position: fixed;
-  visibility: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 15em;
-  margin: -600px 0 0;
-  padding: 0.6em 0;
-  text-align: center;
-  background-color: #2d303a;
-  box-shadow: 1px 0 6px rgb(0 0 0 / 0.2);
-  z-index: 1;
-  transition-duration: 0.5s;
-}
-.menu__item {
-  flex-direction: column;
-  font-family: sans-serif;
-  font-weight: 400;
-  text-decoration: none;
-  text-transform: uppercase;
-  display: block;
-  padding: 12px 24px;
-  color: red;
-  font-size: 18px;
-  transition-duration: 0.5s;
-  &:hover {
-    background-color: #4f5464;
-  }
-}
-#menu-toggle {
-  opacity: 0;
-  display: none;
-  &:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
-  }
-  &:checked ~ .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0);
-    background: #f06c64;
-  }
-  &:checked ~ .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
-    background: #f06c64;
-  }
-  &:checked ~ .menu__box {
-    visibility: visible;
-    left: 0;
-    margin: 0;
-  }
-}
-.menu__btn {
-  transition-duration: 0.25s;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  position: relative;
-  bottom: 2px;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  z-index: 2;
-  span {
-    @include burgerSpan;
-    &::before {
-      @include burgerSpan;
-
-      content: "";
-      top: -8px;
-      transition-duration: 0.25s;
+  .sp-header-container {
+    display: none; // SP画面以外では非表示
+    @include sp {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
     }
-    &::after {
-      @include burgerSpan;
-
-      content: "";
-      top: 8px;
-      transition-duration: 0.25s;
+    .sp-logo {
+      display: none;
+      @include sp {
+        display: inline-block;
+        width: 140px;
+        padding: 5px;
+        margin: 20px;
+        background: #333333;
+        color: white;
+        text-align: center;
+      }
     }
-  }
-}
-@media screen and (width <= 700px) {
-  nav {
-    display: flex; // スマホ画面でハンバーガーメニューを表示
+    nav {
+      display: none;
+      @include sp {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+      }
+    }
+    .menu__box {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: -900px 0 0;
+      padding: 50px 0;
+      visibility: hidden;
+      background-color: #FFFFFF;
+      z-index: 1;
+      transition-duration: 0.5s;
+    }
+    .menu__item {
+      flex-direction: column;
+      font-family: sans-serif;
+      font-weight: 400;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 12px 24px;
+      color: #7E5DA4;
+      font-size: 18px;
+      transition-duration: 0.5s;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 23px;
+      letter-spacing: 0.05em;
+      &:hover {
+        background-color: #4f5464;
+      }
+    }
+    #menu-toggle {
+      opacity: 0.5;
+      display: none;
+      &:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+      }
+      &:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+        background: #333333;
+      }
+      &:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+        background: #333333;
+      }
+      &:checked ~ .menu__box {
+        visibility: visible;
+        left: 0;
+        margin: 0;
+      }
+    }
+    .menu__btn {
+      transition-duration: 0.25s;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      position: relative;
+      bottom: 2px;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      z-index: 2;
+      span {
+        @include burgerSpan;
+        &::before {
+          @include burgerSpan;
+          content: "";
+          top: -8px;
+          transition-duration: 0.25s;
+        }
+        &::after {
+          @include burgerSpan;
+          content: "";
+          top: 8px;
+          transition-duration: 0.25s;
+        }
+      }
+    }
   }
 }
 </style>
