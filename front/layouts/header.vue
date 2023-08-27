@@ -1,11 +1,9 @@
 <script setup lang="ts">
-
 // SP画面でハンバーガーメニューをクリックしてメニューを閉じる
 function closeMenu (): void {
   const menuToggle = document.getElementById('menu-label')
   menuToggle.click()
 }
-
 </script>
 
 <template>
@@ -31,13 +29,11 @@ function closeMenu (): void {
     </div>
 
     <!-- ハンバーガメニュー スマホのみで表示 -->
-    <div class="sp-header-container d-flex align-center justify-space-between">
-      <div class="sp-logo">
-        ロゴ作成中
-      </div>
+    <div class="sp-header-container d-flex align-center justify-end">
       <nav>
         <input id="menu-toggle" v-model="isChecked" type="checkbox">
-        <label id="menu-label" class="menu__btn" for="menu-toggle" @click="openMenu()"> <span /></label>
+        <label id="menu-label" class="menu__btn" for="menu-toggle" @click="openMenu()">
+          <span /></label>
         <ul class="menu__box">
           <li>
             <NuxtLink class="menu__item" to="/" @click="closeMenu()">
@@ -80,7 +76,7 @@ function closeMenu (): void {
 @mixin burgerSpan {
   display: inline-block;
   position: absolute;
-  width: 100%;
+  width: 90%;
   height: 1px;
   background-color: #333333;
 }
@@ -95,9 +91,9 @@ header {
   left: 0;
   z-index: 999;
   @include sp {
-      background-color: transparent;
-      border-bottom: none;
-    }
+    background-color: transparent;
+    border-bottom: none;
+  }
   .pc-menu-container {
     @include sp {
       display: none !important;
@@ -137,18 +133,6 @@ header {
       width: 100%;
       height: 40px;
     }
-    .sp-logo {
-      display: none;
-      @include sp {
-        display: inline-block;
-        width: 140px;
-        padding: 5px;
-        margin: 20px;
-        background: #333333;
-        color: white;
-        text-align: center;
-      }
-    }
     nav {
       display: none;
       @include sp {
@@ -156,7 +140,7 @@ header {
         align-items: center;
         width: 40px;
         height: 40px;
-        margin-right: 20px;
+        margin-right: 15px;
       }
     }
     .menu__box {
@@ -170,7 +154,7 @@ header {
       margin: -900px 0 0;
       padding: 50px 0;
       visibility: hidden;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       z-index: 1;
       transition-duration: 0.5s;
     }
@@ -182,7 +166,7 @@ header {
       text-transform: uppercase;
       display: block;
       padding: 12px 24px;
-      color: #7E5DA4;
+      color: #7e5da4;
       font-size: 18px;
       transition-duration: 0.5s;
       font-size: 16px;
@@ -222,20 +206,35 @@ header {
       align-items: center;
       position: relative;
       bottom: 2px;
-      width: 26px;
-      height: 26px;
       cursor: pointer;
       z-index: 2;
+      background: #fff;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      padding: 7px;
       span {
-        @include burgerSpan;
+        display: inline-block;
+        position: absolute;
+        width: 25px;
+        height: 1px;
+        background-color: #333333;
         &::before {
-          @include burgerSpan;
           content: "";
+          display: inline-block;
+          position: absolute;
+          width: 25px;
+          height: 1px;
+          background-color: #333333;
           top: -8px;
           transition-duration: 0.25s;
         }
         &::after {
-          @include burgerSpan;
+          display: inline-block;
+          position: absolute;
+          width: 25px;
+          height: 1px;
+          background-color: #333333;
           content: "";
           top: 8px;
           transition-duration: 0.25s;

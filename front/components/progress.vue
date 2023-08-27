@@ -74,7 +74,6 @@ const props = defineProps < {
         font-size: 36px;
         font-weight: 700;
         line-height: 46px;
-        letter-spacing: 0.05em;
         margin-top:5px;
       }
     }
@@ -86,7 +85,6 @@ const props = defineProps < {
       font-size: 48px;
       font-weight: 700;
       line-height: 61px;
-      letter-spacing: 0.05em;
       .page{
         font-size: 16px;
         font-weight: 700;
