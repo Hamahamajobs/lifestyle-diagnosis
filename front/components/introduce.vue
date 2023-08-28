@@ -47,14 +47,13 @@ function goKindle (): void {
         <span>”生き方”を大切な人とシェアしませんか？</span>
       </p>
     </div>
-    <div class="kindle-container d-flex flex-column align-center">
+    <div class="kindle-container d-flex flex-column align-center" @click="goKindle()">
       <!-- TODO: Figmaから正しくsvgコピーできない とりまでこれ -->
       <Kindlesp class="sp-kindle" />
       <Kindle class="pc-kindle" />
-      <!-- <Kindle class="sp-kindle"/>   -->
-      <button class="try" @click="goKindle()">
+      <!-- <button class="try" @click="goKindle()">
         試し読みする
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
@@ -161,6 +160,9 @@ function goKindle (): void {
   }
   .kindle-container {
     margin-top: -30px;
+    &:hover{
+      cursor: pointer;
+    }
     @include sp {
         margin-top: 15px;
       }
@@ -175,29 +177,29 @@ function goKindle (): void {
         display: block;
       }
     }
-    .try {
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 32px;
-      letter-spacing: 0.03em;
-      background: #383c3c;
-      width: 206px;
-      height: 62px;
-      color: #fff;
-      text-align: center;
-      margin-top: -62px;
-      margin-right: -600px;
-      @include sp {
-        width: 135px;
-        height: 38px;
-        color: #fff;
-        text-align: center;
-        margin-top: -38px;
-        margin-right: -200px;
-        font-size: 16px;
-        line-height: 26px;
-      }
-    }
+    // .try {
+    //   font-size: 20px;
+    //   font-weight: 700;
+    //   line-height: 32px;
+    //   letter-spacing: 0.03em;
+    //   background: #383c3c;
+    //   width: 206px;
+    //   height: 62px;
+    //   color: #fff;
+    //   text-align: center;
+    //   margin-top: -62px;
+    //   margin-right: -600px;
+    //   @include sp {
+    //     width: 135px;
+    //     height: 38px;
+    //     color: #fff;
+    //     text-align: center;
+    //     margin-top: -38px;
+    //     margin-right: -200px;
+    //     font-size: 16px;
+    //     line-height: 26px;
+    //   }
+    // }
   }
 }
 </style>
