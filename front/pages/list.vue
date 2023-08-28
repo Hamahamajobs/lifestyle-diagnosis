@@ -52,41 +52,89 @@ const currentSvg = computed(() => (id) => {
 </script>
 
 <template>
-  <div class="list-container d-flex justify-center">
-    <v-simple-table>
-      <template #default>
-        <!-- <thead>
-          <tr>
-            <th class="text-left">
-              ID
-            </th>
-            <th class="text-left">
-              結果画面
-            </th>
-          </tr>
-        </thead> -->
-        <tbody>
-          <tr
-            v-for="(item, index) in morisTypes"
-            :key="item.en"
-          >
-            <td>{{ item.en }}</td>
-            <td><component :is="currentSvg(item.en)" :class="`type-image-${item.en}`" /></td>
-            <!-- <td>
-              <NuxtLink :to="'/result/' + item.en">
-                {{ item.jp }}の診断結果へ
-              </NuxtLink>
-            </td> -->
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
+  <div class="list-content">
+    <div class="list-content-items">
+      <div class="d-flex flex-wrap">
+        <div
+          v-for="(item, index) in morisTypes"
+          :key="item.en"
+          class="list-content-item"
+          :class="``"
+        >
+          <div class="list-content-item-front">
+            <component :is="currentSvg(item.en)" class="list-content-item-image"/>
+            <div>
+              ここに説明
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.list-container{
-  margin-top:160px;
-  height:700px;
+.list {
+  &-content {
+    background-color: #EAD3F0;
+    text-align: center;
+    &-items {
+      padding-top: 100px;
+      width: 90vw;
+      display: inline-block;
+    }
+    &-item {
+      margin: 0.5vw;
+      // padding-bottom: 50px;
+      background-color: black;
+      position: relative;
+      &-image {
+        width: 21.5vw;
+      }
+      &-front {
+        background-color: white;
+        &:hover {
+          transform: rotateZ(-3deg);
+        }
+      }
+    }
+  }
+  &-item {
+    background-color: white;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .list {
+    &-content {
+      &-item{
+        padding-bottom: 80px;
+        &-image {
+          width: 29vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 960px) {
+  .list {
+    &-content {
+      &-item{
+        &-image {
+          width: 44vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 580px) {
+  .list {
+    &-content {
+      &-item{
+        &-image {
+          width: 88.5vw;
+        }
+      }
+    }
+  }
 }
 </style>
