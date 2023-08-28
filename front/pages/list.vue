@@ -63,8 +63,8 @@ const currentSvg = computed(() => (id) => {
         >
           <div class="list-content-item-front">
             <component :is="currentSvg(item.en)" class="list-content-item-image"/>
-            <div>
-              ここに説明
+            <div class="list-content-item-front-explain">
+              ここに説明ここに説明ここに説明
             </div>
           </div>
         </div>
@@ -93,6 +93,9 @@ const currentSvg = computed(() => (id) => {
       }
       &-front {
         background-color: white;
+        &-explain {
+          width: 21.5vw;
+        }
         &:hover {
           transform: rotateZ(-3deg);
         }
@@ -110,6 +113,11 @@ const currentSvg = computed(() => (id) => {
         &-image {
           width: 29vw;
         }
+        &-front{
+          &-explain {
+            width: 29vw;
+          }
+        }
       }
     }
   }
@@ -121,6 +129,11 @@ const currentSvg = computed(() => (id) => {
         &-image {
           width: 44vw;
         }
+        &-front{
+          &-explain {
+            width: 44vw;
+          }
+        }
       }
     }
   }
@@ -131,6 +144,11 @@ const currentSvg = computed(() => (id) => {
       &-item{
         &-image {
           width: 88.5vw;
+        }
+        &-front{
+          &-explain {
+            width: 88.5vw;
+          }
         }
       }
     }
