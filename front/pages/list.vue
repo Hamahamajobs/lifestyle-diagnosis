@@ -107,7 +107,6 @@ const currentSvg = computed(() => (id) => {
   .list {
     &-content {
       &-item{
-        padding-bottom: 80px;
         &-image {
           width: 29vw;
         }
