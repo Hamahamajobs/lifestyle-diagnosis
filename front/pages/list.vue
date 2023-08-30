@@ -54,18 +54,16 @@ const currentSvg = computed(() => (id) => {
 <template>
   <div class="list-content">
     <div class="list-content-items">
-      <div class="d-flex flex-wrap">
-        <div
-          v-for="(item, index) in morisTypes"
-          :key="item.en"
-          class="list-content-item"
-          :class="`list-content-item-${item.en}`"
-        >
-          <div class="list-content-item-front">
-            <component :is="currentSvg(item.en)" class="list-content-item-image"/>
-            <div class="list-content-item-front-explain">
-              ここに説明ここに説明ここに説明
-            </div>
+      <div
+        v-for="(item, index) in morisTypes"
+        :key="item.en"
+        class="list-content-item"
+        :class="`list-content-item-${item.en}`"
+      >
+        <div class="list-content-item-front">
+          <component :is="currentSvg(item.en)" class="list-content-item-image"/>
+          <div class="list-content-item-front-explain">
+            ここに説明ここに説明ここに説明
           </div>
         </div>
       </div>
@@ -77,32 +75,32 @@ const currentSvg = computed(() => (id) => {
 .list {
   &-content {
     background-color: #EAD3F0;
-    text-align: center;
     &-items {
       padding-top: 100px;
-      width: 90vw;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      &::after {
+        content: "";
+        width: 73.5vw;
+        @include pc {
+          width: 59vw;
+        }
+        @include tab {
+          width: 44.5vw;
+        }
+        @include sp {
+          width: 87vw;
+        }
+      }
     }
     &-item {
-      margin: 1.6vw;
-      // background-color: black;
-      &-image {
-        // width: 21.5vw;
-        // @include pc {
-        //   width: 29vw;
-        // }
-        // @include tab {
-        //   width: 44vw;
-        // }
-        // @include sp {
-        //   width: 88.5vw;
-        // }
-      }
+      margin: 1.5vw;
       &-front {
         background-color: white;
         padding-top: 10px;
         padding-bottom: 50px;
-        width: 19vw;
+        width: 21.5vw;
         @include pc {
           width: 26.5vw;
         }
@@ -113,7 +111,8 @@ const currentSvg = computed(() => (id) => {
           width: 87vw;
         }
         &-explain {
-          width: 19vw;
+          width: 21.5vw;
+          text-align: center;
           @include pc {
             width: 26.5vw;
           }
