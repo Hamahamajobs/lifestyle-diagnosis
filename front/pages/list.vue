@@ -82,7 +82,7 @@ const currentSvg = computed(() => (id) => {
       flex-wrap: wrap;
       &::after {
         content: "";
-        width: 73.5vw;
+        width: 69vw;
         @include pc {
           width: 59vw;
         }
@@ -111,7 +111,7 @@ const currentSvg = computed(() => (id) => {
           width: 87vw;
         }
         &-explain {
-          width: 21.5vw;
+          width: 20vw;
           text-align: center;
           @include pc {
             width: 26.5vw;
