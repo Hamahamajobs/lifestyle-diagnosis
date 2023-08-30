@@ -59,7 +59,7 @@ const currentSvg = computed(() => (id) => {
           v-for="(item, index) in morisTypes"
           :key="item.en"
           class="list-content-item"
-          :class="``"
+          :class="`list-content-item-${item.en}`"
         >
           <div class="list-content-item-front">
             <component :is="currentSvg(item.en)" class="list-content-item-image"/>
@@ -84,74 +84,93 @@ const currentSvg = computed(() => (id) => {
       display: inline-block;
     }
     &-item {
-      margin: 0.5vw;
-      // padding-bottom: 50px;
-      background-color: black;
-      position: relative;
+      margin: 1.6vw;
+      // background-color: black;
       &-image {
-        width: 21.5vw;
+        // width: 21.5vw;
+        // @include pc {
+        //   width: 29vw;
+        // }
+        // @include tab {
+        //   width: 44vw;
+        // }
+        // @include sp {
+        //   width: 88.5vw;
+        // }
       }
       &-front {
         background-color: white;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        width: 19vw;
+        @include pc {
+          width: 26.5vw;
+        }
+        @include tab {
+          width: 41.5vw;
+        }
+        @include sp {
+          width: 87vw;
+        }
         &-explain {
-          width: 21.5vw;
+          width: 19vw;
+          @include pc {
+            width: 26.5vw;
+          }
+          @include tab {
+            width: 41.5vw;
+          }
+          @include sp {
+            width: 87vw;
+          }
         }
         &:hover {
           transform: rotateZ(-3deg);
         }
       }
+      &-altruist {
+        background-color: #6BCDAA;
+      }
+      &-hedonistic {
+        background-color: #CD6BC3;
+      }
+      &-love {
+        background-color: #CD6B6B;
+      }
+      &-moderation {
+        background-color: #6BCD75;
+      }
+      &-accepting {
+        background-color: #6BC7CD;
+      }
+      &-variety {
+        background-color: #CDC36B;
+      }
+      &-hedonism {
+        background-color: #B46BCD;
+      }
+      &-cooperation {
+        background-color: #B4CD6B;
+      }
+      &-acceptance-of-life {
+        background-color: #31365E;
+      }
+      &-self-disciplined {
+        background-color: #6B75CD
+      }
+      &-activist {
+        background-color: #CD886B;
+      }
+      &-meditative {
+        background-color: #9B7049;
+      }
+      &-achievement {
+        background-color: #DB4A4A;
+      }
     }
   }
   &-item {
     background-color: white;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .list {
-    &-content {
-      &-item{
-        &-image {
-          width: 29vw;
-        }
-        &-front{
-          &-explain {
-            width: 29vw;
-          }
-        }
-      }
-    }
-  }
-}
-@media screen and (max-width: 960px) {
-  .list {
-    &-content {
-      &-item{
-        &-image {
-          width: 44vw;
-        }
-        &-front{
-          &-explain {
-            width: 44vw;
-          }
-        }
-      }
-    }
-  }
-}
-@media screen and (max-width: 580px) {
-  .list {
-    &-content {
-      &-item{
-        &-image {
-          width: 88.5vw;
-        }
-        &-front{
-          &-explain {
-            width: 88.5vw;
-          }
-        }
-      }
-    }
   }
 }
 </style>
