@@ -100,7 +100,7 @@ const currentSvg = computed(() => (id) => {
         background-color: white;
         padding-top: 10px;
         padding-bottom: 50px;
-        width: 21.5vw;
+        width: 20vw;
         @include pc {
           width: 26.5vw;
         }
