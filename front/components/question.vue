@@ -114,6 +114,7 @@ function moveSelectQuestion (event, id, value): void {
         text-align: center;
         white-space: pre-line; // TODO  SP画面での折り返し制御ができていない「全くあてはまらない」の選択肢
         cursor: pointer; // TODO クリックできる範囲を広げたい
+        user-select: none;
         &::before {
           position: absolute;
           content: "";

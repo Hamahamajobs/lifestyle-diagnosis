@@ -1,4 +1,9 @@
 <script setup lang="ts">
+const { isLoading } = loadingController()
+
+// Router
+const router = useRouter()
+
 // SP画面でハンバーガーメニューをクリックしてメニューを閉じる
 function closeMenu (): void {
   const menuToggle = document.getElementById('menu-label')
@@ -7,66 +12,77 @@ function closeMenu (): void {
 </script>
 
 <template>
-  <header class="d-flex align-center justify-center">
-    <div
-      class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New"
-    >
-      <NuxtLink to="/">
-        トップページ
-      </NuxtLink>
-      <NuxtLink to="/diagnosis">
-        生き方を診断する
-      </NuxtLink>
-      <NuxtLink to="/" class="logo">
-        ロゴ作成中
-      </NuxtLink>
-      <NuxtLink to="/list">
-        13タイプ一覧
-      </NuxtLink>
-      <NuxtLink to="/">
-        お問い合わせ
-      </NuxtLink>
-    </div>
+  <header>
+    <div class="d-flex align-center justify-center">
+      <div
+        class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New"
+      >
+        <NuxtLink to="/" :class="{ 'current-page': router.currentRoute.value.path === '/' }">
+          トップページ
+        </NuxtLink>
+        <NuxtLink to="/diagnosis" :class="{ 'current-page': router.currentRoute.value.path === '/diagnosis' }">
+          生き方を診断する
+        </NuxtLink>
+        <NuxtLink to="/" class="logo">
+          ロゴ作成中
+        </NuxtLink>
+        <NuxtLink to="/list" :class="{ 'current-page': router.currentRoute.value.path === '/list' }">
+          13タイプ一覧
+        </NuxtLink>
+        <NuxtLink to="https://instagram.com/antos_u_makoto" target="_blank">
+          お問い合わせ
+        </NuxtLink>
+      </div>
 
-    <!-- ハンバーガメニュー スマホのみで表示 -->
-    <div class="sp-header-container d-flex align-center justify-end">
-      <nav>
-        <input id="menu-toggle" type="checkbox">
-        <label id="menu-label" class="menu__btn" for="menu-toggle">
-          <span /></label>
-        <ul class="menu__box">
-          <li>
-            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
-              トップページ
-            </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="menu__item" to="/diagnosis" @click="closeMenu()">
-              生き方を診断する
-            </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="menu__item" to="/list" @click="closeMenu()">
-              13タイプ一覧
-            </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
-              お問い合わせ
-            </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
-              運営会社
-            </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="menu__item" to="/" @click="closeMenu()">
-              プライバシーポリシー
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav>
+      <!-- ハンバーガメニュー スマホのみで表示 -->
+      <div class="sp-header-container d-flex align-center justify-end">
+        <nav>
+          <input id="menu-toggle" type="checkbox">
+          <label id="menu-label" class="menu__btn" for="menu-toggle">
+            <span /></label>
+          <ul class="menu__box">
+            <li>
+              <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+                トップページ
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink class="menu__item" to="/diagnosis" @click="closeMenu()">
+                生き方を診断する
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink class="menu__item" to="/list" @click="closeMenu()">
+                13タイプ一覧
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink class="menu__item" to="https://instagram.com/antos_u_makoto" target="_blank" @click="closeMenu()">
+                お問い合わせ
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+                運営会社
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink class="menu__item" to="/" @click="closeMenu()">
+                プライバシーポリシー
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div>
+      <v-progress-linear
+        v-if="isLoading"
+        class="progress-linear"
+        indeterminate
+        color="deep-purple-lighten-3"
+        :height="5"
+      />
     </div>
   </header>
 </template>
@@ -94,6 +110,9 @@ header {
     background-color: transparent;
     border-bottom: none;
   }
+  .progress-linear{
+    margin-top:-3px;
+  }
   .pc-menu-container {
     @include sp {
       display: none !important;
@@ -109,6 +128,14 @@ header {
       line-height: 23px;
       letter-spacing: 0.05em;
       z-index: 999;
+      &:hover{
+        text-decoration:underline;
+        text-decoration-color: #31365E;
+      }
+      &:focus {
+        // NuxtLinkで画面遷移後にフォーカスが当たり透明度が変わってしまうので見た目が変わらないように上書き
+        opacity:1.0 !important;
+      }
       @include tab {
         font-size: 10px;
       }
@@ -124,6 +151,10 @@ header {
         color: #fff;
         padding-top: 5px;
       }
+      &.current-page{
+        text-decoration:underline;
+        text-decoration-color: #31365E;
+      }
     }
   }
   .sp-header-container {
@@ -132,6 +163,7 @@ header {
       display: inline-block;
       width: 100%;
       height: 40px;
+      margin-top:20px;
     }
     nav {
       display: none;

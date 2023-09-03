@@ -112,6 +112,8 @@ import WaterDropBlackBig from '~/assets/svg//waterdrops/bigblack.vue'
 import WaterDropBlackSmallLeft from '~/assets/svg//waterdrops/small1black.vue'
 import WaterDropBlackSmallRight from '~/assets/svg//waterdrops/small2black.vue'
 
+const { start, close } = loadingController()
+
 // Router
 const router = useRouter()
 
@@ -128,19 +130,25 @@ const { step1, step2, step3 } = reactive(steps())
 const currentStep: number = ref(1)
 
 // 設問読み込み
+start()
 await useAsyncData('questions', () => $fetch(domain + '/api/questions')).then(
   ({ data }) => {
+    close()
     data.value.forEach((question) => {
       questions.push(question)
     })
   }
-)
+).catch((error) => {
+  close()
+  alert('エラーが発生しました。リロードしてください。エラー内容' + error)
+})
 
 /**
  * 回答送信
  * @return void
  */
 async function clicksend (): void {
+  start()
   const postData: {
     answers: Array<any>;
   } = {
@@ -153,6 +161,7 @@ async function clicksend (): void {
   })
 
   router.push('/result/' + data.value.result)
+  close()
 }
 /**
  * ランダム入力
