@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import AcceptanceOfLife from '~/assets/svg/types/AcceptanceOfLife.vue'
 import Accepting from '~/assets/svg/types/Accepting.vue'
 import Achievement from '~/assets/svg/types/Achievement.vue'
@@ -55,13 +56,13 @@ const currentSvg = computed(() => (id) => {
   <div class="list-content">
     <div class="list-content-items">
       <div
-        v-for="(item, index) in morisTypes"
+        v-for="(item) in morisTypes"
         :key="item.en"
         class="list-content-item"
         :class="`list-content-item-${item.en}`"
       >
         <div class="list-content-item-front">
-          <component :is="currentSvg(item.en)" class="list-content-item-image"/>
+          <component :is="currentSvg(item.en)" class="list-content-item-image" />
           <div class="list-content-item-front-explain">
             ここに説明ここに説明ここに説明
           </div>
