@@ -56,7 +56,7 @@ const currentSvg = computed(() => (id) => {
   <div class="list-content">
     <div class="list-content-items">
       <div
-        v-for="(item, index) in morisTypes"
+        v-for="(item) in morisTypes"
         :key="item.en"
         class="list-content-item"
         :class="`list-content-item-${item.en}`"
