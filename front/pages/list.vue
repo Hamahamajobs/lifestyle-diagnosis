@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import AcceptanceOfLife from '~/assets/svg/types/AcceptanceOfLife.vue'
 import Accepting from '~/assets/svg/types/Accepting.vue'
 import Achievement from '~/assets/svg/types/Achievement.vue'
@@ -56,13 +57,13 @@ const currentSvg = computed(() => (id) => {
     <div class="list-content-items">
       <div class="d-flex flex-wrap">
         <div
-          v-for="(item, index) in morisTypes"
+          v-for="(item) in morisTypes"
           :key="item.en"
           class="list-content-item"
           :class="``"
         >
           <div class="list-content-item-front">
-            <component :is="currentSvg(item.en)" class="list-content-item-image"/>
+            <component :is="currentSvg(item.en)" class="list-content-item-image" />
             <div class="list-content-item-front-explain">
               ここに説明ここに説明ここに説明
             </div>
@@ -76,7 +77,7 @@ const currentSvg = computed(() => (id) => {
 <style lang="scss" scoped>
 .list {
   &-content {
-    background-color: #EAD3F0;
+    background-color: #ead3f0;
     text-align: center;
     &-items {
       padding-top: 100px;
@@ -90,7 +91,7 @@ const currentSvg = computed(() => (id) => {
       position: relative;
       &-image {
         width: 21.5vw;
-      }
+              }
       &-front {
         background-color: white;
         &-explain {
@@ -109,11 +110,11 @@ const currentSvg = computed(() => (id) => {
 @media screen and (max-width: 1280px) {
   .list {
     &-content {
-      &-item{
+      &-item {
         &-image {
           width: 29vw;
         }
-        &-front{
+        &-front {
           &-explain {
             width: 29vw;
           }
@@ -125,11 +126,11 @@ const currentSvg = computed(() => (id) => {
 @media screen and (max-width: 960px) {
   .list {
     &-content {
-      &-item{
+      &-item {
         &-image {
           width: 44vw;
         }
-        &-front{
+        &-front {
           &-explain {
             width: 44vw;
           }
@@ -141,11 +142,11 @@ const currentSvg = computed(() => (id) => {
 @media screen and (max-width: 580px) {
   .list {
     &-content {
-      &-item{
+      &-item {
         &-image {
           width: 88.5vw;
         }
-        &-front{
+        &-front {
           &-explain {
             width: 88.5vw;
           }
