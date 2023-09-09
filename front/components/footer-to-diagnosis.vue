@@ -1,5 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
+// Router
+const router = useRouter()
 function goDiagnosis (): void {
   router.push('/diagnosis')
 }
