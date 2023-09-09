@@ -27,7 +27,7 @@ function share (): void {
 </script>
 
 <template>
-  <div class="share-container mb-5 d-flex flex-column align-center">
+  <div class="share-container d-flex flex-column align-center">
     <p class="font-Kumbh-Sans hash-tag">
       #share your life
     </p>
@@ -54,7 +54,8 @@ function share (): void {
 
 <style lang="scss" scoped>
 .share-container {
-  margin-top:88px;
+  margin-top:100px;
+  margin-bottom:100px;
   .hash-tag{
     font-size: 32px;
     font-weight: 400;

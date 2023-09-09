@@ -173,14 +173,10 @@ const currentSvg = computed(() => (id) => {
 
 <style lang="scss" scoped>
 .result-container {
-  min-width: 1280px;
   width: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  @include sp {
-    min-width: 380px;
-  }
   .top-container {
     width: 100%;
     min-height: 861px;
@@ -245,7 +241,7 @@ const currentSvg = computed(() => (id) => {
           @include sp {
             font-size: 32px;
             line-height: 59px;
-            margin-left: -8rem; // 8文字分ずらす
+            margin-left: -8rem; // 8文字分 ずらす
           }
         }
         .top-type {
@@ -319,7 +315,7 @@ const currentSvg = computed(() => (id) => {
           z-index: 5;
           box-shadow: 10px 10px #9775BF;
           @include sp {
-            width: 310px;
+            width: 95%;
             height: 230px;
             margin-top: 25px;
           }
@@ -329,7 +325,7 @@ const currentSvg = computed(() => (id) => {
             width: 465px;
             height: 385px;
             @include sp {
-              width: 280px;
+              width: 95%;
               height: 250px;
             }
           }

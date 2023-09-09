@@ -108,7 +108,8 @@ const props = defineProps<{
       height: 565px;
       @include sp {
         width: 95%;
-        padding:5%;
+        padding-top :5%;
+        padding-bottom :5%;
         height: auto;
       }
     }
@@ -154,15 +155,19 @@ const props = defineProps<{
       margin-bottom: 10px;
       @include sp {
         width:70%;
+        font-weight: 600;
         margin-bottom: 30px;
       }
     }
     .summary-contents {
       margin-top: 10px;
+      @include sp {
+        width: 85%;
+      }
       .summary-block {
         width: 412px;
         @include sp {
-          width: 310px;
+          width: 95%;
         }
         .question {
           font-size: 16px;
