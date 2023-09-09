@@ -83,7 +83,9 @@ const currentSvg = computed(() => (id) => {
               <WaterDropSmallRight class="water-drops-small" />
             </div>
 
-            <p>診断結果</p>
+            <p class="font-Zen-Kaku-Gothic-New">
+              診断結果
+            </p>
           </div>
         </div>
         <div class="top-main">
@@ -107,7 +109,7 @@ const currentSvg = computed(() => (id) => {
                 <component :is="currentSvg(resultType.en)" class="type-image" />
               </div>
             </div>
-            <!-- 重複してしまうがSPデザインのためにここに追加 描画時に重複はないようCSSで制御 -->
+            <!-- FIXME: 重複なくしたい SPデザインのために追加 要素は重複してしまうがCSSで制御 -->
             <p class="sp-top-detail">
               精神的に安定しており、どんなときも基本的に冷静に対応できる。そのため、周囲の人からの信頼が厚く、相談に乗ることも得意。
             </p>
@@ -288,7 +290,6 @@ const currentSvg = computed(() => (id) => {
           height: 105px;
           top: 628px;
           left: 175px;
-          font-family: Yu Gothic;
           font-size: 16px;
           font-weight: 500;
           line-height: 35px;

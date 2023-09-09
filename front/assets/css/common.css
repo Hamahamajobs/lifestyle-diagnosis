@@ -3,14 +3,17 @@ html{
 }
 body {
   font-family: "Yu Gothic", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic"!important;
+  /* どの端末でも横スクロールは禁止 */
+  overflow-x: hidden;
 }
 
 .font-La-Belle-Aurore {
   font-family: 'La Belle Aurore', cursive !important;
 }
-.font-Shippori-Mincho-B1 {
+/* 使用しているか不明なため一旦コメントアウト */
+/* .font-Shippori-Mincho-B1 {
   font-family: 'Shippori Mincho B1', serif !important;
-}
+} */
 .font-Lora {
   font-family: 'Lora', serif !important;
 }

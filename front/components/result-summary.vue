@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
   <div class="summary-container d-flex justfy-center flex-column align-center">
-    <p class="summary-title font-Zen-Kaku-Gothic-New">
+    <p class="summary-title font-Kumbh-Sans">
       summary
     </p>
     <div

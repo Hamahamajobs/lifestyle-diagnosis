@@ -43,7 +43,7 @@ function goTypesList (): void {
           </p>
           <div class="right-item-container">
             <div class="right-item">
-              <div class="rihgt-title d-flex">
+              <div class="rihgt-title d-flex font-Zen-Kaku-Gothic-New">
                 <p>生き方診断”みらみら”とは？</p>
                 <span class="label about font-La-Belle-Aurore">about</span>
               </div>
@@ -53,7 +53,7 @@ function goTypesList (): void {
               </p>
             </div>
             <div class="right-item">
-              <div class="rihgt-title d-flex">
+              <div class="rihgt-title d-flex font-Zen-Kaku-Gothic-New">
                 <p>13タイプの診断結果</p>
                 <span class="label types font-La-Belle-Aurore">13 types</span>
               </div>
@@ -65,7 +65,7 @@ function goTypesList (): void {
               </button>
             </div>
             <div class="right-item reasoning">
-              <div class="rihgt-title d-flex">
+              <div class="rihgt-title d-flex font-Zen-Kaku-Gothic-New">
                 <p>科学的な根拠</p>
                 <span class="label reasoning font-La-Belle-Aurore">reasoning</span>
               </div>

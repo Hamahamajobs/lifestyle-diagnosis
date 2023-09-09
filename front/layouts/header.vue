@@ -17,16 +17,25 @@ function closeMenu (): void {
       <div
         class="pc-menu-container d-flex align-center justify-center font-Zen-Kaku-Gothic-New"
       >
-        <NuxtLink to="/" :class="{ 'current-page': router.currentRoute.value.path === '/' }">
+        <NuxtLink
+          to="/"
+          :class="{ 'current-page': router.currentRoute.value.path === '/' }"
+        >
           トップページ
         </NuxtLink>
-        <NuxtLink to="/diagnosis" :class="{ 'current-page': router.currentRoute.value.path === '/diagnosis' }">
+        <NuxtLink
+          to="/diagnosis"
+          :class="{ 'current-page': router.currentRoute.value.path === '/diagnosis' }"
+        >
           生き方を診断する
         </NuxtLink>
         <NuxtLink to="/" class="logo">
           ロゴ作成中
         </NuxtLink>
-        <NuxtLink to="/list" :class="{ 'current-page': router.currentRoute.value.path === '/list' }">
+        <NuxtLink
+          to="/list"
+          :class="{ 'current-page': router.currentRoute.value.path === '/list' }"
+        >
           13タイプ一覧
         </NuxtLink>
         <NuxtLink to="https://instagram.com/antos_u_makoto" target="_blank">
@@ -38,8 +47,7 @@ function closeMenu (): void {
       <div class="sp-header-container d-flex align-center justify-end">
         <nav>
           <input id="menu-toggle" type="checkbox">
-          <label id="menu-label" class="menu__btn" for="menu-toggle">
-            <span /></label>
+          <label id="menu-label" class="menu__btn" for="menu-toggle"> <span /></label>
           <ul class="menu__box">
             <li>
               <NuxtLink class="menu__item" to="/" @click="closeMenu()">
@@ -57,7 +65,12 @@ function closeMenu (): void {
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink class="menu__item" to="https://instagram.com/antos_u_makoto" target="_blank" @click="closeMenu()">
+              <NuxtLink
+                class="menu__item"
+                to="https://instagram.com/antos_u_makoto"
+                target="_blank"
+                @click="closeMenu()"
+              >
                 お問い合わせ
               </NuxtLink>
             </li>
@@ -110,8 +123,8 @@ header {
     background-color: transparent;
     border-bottom: none;
   }
-  .progress-linear{
-    margin-top:-3px;
+  .progress-linear {
+    margin-top: -3px;
   }
   .pc-menu-container {
     @include sp {
@@ -128,13 +141,13 @@ header {
       line-height: 23px;
       letter-spacing: 0.05em;
       z-index: 999;
-      &:hover{
-        text-decoration:underline;
-        text-decoration-color: #31365E;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: #31365e;
       }
       &:focus {
         // NuxtLinkで画面遷移後にフォーカスが当たり透明度が変わってしまうので見た目が変わらないように上書き
-        opacity:1.0 !important;
+        opacity: 1 !important;
       }
       @include tab {
         font-size: 10px;
@@ -151,9 +164,9 @@ header {
         color: #fff;
         padding-top: 5px;
       }
-      &.current-page{
-        text-decoration:underline;
-        text-decoration-color: #31365E;
+      &.current-page {
+        text-decoration: underline;
+        text-decoration-color: #31365e;
       }
     }
   }
@@ -163,7 +176,7 @@ header {
       display: inline-block;
       width: 100%;
       height: 40px;
-      margin-top:20px;
+      margin-top: 20px;
     }
     nav {
       display: none;
@@ -185,14 +198,12 @@ header {
       height: 100%;
       margin: -900px 0 0;
       padding: 50px 0;
-      visibility: hidden;
       background-color: #ffffff;
+      visibility: hidden;
       z-index: 1;
-      transition-duration: 0.5s;
     }
     .menu__item {
       flex-direction: column;
-      font-family: sans-serif;
       font-weight: 400;
       text-decoration: none;
       text-transform: uppercase;
@@ -227,8 +238,19 @@ header {
       }
       &:checked ~ .menu__box {
         visibility: visible;
-        left: 0;
-        margin: 0;
+        animation: open-menu-box 0.7s ease 0s 1 normal forwards;
+        @keyframes open-menu-box {
+          0% {
+            left: 0;
+            margin: 0;
+            opacity: 0;
+          }
+          100% {
+            left: 0;
+            margin: 0;
+            opacity: 1;
+          }
+        }
       }
     }
     .menu__btn {
@@ -275,4 +297,45 @@ header {
     }
   }
 }
+
+// /*----------------------------
+// * メニュー本体
+// *----------------------------*/
+// .menu{
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   z-index: 1;
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   background: #555;
+// }
+// .menu__item{
+//   width: 100%;
+//   height: auto;
+//   padding: .5em 1em;
+//   text-align: center;
+//   color: #fff;
+//   box-sizing: border-box;
+// }
+
+// /*----------------------------
+// * アニメーション部分
+// *----------------------------*/
+
+// /* アニメーション前のメニューの状態 */
+// .menu{
+//   pointer-events: none;
+//   opacity: 0;
+//   transition: opacity .3s linear;
+// }
+// /* アニメーション後のメニューの状態 */
+// .menu.is-active{
+//   pointer-events: auto;
+//   opacity: 1;
+// }
 </style>
