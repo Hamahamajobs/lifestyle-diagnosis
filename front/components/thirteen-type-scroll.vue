@@ -85,6 +85,7 @@ const currentArray = ref([
   .scroll {
     display: flex;
     overflow-x: hidden;
+    overflow-y: hidden;
     padding: 30px;
     width: 100%;
     height: 330px;

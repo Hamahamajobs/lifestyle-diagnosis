@@ -45,7 +45,6 @@ const props = defineProps<{
 <style lang="scss" scoped>
 .message-container {
   margin-left: 20%;
-  margin-top: 50px;
   color: #383c3c;
   @include sp {
     margin-left: 5%;
@@ -87,8 +86,8 @@ const props = defineProps<{
     margin-bottom: 120px;
     width: 70%;
     @include sp {
-      width: 90%;
-      margin: 0 5%;
+      width: 95%; // 親要素のmargin-leftが5%なのでwidth:95%にして調整
+      margin-bottom: 45px;
     }
     .title {
       margin-top: 41px;
