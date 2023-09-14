@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 import AcceptanceOfLife from '~/assets/svg/types/AcceptanceOfLife.vue'
 import Accepting from '~/assets/svg/types/Accepting.vue'
 import Achievement from '~/assets/svg/types/Achievement.vue'
@@ -15,7 +13,7 @@ import Moderation from '~/assets/svg/types/Moderation.vue'
 import SelfDisciplined from '~/assets/svg/types/SelfDisciplined.vue'
 import Variety from '~/assets/svg/types/Variety.vue'
 
-const currentArray = ref([
+const currentArray = shallowRef([
   { id: 1, content: 'content1', component: AcceptanceOfLife },
   { id: 2, content: 'content2', component: Accepting },
   { id: 3, content: 'content3', component: Achievement },

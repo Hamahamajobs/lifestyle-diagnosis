@@ -4,7 +4,7 @@
 const props = defineProps<{
   question: Object;
 }>()
-const question = ref(props.question)
+const question = shallowRef(props.question)
 
 // 選択肢読み込み
 const { choices } = reactive(useChoices())
