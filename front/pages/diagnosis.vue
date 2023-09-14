@@ -127,7 +127,7 @@ const questions = reactive([])
 const { step1, step2, step3 } = reactive(steps())
 
 // 現在のステップ
-const currentStep: number = ref(1)
+const currentStep: number = shallowRef(1)
 
 // 設問読み込み
 start()
@@ -138,9 +138,11 @@ await useAsyncData('questions', () => $fetch(domain + '/api/questions')).then(
       questions.push(question)
     })
   }
-).catch((error) => {
+).catch(() => {
   close()
-  alert('エラーが発生しました。リロードしてください。エラー内容' + error)
+  // FIXME: Nuxtがキャッシュを使用するのかエラーになった後に再度APIコールするとNuxt内で別エラーが発生 いつか修正する
+  alert('申し訳ございません。エラーが発生しました。リロードするかしばらく経ってから再度お試しください。')
+  router.push('/')
 })
 
 /**
@@ -155,11 +157,17 @@ async function clicksend (): void {
     answers: questions
   }
 
-  const { data } = await useFetch(domain + '/api/answer', {
+  const { data, error } = await useFetch(domain + '/api/answer', {
     method: 'POST',
     body: postData
   })
-
+  if (error.value) {
+    close()
+    // FIXME: Nuxtがキャッシュを使用するのかエラーになった後に再度APIコールするとNuxt内で別エラーが発生 いつか修正する
+    alert('申し訳ございません。エラーが発生しました。リロードするかしばらく経ってから再度お試しください。')
+    router.push('/')
+    return
+  }
   router.push('/result/' + data.value.result)
   close()
 }

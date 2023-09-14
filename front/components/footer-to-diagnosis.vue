@@ -7,7 +7,7 @@ function goDiagnosis (): void {
 }
 
 //  ブロックの表示切り替え
-const visible: boolean = ref(false)
+const visible: boolean = shallowRef(false)
 function handleScroll (): void {
   // TODO: スクロール範囲はとりあえず200
   if (!visible.value) {
