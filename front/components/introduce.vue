@@ -47,9 +47,9 @@ function goKindle (): void {
         <span>”生き方”を大切な人とシェアしませんか？</span>
       </p>
     </div>
-    <div class="kindle-container d-flex flex-column align-center" @click="goKindle()">
-      <Kindlesp class="sp-kindle" />
-      <Kindlepc class="pc-kindle" />
+    <div class="kindle-container d-flex flex-column align-center">
+      <Kindlesp class="sp-kindle" @click="goKindle()" />
+      <Kindlepc class="pc-kindle" @click="goKindle()" />
     </div>
   </div>
 </template>
@@ -58,7 +58,7 @@ function goKindle (): void {
 .introduce-container {
   width: 100%;
   background: #ead3f0;
-  height: 1300px;
+  padding-bottom:120px;
   margin-top: 200px;
   @include sp {
     margin-top: 70px;
@@ -155,14 +155,15 @@ function goKindle (): void {
     }
   }
   .kindle-container {
-    margin-top: -30px;
-    &:hover{
-      cursor: pointer;
-    }
+    margin-top: 0px;
     @include sp {
         margin-top: 15px;
       }
     .pc-kindle {
+      // background:yellow;
+      &:hover{
+      cursor: pointer;
+    }
       @include sp {
         display: none;
       }
@@ -171,6 +172,9 @@ function goKindle (): void {
       display: none;
       @include sp {
         display: block;
+        &:hover{
+      cursor: pointer;
+    }
       }
     }
   }
