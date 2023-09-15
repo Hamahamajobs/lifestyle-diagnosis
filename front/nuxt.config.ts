@@ -20,6 +20,9 @@ export default defineNuxtConfig({
       domain: 'test' // envにより環境で切り替える
     }
   },
+  generate: {
+    routes: ['/result/altruist', '/result/hedonistic', '/result/love', '/result/moderation', '/result/accepting', '/result/variety', '/result/hedonism', '/result/cooperation', '/result/acceptance-of-life', '/result/self-disciplined', '/result/activist', '/result/meditative', '/result/achievement']
+  },
   css: ['vuetify/lib/styles/main.sass', 'mdi/css/materialdesignicons.min.css', '@mdi/font/css/materialdesignicons.min.css', '@/assets/css/common.css'],
   build: {
     transpile: ['vuetify']
