@@ -16,6 +16,9 @@ import Variety from '~/assets/svg/types/Variety.vue'
 
 const { morisTypes } = reactive(getMorisTypes())
 
+// Router
+const router = useRouter()
+
 // 結果別のSVGを設定
 const currentSvg = computed(() => (id) => {
   switch (id) {
@@ -50,6 +53,10 @@ const currentSvg = computed(() => (id) => {
   }
 })
 
+function goResult(id) {
+  router.push('/result/' + id);
+};
+
 </script>
 
 <template>
@@ -60,11 +67,17 @@ const currentSvg = computed(() => (id) => {
         :key="item.en"
         class="list-content-item"
         :class="`list-content-item-${item.en}`"
+        @click="goResult(item.en)"
       >
         <div class="list-content-item-front">
           <component :is="currentSvg(item.en)" class="list-content-item-image" />
           <div class="list-content-item-front-explain">
-            ここに説明ここに説明ここに説明
+            <div class="list-content-item-front-explain-jp" :class="`${item.en}-text-color`">
+              {{ item.jp }}
+            </div>
+            <div class="list-content-item-front-explain-title">
+              {{ item.title }}
+            </div>
           </div>
         </div>
       </div>
@@ -98,10 +111,12 @@ const currentSvg = computed(() => (id) => {
     &-item {
       margin: 1.5vw;
       &-front {
+        border: 1px black solid;
         background-color: white;
         padding-top: 10px;
-        padding-bottom: 50px;
+        padding-bottom: 10px;
         width: 20vw;
+        transition: 0.3s;
         @include pc {
           width: 26.5vw;
         }
@@ -113,7 +128,6 @@ const currentSvg = computed(() => (id) => {
         }
         &-explain {
           width: 20vw;
-          text-align: center;
           @include pc {
             width: 26.5vw;
           }
@@ -123,49 +137,76 @@ const currentSvg = computed(() => (id) => {
           @include sp {
             width: 87vw;
           }
+          &-jp {
+            text-align: center;
+            font-size: 2vw;
+            @include pc {
+              font-size: 2.5vw;
+            }
+            @include tab {
+              width: 41.5vw;
+            }
+            @include sp {
+              width: 87vw;
+              font-size: 6vw;
+            }
+          }
+          &-title {
+            margin: 0 auto;
+            width: 80%;
+            font-size: 1vw;
+            @include pc {
+              font-size: 1.5vw;
+            }
+            @include tab {
+            }
+            @include sp {
+              font-size: 4vw;
+            }
+          }
         }
         &:hover {
-          transform: rotateZ(-3deg);
+          transform: rotateZ(-5deg);
         }
       }
       &-altruist {
-        background-color: #6BCDAA;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #6BCDAA 100%);
       }
       &-hedonistic {
-        background-color: #CD6BC3;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #CD6BC3 100%);
       }
       &-love {
-        background-color: #CD6B6B;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #CD6B6B 100%);
       }
       &-moderation {
-        background-color: #6BCD75;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #6BCD75 100%);
       }
       &-accepting {
-        background-color: #6BC7CD;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #6BC7CD 100%);
       }
       &-variety {
-        background-color: #CDC36B;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #CDC36B 100%);
       }
       &-hedonism {
-        background-color: #B46BCD;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #B46BCD 100%);
       }
       &-cooperation {
-        background-color: #B4CD6B;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #B4CD6B 100%);
       }
       &-acceptance-of-life {
-        background-color: #31365E;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #31365E 100%);
       }
       &-self-disciplined {
-        background-color: #6B75CD
+        background: linear-gradient(-20deg, #7E5DA4 0%, #6B75CD 100%);
       }
       &-activist {
-        background-color: #CD886B;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #CD886B 100%);
       }
       &-meditative {
-        background-color: #9B7049;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #9B7049 100%);
       }
       &-achievement {
-        background-color: #DB4A4A;
+        background: linear-gradient(-20deg, #7E5DA4 0%, #DB4A4A 100%);
       }
     }
   }
