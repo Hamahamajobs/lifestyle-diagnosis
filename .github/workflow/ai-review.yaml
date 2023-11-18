@@ -1,5 +1,5 @@
 name: ai-pr-reviewer
-
+# hamada オリジナル
 permissions:
   contents: read
   pull-requests: write
