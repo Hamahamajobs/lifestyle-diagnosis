@@ -23,6 +23,13 @@ class AnswerController extends Controller
             $result = $useCase->invoke(
                 $request->answers
             );
+            echo 'これは開発用のメッセージです';
+            echo 'これは開発用のメッセージです';
+            echo 'これは開発用のメッセージです';
+            echo 'これは開発用のメッセージです';echo 'これは開発用のメッセージです';
+            echo 'これは開発用のメッセージです';
+            echo 'これは開発用のメッセージです';echo 'これは開発用のメッセージです';
+            echo 'これは開発用のメッセージです';
 
             return response()->json([
                 'result' => $result
