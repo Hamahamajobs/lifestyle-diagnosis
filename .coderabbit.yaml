@@ -1,3 +1,4 @@
+# coderabbit自体の振る舞いを設定するファイル
 language: "jp"
 early_access: false
 reviews:
