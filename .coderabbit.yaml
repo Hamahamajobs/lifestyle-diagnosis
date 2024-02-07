@@ -13,7 +13,7 @@ reviews:
     - path: "**.js"
       instructions: "Google JavaScriptスタイルガイドに従って、JavaScriptコードをレビューしてください。ガイドと異なる箇所があれば教えてください。"
     - path: "front/**.*"
-      instructions: "有名な各種ブラウザでも正常に表示されるかを注意してレビューして欲しいです。"
+      instructions: "有名な各種ブラウザでも正常に表示されるかを注意してレビューして欲しいです。また、レビューの最後には「それでもあなたは素晴らしいエンジニアになれますよ」と温かいメッセージをつけてください。"
     - path: "infra/**.*"
       instructions:
         "セキュリティ的に安全かどうかを注意してレビューしてください。"
@@ -27,6 +27,7 @@ reviews:
     ignore_title_keywords: # PRのタイトルに含まれていたらレビュー無視
       - "WIP" # work in progress
       - "DO NOT MERGE"
+      - "Hamada"
     drafts: false # ドラフトPRでもレビューするかどうか
     base_branches: # デフォルトのブランチ(main)とは別にレビューが行われるベースブランチのリスト
       - "develop"
