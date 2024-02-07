@@ -1,29 +1,35 @@
 # coderabbit自体の振る舞いを設定するファイル
-language: "jp"
+language: "jp" # レビューの言語を設定
 early_access: false
 reviews:
-  high_level_summary: false
-  poem: false
+  high_level_summary: true # 概要を生成するか
+  poem: true # 詩をレビューに含めるかどうか
   review_status: true
-  collapse_walkthrough: false
-  path_filters:
-    - "!**/.xml"
-  path_instructions:
+  collapse_walkthrough: true #コメントを折りたたむか
+  path_filters: # レビュー対象のファイルを指定
+    - "!**/.xml" # .xml ファイル以外のすべてのファイル
+    - "!dist/**" # dist以下は除外
+  path_instructions: # 個別にプロンプト設定
     - path: "**.js"
-      instructions: "Review the JavaScript code for conformity with the Google JavaScript style guide, highlighting any deviations."
+      instructions: "Google JavaScriptスタイルガイドに従って、JavaScriptコードをレビューしてください。ガイドと異なる箇所があれば教えてください。"
+    - path: "front/**.*"
+      instructions: "有名な各種ブラウザでも正常に表示されるかを注意してレビューして欲しいです。"
+    - path: "infra/**.*"
+      instructions:
+        "セキュリティ的に安全かどうかを注意してレビューしてください。"
     - path: "tests/**.*"
-      instructions: |
-        "Assess the unit test code employing the Mocha testing framework. Confirm that:
-        - The tests adhere to Mocha's established best practices.
-        - Test descriptions are sufficiently detailed to clarify the purpose of each test."
+      instructions:
+        "Mochaテストフレームワークを使用してユニットテストコードを評価してください。以下の点を確認してください：
+        - テストがMochaの確立されたベストプラクティスに従っていること。
+        - テストの説明が十分に詳細であり、各テストの目的を明確にするものであること。"
   auto_review:
     enabled: true
-    ignore_title_keywords:
-      - "WIP"
+    ignore_title_keywords: # PRのタイトルに含まれていたらレビュー無視
+      - "WIP" # work in progress
       - "DO NOT MERGE"
-    drafts: false
-    base_branches:
+    drafts: false # ドラフトPRでもレビューするかどうか
+    base_branches: # デフォルトのブランチ(main)とは別にレビューが行われるベースブランチのリスト
       - "develop"
       - "feat/*"
 chat:
-  auto_reply: false
+  auto_reply: true # ユーザーがタグ付けしなくても、ボットは自動的に応答するか?
