@@ -17,6 +17,9 @@ reviews:
     - path: "infra/**.*"
       instructions:
         "セキュリティ的に安全かどうかを注意してレビューしてください。"
+    - path: "api/**.*"
+      instructions:
+        "Laravelのコーディングスタイルに合っているかを注意してレビューしてください。効率的な処理があれば提案してください。"
     - path: "tests/**.*"
       instructions:
         "Mochaテストフレームワークを使用してユニットテストコードを評価してください。以下の点を確認してください：
